@@ -1,0 +1,20 @@
+[
+  {"id":"honolulu","name":"Honolulu","latitude":21.3069,"longitude":-157.8583,"country":"United States","region":"Hawaii","source":"mock","categories":["coast"],"enabled":true,"qualityWeight":1.04},
+  {"id":"vancouver","name":"Vancouver","latitude":49.2827,"longitude":-123.1207,"country":"Canada","source":"mock","categories":["coast","city"],"enabled":true,"qualityWeight":1.0},
+  {"id":"san-francisco","name":"San Francisco","latitude":37.7749,"longitude":-122.4194,"country":"United States","source":"mock","categories":["coast","city"],"enabled":true,"qualityWeight":1.05},
+  {"id":"mexico-city","name":"Mexico City","latitude":19.4326,"longitude":-99.1332,"country":"Mexico","source":"mock","categories":["city","mountain"],"enabled":true,"qualityWeight":0.94},
+  {"id":"rio","name":"Rio de Janeiro","latitude":-22.9068,"longitude":-43.1729,"country":"Brazil","source":"mock","categories":["coast","mountain"],"enabled":true,"qualityWeight":1.08},
+  {"id":"reykjavik","name":"Reykjavík","latitude":64.1466,"longitude":-21.9426,"country":"Iceland","source":"mock","categories":["coast"],"enabled":true,"qualityWeight":1.03},
+  {"id":"lisbon","name":"Lisbon","latitude":38.7223,"longitude":-9.1393,"country":"Portugal","source":"mock","categories":["coast","city"],"enabled":true,"qualityWeight":1.05},
+  {"id":"cape-town","name":"Cape Town","latitude":-33.9249,"longitude":18.4241,"country":"South Africa","source":"mock","categories":["coast","mountain"],"enabled":true,"qualityWeight":1.1},
+  {"id":"berlin","name":"Berlin","latitude":52.52,"longitude":13.405,"country":"Germany","source":"mock","categories":["city"],"enabled":true,"qualityWeight":0.92},
+  {"id":"nairobi","name":"Nairobi","latitude":-1.2921,"longitude":36.8219,"country":"Kenya","source":"mock","categories":["landscape"],"enabled":true,"qualityWeight":0.96},
+  {"id":"dubai","name":"Dubai","latitude":25.2048,"longitude":55.2708,"country":"United Arab Emirates","source":"mock","categories":["coast","city"],"enabled":true,"qualityWeight":0.96},
+  {"id":"mumbai","name":"Mumbai","latitude":19.076,"longitude":72.8777,"country":"India","source":"mock","categories":["coast","city"],"enabled":true,"qualityWeight":1.0},
+  {"id":"kathmandu","name":"Kathmandu","latitude":27.7172,"longitude":85.324,"country":"Nepal","source":"mock","categories":["mountain"],"enabled":true,"qualityWeight":1.06},
+  {"id":"singapore","name":"Singapore","latitude":1.3521,"longitude":103.8198,"country":"Singapore","source":"mock","categories":["city","coast"],"enabled":true,"qualityWeight":0.94},
+  {"id":"perth","name":"Perth","latitude":-31.9523,"longitude":115.8613,"country":"Australia","source":"mock","categories":["coast","city"],"enabled":true,"qualityWeight":1.07},
+  {"id":"tokyo","name":"Tokyo","latitude":35.6762,"longitude":139.6503,"country":"Japan","source":"mock","categories":["city"],"enabled":true,"qualityWeight":0.95},
+  {"id":"sydney","name":"Sydney","latitude":-33.8688,"longitude":151.2093,"country":"Australia","source":"mock","categories":["coast","city"],"enabled":true,"qualityWeight":1.02},
+  {"id":"auckland","name":"Auckland","latitude":-36.8509,"longitude":174.7645,"country":"New Zealand","source":"mock","categories":["coast","city"],"enabled":true,"qualityWeight":1.04}
+]

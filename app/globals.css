@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin: 0; background: #100e0d; color: #f5f5f4; font-family: Arial, Helvetica, sans-serif; }
+main { position: relative; background: radial-gradient(circle at 80% 2%, rgba(129, 48, 24, .24), transparent 36%), linear-gradient(160deg, #171210 0%, #0c0c0c 62%, #12100f 100%); }
+.sun-glow { position: absolute; right: -8rem; top: -12rem; width: 34rem; height: 34rem; border-radius: 9999px; background: rgba(234, 88, 12, .12); filter: blur(80px); }
