@@ -26,7 +26,7 @@ function CandidateCard({ item, index }: { item: RankedSunset; index: number }) {
             <h3 className="mt-2 text-xl font-medium">{camera.name}</h3>
             <p className="mt-1 text-sm text-stone-500">{camera.region ? `${camera.region}, ` : ""}{camera.country}</p>
           </div>
-          <div className="text-right"><span className="text-3xl font-light text-orange-200">{item.scoreKind === "opportunity" ? item.sunsetOpportunityScore : item.temporaryMockScore}</span><p className="text-[0.6rem] uppercase tracking-widest text-stone-600">{item.scoreKind === "opportunity" ? "Opportunity" : "Mock score"}</p></div>
+          <div className="text-right"><span className="text-3xl font-light text-orange-200">{item.scoreKind === "visual" ? item.finalScore : item.temporaryMockScore}</span><p className="text-[0.6rem] uppercase tracking-widest text-stone-600">{item.scoreKind === "visual" ? "Final score" : "Mock score"}</p></div>
         </div>
         <div className="mt-7 grid grid-cols-2 gap-x-4 gap-y-2 border-t border-white/10 pt-4 text-sm">
           <Metric label="Solar elevation"><span className="font-mono">{item.solarElevation.toFixed(2)}°</span></Metric>
@@ -38,6 +38,10 @@ function CandidateCard({ item, index }: { item: RankedSunset; index: number }) {
           <Metric label="Image age">{item.imageAgeMinutes === undefined ? "Unknown" : `${item.imageAgeMinutes.toFixed(0)} min`}</Metric>
           <Metric label="Image viability">{item.imageViability.status === "unavailable" ? "Unchecked / neutral" : `${item.imageViability.viable ? "Viable" : "Rejected"} · ${item.imageViability.brightness.toFixed(0)}% light`}</Metric>
           {imageTimestamp && <Metric label="Image updated"><ZonedTime dateTime={imageTimestamp} timeZone={item.cameraTimeZone} /></Metric>}
+          <Metric label="Sunset evidence">{item.sunsetEvidenceScore.toFixed(1)}/100</Metric>
+          <Metric label="Sunset beauty">{item.sunsetBeautyScore.toFixed(1)}/100</Metric>
+          <Metric label="Visual sunset score">{item.sunsetScore.toFixed(1)}/100</Metric>
+          <Metric label="Final score">{item.finalScore.toFixed(1)}/100</Metric>
           <Metric label="Opportunity">{item.sunsetOpportunityScore}/100</Metric>
         </div>
         <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
@@ -60,7 +64,7 @@ export function Ranking({ ranking }: { ranking: RankingResponse }) {
       </div>
       {ranking.results.length === 0 ? <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 text-stone-400">No viable sunset camera is available right now. Dark, stale, and badly aligned images are not used merely to fill the list.</div> : <ol className="grid gap-4 md:grid-cols-2">{ranking.results.map((item, index) => <CandidateCard key={item.camera.id} item={item} index={index} />)}</ol>}
       {ranking.results.length < ranking.minimumDesiredCandidates && <p className="mt-5 rounded-xl border border-amber-200/10 bg-amber-200/[0.03] p-4 text-sm text-amber-100/60">Only {ranking.results.length} viable candidates are available. The list is intentionally not padded with obvious night or stale images.</p>}
-      <p className="mt-5 text-xs leading-relaxed text-stone-600">Opportunity estimates whether the camera can show the current sunset. It is not the later aesthetic SunsetScore.</p>
+      <p className="mt-5 text-xs leading-relaxed text-stone-600">Sunset evidence determines whether sunset colors are actually present in the sky and horizon. Beauty can enhance credible evidence but cannot rescue an ordinary scene.</p>
       <p className="mt-2 text-xs text-stone-600">Provider: {ranking.provider.mode}; refreshed {ranking.provider.refreshed} candidate records and checked {ranking.provider.imagesChecked} candidate images only.{ranking.provider.error && ` ${ranking.provider.error}`}</p>
     </section>
   );

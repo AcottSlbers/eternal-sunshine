@@ -19,5 +19,14 @@ export function UserLocalTime() {
 }
 
 export function ZonedTime({ dateTime, timeZone }: { dateTime: string; timeZone?: string }) {
-  return <time dateTime={dateTime}>{timeZone ? format(new Date(dateTime), timeZone, true, "en-US") : "Unknown"}</time>;
+  const [formattedTime, setFormattedTime] = useState("—");
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      setFormattedTime(timeZone ? format(new Date(dateTime), timeZone, true, "en-US") : "Unknown");
+    }, 0);
+    return () => window.clearTimeout(timer);
+  }, [dateTime, timeZone]);
+
+  return <time dateTime={dateTime}>{formattedTime}</time>;
 }

@@ -13,6 +13,39 @@ export interface ImageViability {
   reason?: string;
 }
 
+export interface SunsetScoreMetrics {
+  upperSkyWarmShare: number;
+  horizonWarmShare: number;
+  upperSkyPinkPurpleShare: number;
+  horizonPinkPurpleShare: number;
+  foregroundSunsetColorShare: number;
+  sunsetColorConcentration: number;
+  localizedSunsetPresence: number;
+  sunsetColorDiversity: number;
+  sunsetColorStrength: number;
+  horizonGlow: number;
+  chromaticDifference: number;
+  luminanceContrast: number;
+  dynamicRange: number;
+  textureEnhancement: number;
+  averageLuminance: number;
+  grayscaleShare: number;
+  darkPixelShare: number;
+  overexposedShare: number;
+  foregroundWarmPenalty: number;
+  astronomicalPlausibility: number;
+  evidenceGateCeiling: number;
+}
+
+export interface VisualSunsetScore {
+  sunsetEvidenceScore: number;
+  sunsetBeautyScore: number;
+  sunsetScore: number;
+  metrics: SunsetScoreMetrics;
+  status: "analyzed" | "unavailable";
+  reason?: string;
+}
+
 export interface SunsetCandidate {
   camera: Camera;
   solarElevation: number;
@@ -30,8 +63,14 @@ export interface RankedSunset extends SunsetCandidate {
   imageAgeMinutes?: number;
   freshnessScore: number;
   imageViability: ImageViability;
+  sunsetEvidenceScore: number;
+  sunsetBeautyScore: number;
+  sunsetScore: number;
+  finalScore: number;
+  sunsetMetrics: SunsetScoreMetrics;
+  visualScoreStatus: VisualSunsetScore["status"];
   cameraTimeZone?: string;
-  scoreKind: "opportunity" | "temporary-mock";
+  scoreKind: "visual" | "temporary-mock";
   temporaryMockScore?: number;
 }
 

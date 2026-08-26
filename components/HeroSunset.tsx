@@ -65,7 +65,7 @@ export function HeroSunset({ item }: { item: RankedSunset }) {
         )}
         {camera.providerUrl && <a className="text-xs uppercase tracking-[0.16em] text-orange-100/70 hover:text-orange-100" href={camera.providerUrl} target="_blank" rel="noopener noreferrer">Original webcam ↗</a>}
         {camera.sourceUrl && <a className="text-xs uppercase tracking-[0.16em] text-stone-500 hover:text-stone-300" href={camera.sourceUrl} target="_blank" rel="noopener noreferrer">View on Windy ↗</a>}
-        <p className="ml-auto text-xs text-stone-500">Opportunity {item.sunsetOpportunityScore}/100 · Solar elevation {item.solarElevation.toFixed(2)}°</p>
+        <p className="ml-auto text-xs text-stone-500">Sunset {item.sunsetScore.toFixed(1)}/100 · Final {item.finalScore.toFixed(1)}/100 · Solar elevation {item.solarElevation.toFixed(2)}°</p>
       </div>
     </article>
   );

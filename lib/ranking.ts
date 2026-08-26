@@ -1,7 +1,8 @@
 import camerasData from "@/data/cameras.json";
 import { MINIMUM_DESIRED_CANDIDATES, STALE_IMAGE_MINUTES, SUNSET_WINDOWS } from "@/lib/config";
 import { getCameraDirection, getSunAlignmentScore } from "@/lib/camera-direction";
-import { fetchImageViability, UNAVAILABLE_IMAGE_VIABILITY } from "@/lib/image-viability";
+import { UNAVAILABLE_IMAGE_VIABILITY } from "@/lib/image-viability";
+import { fetchCandidateImageAnalysis, UNAVAILABLE_VISUAL_SUNSET_SCORE } from "@/lib/image-score";
 import { WindyWebcamProvider } from "@/lib/providers/windy-webcam-provider";
 import { getSolarPosition, getSunsetCandidates, getSunsetPhaseScore, isSunDescending } from "@/lib/solar";
 import { getCameraTimeZone } from "@/lib/time-zone";
@@ -32,6 +33,10 @@ export function getSunsetOpportunityScore(input: {
   return Math.round(0.4 * input.sunsetPhaseScore + 0.25 * input.sunAlignmentScore + 0.15 * input.freshnessScore + 0.1 * viabilityScore + 0.1 * qualityScore);
 }
 
+export function getFinalScore(sunsetScore: number, sunsetOpportunityScore: number): number {
+  return Math.round(sunsetScore * (0.88 + 0.12 * Math.max(0, Math.min(100, sunsetOpportunityScore)) / 100) * 10) / 10;
+}
+
 interface CandidateEvaluation { ranked: RankedSunset | null; imageChecked: boolean; rejection?: string }
 
 async function rankCandidate(candidate: SunsetCandidate, now: Date): Promise<CandidateEvaluation> {
@@ -40,18 +45,25 @@ async function rankCandidate(candidate: SunsetCandidate, now: Date): Promise<Can
   if (alignment.difference !== undefined && alignment.difference > 120) return { ranked: null, imageChecked: false, rejection: `camera points ${alignment.difference.toFixed(0)}° away from the sun` };
   const freshness = getImageFreshness(candidate.camera.lastKnownImageTimestamp ?? candidate.camera.imageUpdatedAt, now);
   if (freshness.stale) return { ranked: null, imageChecked: false, rejection: `image is stale (${freshness.ageMinutes?.toFixed(0)} minutes old)` };
+  const sunsetPhaseScore = getSunsetPhaseScore(candidate.solarElevation);
   const imageUrl = candidate.camera.lastKnownImageUrl ?? candidate.camera.imageUrl;
-  const imageViability = imageUrl && candidate.camera.source === "windy" ? await fetchImageViability(imageUrl) : UNAVAILABLE_IMAGE_VIABILITY;
+  const imageAnalysis = imageUrl && candidate.camera.source === "windy"
+    ? await fetchCandidateImageAnalysis(imageUrl, sunsetPhaseScore)
+    : { viability: UNAVAILABLE_IMAGE_VIABILITY, visual: UNAVAILABLE_VISUAL_SUNSET_SCORE };
+  const imageViability = imageAnalysis.viability;
   const imageChecked = Boolean(imageUrl && candidate.camera.source === "windy");
   if (!imageViability.viable) return { ranked: null, imageChecked, rejection: imageViability.reason ?? "image viability check failed" };
-  const sunsetPhaseScore = getSunsetPhaseScore(candidate.solarElevation);
   const sunsetOpportunityScore = getSunsetOpportunityScore({ sunsetPhaseScore, sunAlignmentScore: alignment.score, freshnessScore: freshness.score, imageViability, qualityWeight: candidate.camera.qualityWeight });
+  const finalScore = candidate.camera.source === "windy" ? getFinalScore(imageAnalysis.visual.sunsetScore, sunsetOpportunityScore) : sunsetOpportunityScore;
   return { ranked: {
     ...candidate, sunsetOpportunityScore, sunsetPhaseScore, sunAlignmentScore: alignment.score,
     alignmentDifference: alignment.difference, directionConfidence: direction.confidence, cameraViewAzimuth: direction.viewAzimuth,
     imageAgeMinutes: freshness.ageMinutes, freshnessScore: freshness.score, imageViability,
+    sunsetEvidenceScore: imageAnalysis.visual.sunsetEvidenceScore, sunsetBeautyScore: imageAnalysis.visual.sunsetBeautyScore,
+    sunsetScore: imageAnalysis.visual.sunsetScore, finalScore, sunsetMetrics: imageAnalysis.visual.metrics,
+    visualScoreStatus: imageAnalysis.visual.status,
     cameraTimeZone: getCameraTimeZone(candidate.camera.latitude, candidate.camera.longitude),
-    scoreKind: candidate.camera.source === "windy" ? "opportunity" : "temporary-mock",
+    scoreKind: candidate.camera.source === "windy" ? "visual" : "temporary-mock",
     temporaryMockScore: candidate.camera.source === "mock" ? sunsetOpportunityScore : undefined,
   }, imageChecked };
 }
@@ -119,7 +131,7 @@ export async function createRanking(date = new Date()): Promise<RankingResponse>
     imagesChecked += extended.imagesChecked;
     extended.rejections.forEach((reason, id) => rejections.set(id, reason));
   }
-  results.sort((a, b) => b.sunsetOpportunityScore - a.sunsetOpportunityScore);
+  results.sort((a, b) => b.finalScore - a.finalScore || b.sunsetOpportunityScore - a.sunsetOpportunityScore);
   const selectedIds = new Set(results.map(({ camera }) => camera.id));
   console.info(`[ranking] registry=${cameras.length} strict=${strictCandidates.length} selected=${results.length} metadataRefreshed=${refreshed} imagesChecked=${imagesChecked}`);
   return {

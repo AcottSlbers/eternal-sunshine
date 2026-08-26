@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-26T20:18:50.948Z",
+  "generatedAt": "2026-08-26T20:39:48.951Z",
   "candidateCount": 1139,
   "goldCount": 300,
   "countries": 54,
@@ -7,7 +7,7 @@
   "unknownDirections": 115,
   "quality": {
     "minimum": 45.8,
-    "average": 76.91,
+    "average": 76.92,
     "median": 78.1,
     "percentile5": 55.1,
     "maximum": 97.1,
@@ -22,8 +22,8 @@
     "maximum": 97
   },
   "imageAnalysis": {
-    "analyzed": 1138,
-    "unavailable": 1
+    "analyzed": 1139,
+    "unavailable": 0
   },
   "capabilities": {
     "candidates": {
@@ -226,14 +226,14 @@
           "quality": 96.5
         },
         {
+          "id": "1762203218",
+          "name": "Sao Sebastiao do Uatuma › East: Amazon Tall Tower Observatory",
+          "quality": 94
+        },
+        {
           "id": "1497959815",
           "name": "Teutonia › North-east: Mirante Teutônia",
           "quality": 93.5
-        },
-        {
-          "id": "1762203218",
-          "name": "Sao Sebastiao do Uatuma › East: Amazon Tall Tower Observatory",
-          "quality": 92
         },
         {
           "id": "1716651774",
