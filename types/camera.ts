@@ -7,6 +7,9 @@ export interface Camera {
   region?: string;
   source: "mock" | "windy";
   sourceUrl?: string;
+  providerUrl?: string;
+  hasLiveStream?: boolean;
+  livePlayer?: CameraLivePlayer;
   imageUrl?: string;
   imageUpdatedAt?: string;
   lastKnownImageUrl?: string;
@@ -27,6 +30,12 @@ export interface Camera {
   review?: CameraReviewMetadata;
 }
 
+export interface CameraLivePlayer {
+  url: string;
+  type: "windy-iframe" | "external-link";
+  embedUrl?: string;
+}
+
 export interface CameraImageQuality {
   skyShare: number;
   openComposition: number;
@@ -45,6 +54,7 @@ export interface CameraQualityMetrics {
   directionScore: number;
   resolutionScore: number;
   categoryPenalty: number;
+  liveCapabilityBonus: number;
   image?: CameraImageQuality;
   imageTimestamp?: string;
   analyzedAt: string;

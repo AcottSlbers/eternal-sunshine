@@ -1,4 +1,4 @@
-import type { Camera } from "@/types/camera";
+import type { Camera, CameraLivePlayer } from "@/types/camera";
 import type { BoundingBox, WebcamProvider } from "@/lib/providers/webcam-provider";
 import { inferViewAzimuth } from "@/lib/camera-direction";
 
@@ -15,7 +15,8 @@ interface WindyWebcam {
   categories?: Array<{ id?: string; name?: string }>;
   images?: { current?: Record<string, string>; sizes?: Record<string, { width?: number; height?: number }> };
   location?: { city?: string; region?: string; country?: string; latitude?: number; longitude?: number };
-  urls?: { detail?: string };
+  player?: unknown;
+  urls?: unknown;
 }
 
 interface WindyListResponse { total?: number; webcams?: WindyWebcam[] }
@@ -32,6 +33,32 @@ function isRecord(value: unknown): value is Record<string, unknown> {
   return typeof value === "object" && value !== null;
 }
 
+function normalizeWebUrl(value: unknown, httpsOnly = false): string | undefined {
+  if (typeof value !== "string") return undefined;
+  try {
+    const url = new URL(value);
+    if (httpsOnly ? url.protocol !== "https:" : url.protocol !== "https:" && url.protocol !== "http:") return undefined;
+    return url.toString();
+  } catch {
+    return undefined;
+  }
+}
+
+function getWindyUrl(rawUrls: unknown, field: "detail" | "provider"): string | undefined {
+  return isRecord(rawUrls) ? normalizeWebUrl(rawUrls[field]) : undefined;
+}
+
+export function normalizeWindyLivePlayer(rawPlayer: unknown): CameraLivePlayer | undefined {
+  if (!isRecord(rawPlayer)) return undefined;
+  const url = normalizeWebUrl(rawPlayer.live, true);
+  if (!url) return undefined;
+  const hostname = new URL(url).hostname.toLowerCase();
+  const isWindyEmbed = hostname === "windy.com" || hostname.endsWith(".windy.com");
+  return isWindyEmbed
+    ? { url, type: "windy-iframe", embedUrl: url }
+    : { url, type: "external-link" };
+}
+
 function chooseImage(images?: WindyWebcam["images"]): string | undefined {
   const current = images?.current;
   if (!current) return undefined;
@@ -45,11 +72,14 @@ export function normalizeWindyWebcam(raw: WindyWebcam): Camera | null {
   const imageUrl = chooseImage(raw.images);
   const name = raw.title?.trim() || raw.location?.city || `Windy webcam ${raw.webcamId}`;
   const viewAzimuth = inferViewAzimuth(name);
+  const livePlayer = normalizeWindyLivePlayer(raw.player);
   const largestSize = Object.values(raw.images?.sizes ?? {}).sort((a, b) => ((b.width ?? 0) * (b.height ?? 0)) - ((a.width ?? 0) * (a.height ?? 0)))[0];
   return {
     id: String(raw.webcamId), name,
     latitude, longitude, country: raw.location?.country, region: raw.location?.region,
-    source: "windy", sourceUrl: raw.urls?.detail, categories: raw.categories?.flatMap((category) => [category.id, category.name].filter((value): value is string => Boolean(value))),
+    source: "windy", sourceUrl: getWindyUrl(raw.urls, "detail"), providerUrl: getWindyUrl(raw.urls, "provider"),
+    hasLiveStream: Boolean(livePlayer), livePlayer,
+    categories: raw.categories?.flatMap((category) => [category.id, category.name].filter((value): value is string => Boolean(value))),
     enabled: raw.status === "active", qualityWeight: 1,
     viewAzimuth, viewAzimuthSource: viewAzimuth === undefined ? undefined : "name-inferred", directionConfidence: viewAzimuth === undefined ? "unknown" : "inferred",
     imageUrl, imageUpdatedAt: raw.lastUpdatedOn, lastKnownImageUrl: imageUrl, lastKnownImageTimestamp: raw.lastUpdatedOn,

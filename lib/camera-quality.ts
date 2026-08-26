@@ -9,6 +9,7 @@ const SCENIC_WEIGHTS: Record<string, number> = {
 const CATEGORY_PENALTIES: Record<string, number> = {
   indoor: 40, traffic: 20, building: 14, airport: 10, square: 8, sportarea: 8,
 };
+export const LIVE_CAPABILITY_QUALITY_BONUS = 3;
 
 function clamp(value: number, minimum = 0, maximum = 100): number {
   return Math.max(minimum, Math.min(maximum, value));
@@ -82,12 +83,16 @@ export function calculateCameraQuality(camera: Camera, analyzedAt: Date, image?:
   }
   const pixels = (camera.discovery?.imageWidth ?? 0) * (camera.discovery?.imageHeight ?? 0);
   const resolutionScore = pixels >= 1280 * 720 ? 10 : pixels >= 640 * 360 ? 7 : pixels > 0 ? 4 : 2;
-  const metadataScore = clamp(45 + scenicScore + freshnessReliability + directionScore + resolutionScore - categoryPenalty);
-  const automaticScore = image?.status === "analyzed" ? metadataScore * 0.72 + image.score * 0.28 : metadataScore;
+  const liveCapabilityBonus = camera.hasLiveStream ? LIVE_CAPABILITY_QUALITY_BONUS : 0;
+  const baseMetadataScore = clamp(45 + scenicScore + freshnessReliability + directionScore + resolutionScore - categoryPenalty);
+  const metadataScore = clamp(baseMetadataScore + liveCapabilityBonus);
+  const automaticScore = image?.status === "analyzed"
+    ? baseMetadataScore * 0.72 + image.score * 0.28 + liveCapabilityBonus
+    : metadataScore;
   const score = clamp(camera.manualQualityOverride ?? automaticScore);
   return {
     score: Math.round(score * 10) / 10, metadataScore: Math.round(metadataScore * 10) / 10,
-    scenicScore, freshnessReliability, directionScore, resolutionScore, categoryPenalty,
+    scenicScore, freshnessReliability, directionScore, resolutionScore, categoryPenalty, liveCapabilityBonus,
     image, imageTimestamp: camera.lastKnownImageTimestamp ?? camera.imageUpdatedAt, analyzedAt: analyzedAt.toISOString(),
   };
 }

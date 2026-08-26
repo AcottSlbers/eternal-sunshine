@@ -1,6 +1,7 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import dotenv from "dotenv";
+import { getCameraCapabilityStats } from "../lib/camera-capabilities";
 import { LONGITUDE_BUCKET_COUNT, getLongitudeBucket, scoreCameraCandidate } from "../lib/camera-discovery";
 import { WindyConfigurationError, WindyWebcamProvider } from "../lib/providers/windy-webcam-provider";
 import type { Camera } from "../types/camera";
@@ -51,7 +52,12 @@ async function main() {
   const unique = [...new Map(all.map((camera) => [camera.id, camera])).values()].map((camera) => preserveCuration(camera, [candidateMap.get(camera.id), reviewedMap.get(camera.id), goldMap.get(camera.id)]));
   await mkdir(dataDirectory, { recursive: true });
   await writeFile(candidatesPath, `${JSON.stringify(unique, null, 2)}\n`, "utf8");
+  const capabilities = getCameraCapabilityStats(unique);
   console.log(`Discovery complete: ${unique.length} candidates saved without reducing the pool.`);
+  console.log(`Candidate cameras: ${capabilities.total}`);
+  console.log(`With provider URL: ${capabilities.withProviderUrl}`);
+  console.log(`With live player: ${capabilities.withLivePlayer}`);
+  console.log(`Snapshot only: ${capabilities.snapshotOnly}`);
   console.log("Run npm run build-camera-registry to review quality, simulate coverage, and rebuild the Gold Registry.");
 }
 

@@ -5,7 +5,7 @@ import type { Camera } from "../types/camera";
 function reviewedCamera(id: string, quality: number, latitude = 0, longitude = 0, extras: Partial<Camera> = {}): Camera {
   return {
     id, name: id, latitude, longitude, country: `country-${id}`, region: `region-${id}`, source: "windy", enabled: true, qualityWeight: 1, ...extras,
-    review: { quality: { score: quality, metadataScore: quality, scenicScore: 0, freshnessReliability: 0, directionScore: 0, resolutionScore: 0, categoryPenalty: 0, analyzedAt: "2026-01-01T00:00:00Z" }, coverage: { strictSlotCount: 0, extendedSlotCount: 0, representativeDates: 12 } },
+    review: { quality: { score: quality, metadataScore: quality, scenicScore: 0, freshnessReliability: 0, directionScore: 0, resolutionScore: 0, categoryPenalty: 0, liveCapabilityBonus: 0, analyzedAt: "2026-01-01T00:00:00Z" }, coverage: { strictSlotCount: 0, extendedSlotCount: 0, representativeDates: 12 } },
   };
 }
 

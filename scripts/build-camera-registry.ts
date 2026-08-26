@@ -1,5 +1,6 @@
 import { readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { getCameraCapabilityStats } from "../lib/camera-capabilities";
 import { calculateCameraQuality, fetchCameraQualityImage } from "../lib/camera-quality";
 import { buildCoverageMatrix, getCoverageCounts, getCoverageStatistics, optimizeRegistry } from "../lib/coverage-optimizer";
 import { COVERAGE_REGISTRY_SIZES, MIN_CAMERA_QUALITY, TARGET_GOLD_CAMERA_COUNT, TARGET_STRICT_COVERAGE } from "../lib/config";
@@ -76,6 +77,8 @@ async function main() {
     suggestions: reviewed.filter((camera) => !goldIds.has(camera.id) && (camera.review?.quality.score ?? 0) >= MIN_CAMERA_QUALITY && matrix.byCamera.get(camera.id)?.extendedSlots.includes(slot.index)).sort((a, b) => (b.review?.quality.score ?? 0) - (a.review?.quality.score ?? 0)).slice(0, 5).map((camera) => ({ id: camera.id, name: camera.name, quality: camera.review!.quality.score })),
   })).sort((a, b) => a.strict - b.strict || a.total - b.total).slice(0, 20);
   const qualityValues = reviewed.map((camera) => camera.review!.quality.score);
+  const candidateCapabilities = getCameraCapabilityStats(reviewed);
+  const goldCapabilities = getCameraCapabilityStats(gold);
   const report = {
     generatedAt: new Date().toISOString(), candidateCount: reviewed.length, goldCount: gold.length,
     countries: new Set(gold.map((camera) => camera.country).filter(Boolean)).size,
@@ -84,6 +87,7 @@ async function main() {
     quality: { ...numericStats(qualityValues), eligibleCount: reviewed.filter((camera) => !camera.permanentlyRejected && camera.enabled && camera.review!.quality.score >= MIN_CAMERA_QUALITY).length, minimumRequired: MIN_CAMERA_QUALITY },
     goldQuality: numericStats(gold.map((camera) => camera.review!.quality.score)),
     imageAnalysis: { analyzed: reviewed.filter((camera) => camera.review?.quality.image?.status === "analyzed").length, unavailable: reviewed.filter((camera) => camera.review?.quality.image?.status === "unavailable").length },
+    capabilities: { candidates: candidateCapabilities, gold: goldCapabilities },
     registryComparisons: comparisons, recommendedSize, worstSlots,
     heatmap: matrix.slots.map((slot) => ({ dateLabel: slot.dateLabel, utcTime: slot.utcTime, strict: goldCounts.strict[slot.index], total: goldCounts.total[slot.index] })),
   };
@@ -92,7 +96,17 @@ async function main() {
     writeFile(goldPath, `${JSON.stringify(gold, null, 2)}\n`, "utf8"),
     writeFile(reportPath, `${JSON.stringify(report, null, 2)}\n`, "utf8"),
   ]);
-  console.log(JSON.stringify({ candidateCount: report.candidateCount, goldCount: report.goldCount, quality: report.quality, comparisons, recommendedSize, worstSlots: worstSlots.slice(0, 5) }, null, 2));
+  console.log(JSON.stringify({
+    candidateCount: report.candidateCount,
+    candidateProviderUrls: candidateCapabilities.withProviderUrl,
+    candidateLivePlayers: candidateCapabilities.withLivePlayer,
+    candidateSnapshotOnly: candidateCapabilities.snapshotOnly,
+    goldCount: report.goldCount,
+    goldProviderUrls: goldCapabilities.withProviderUrl,
+    goldLivePlayers: goldCapabilities.withLivePlayer,
+    goldSnapshotOnly: goldCapabilities.snapshotOnly,
+    quality: report.quality, comparisons, recommendedSize, worstSlots: worstSlots.slice(0, 5),
+  }, null, 2));
 }
 
 void main().catch((error) => { console.error(error instanceof Error ? error.message : error); process.exitCode = 1; });

@@ -13,4 +13,14 @@ describe("camera quality", () => {
   it("honors a manual quality override", () => {
     expect(calculateCameraQuality(camera(["traffic"], { manualQualityOverride: 88 }), new Date()).score).toBe(88);
   });
+
+  it("uses live capability only as a three-point quality bonus", () => {
+    const date = new Date("2026-08-26T12:00:00Z");
+    const snapshot = calculateCameraQuality(camera(["coast", "landscape"]), date);
+    const live = calculateCameraQuality(camera(["coast", "landscape"], { hasLiveStream: true }), date);
+    const poorLive = calculateCameraQuality(camera(["traffic", "building", "indoor"], { hasLiveStream: true }), date);
+    expect(live.score - snapshot.score).toBe(3);
+    expect(live.liveCapabilityBonus).toBe(3);
+    expect(poorLive.score).toBeLessThan(50);
+  });
 });
