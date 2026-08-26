@@ -25,6 +25,7 @@ export interface SunsetScoreMetrics {
   sunsetColorStrength: number;
   horizonGlow: number;
   chromaticDifference: number;
+  chromaticHorizonCoherence: number;
   luminanceContrast: number;
   dynamicRange: number;
   textureEnhancement: number;

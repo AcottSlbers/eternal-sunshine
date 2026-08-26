@@ -77,10 +77,18 @@ UTC timestamp and camera coordinates feed `suncalc`. Sunrise locations are exclu
 2. If fewer than eight viable candidates remain, extended afterglow: -6° through +2.5°.
 3. Known camera direction is aligned with normalized solar azimuth.
 4. Stale images older than 12 hours are rejected.
-5. Remaining candidate images alone are resized to at most 128×72 and checked for obvious darkness or flat placeholders.
-6. Opportunity combines sunset phase, alignment, freshness, viability, and curated camera quality.
+5. Remaining candidate images alone are fetched once, checked for viability, and resized to at most 256×144 for deterministic sunset analysis.
+6. Visual scoring separates sunset evidence from beauty. Evidence comes from sunset-relevant sky/horizon color, glow, spatial concentration, chromatic separation, and astronomical plausibility.
+7. Beauty can enhance a credible sunset, while an evidence gate prevents generic contrast, texture, or color diversity from creating a high score.
+8. Final ranking lightly applies Opportunity as a reliability multiplier; Opportunity cannot rescue a low visual SunsetScore.
 
-Unknown direction and unavailable image checks receive neutral values rather than false zeroes. Blue or cloudy twilight is not rejected merely for lacking warm colors. Opportunity is a relevance score, not the future aesthetic SunsetScore.
+Unknown direction and unavailable viability checks remain isolated per camera. Blue or cloudy twilight is not rejected merely for lacking warm colors, but it only receives a visual score when the image contains sunset evidence.
+
+To print the current real candidate distribution and every score:
+
+```bash
+npm run diagnose-sunset-scores
+```
 
 ## Validation
 
@@ -90,8 +98,8 @@ npm run lint
 npm run build
 ```
 
-Tests cover window boundaries, phase scores, solar azimuth, sunrise exclusion, camera alignment and wraparound, coordinate-to-IANA timezone lookup, DST, image checks, quality overrides, seasonal coverage, gap contribution, minimum quality, permanent rejection, deterministic optimization, and 192/250/300/400-camera prefixes.
+Tests cover window boundaries, phase scores, solar azimuth, sunrise exclusion, camera alignment and wraparound, coordinate-to-IANA timezone lookup, DST, image checks, explicit sunset/non-sunset fixtures, score ordering and gating, quality overrides, seasonal coverage, gap contribution, minimum quality, permanent rejection, deterministic optimization, and 192/250/300/400-camera prefixes.
 
 ## Not implemented
 
-There is no aesthetic image ranking, machine learning, weather enrichment, database, authentication, queue, or deployment. The lightweight image check is only a sanity filter.
+There is no machine learning, weather enrichment, database, authentication, queue, or deployment. The visual scorer is deterministic and intentionally analyzes current astronomical candidates only.

@@ -98,7 +98,7 @@ function unavailableVisualScore(reason: string): VisualSunsetScore {
   const metrics: SunsetScoreMetrics = {
     upperSkyWarmShare: 0, horizonWarmShare: 0, upperSkyPinkPurpleShare: 0, horizonPinkPurpleShare: 0,
     foregroundSunsetColorShare: 0, sunsetColorConcentration: 0, localizedSunsetPresence: 0, sunsetColorDiversity: 0, sunsetColorStrength: 0,
-    horizonGlow: 0, chromaticDifference: 0, luminanceContrast: 0, dynamicRange: 0, textureEnhancement: 0,
+    horizonGlow: 0, chromaticDifference: 0, chromaticHorizonCoherence: 0, luminanceContrast: 0, dynamicRange: 0, textureEnhancement: 0,
     averageLuminance: 0, grayscaleShare: 0, darkPixelShare: 0, overexposedShare: 0, foregroundWarmPenalty: 0,
     astronomicalPlausibility: 0, evidenceGateCeiling: 0,
   };
@@ -182,6 +182,7 @@ export async function analyzeSunsetImage(buffer: Buffer, sunsetPhaseScore: numbe
     + (regionMean(horizon, "blueSum") - regionMean(upperSky, "blueSum")) ** 2
   ) / Math.sqrt(3) * 230;
   const chromaticDifference = clamp(colorDistance) * Math.min(1, weightedSunsetPresence * 7);
+  const chromaticHorizonCoherence = chromaticDifference * concentration * smoothstep((localizedSunsetPresence - 25) / 45);
 
   const hueBins = upperSky.hueBins.map((count, index) => count + horizon.hueBins[index]);
   const activeThreshold = Math.max(4, skyHorizonPixels * 0.004);
@@ -198,7 +199,7 @@ export async function analyzeSunsetImage(buffer: Buffer, sunsetPhaseScore: numbe
   const grayscaleEvidencePenalty = clamp((grayscaleShare - 0.72) / 0.28 * 28);
   const astronomicalFactor = 0.65 + 0.35 * astronomicalPlausibility / 100;
   const pinkEvidence = 100 * (1 - Math.exp(-5 * weightedPinkPresence));
-  const rawEvidence = 0.52 * spatialPresence + 0.16 * horizonGlow + 0.14 * chromaticDifference + 0.1 * sunsetColorDiversity + 0.08 * pinkEvidence;
+  const rawEvidence = 0.52 * spatialPresence + 0.16 * horizonGlow + 0.14 * chromaticDifference + 0.1 * sunsetColorDiversity + 0.08 * pinkEvidence + 0.2 * chromaticHorizonCoherence;
   const sunsetEvidenceScore = clamp(rawEvidence * astronomicalFactor - foregroundWarmPenalty - grayscaleEvidencePenalty);
 
   const averageLuminance = luminanceSum / pixelCount;
@@ -228,7 +229,7 @@ export async function analyzeSunsetImage(buffer: Buffer, sunsetPhaseScore: numbe
       upperSkyPinkPurpleShare: round(upperPinkPurple * 100), horizonPinkPurpleShare: round(horizonPinkPurple * 100),
       foregroundSunsetColorShare: round(foregroundSunset * 100), sunsetColorConcentration: round(concentration * 100), localizedSunsetPresence: round(localizedSunsetPresence),
       sunsetColorDiversity: round(sunsetColorDiversity), sunsetColorStrength: round(sunsetColorStrength),
-      horizonGlow: round(horizonGlow), chromaticDifference: round(chromaticDifference), luminanceContrast: round(luminanceContrast),
+      horizonGlow: round(horizonGlow), chromaticDifference: round(chromaticDifference), chromaticHorizonCoherence: round(chromaticHorizonCoherence), luminanceContrast: round(luminanceContrast),
       dynamicRange: round(dynamicRange), textureEnhancement: round(textureEnhancement), averageLuminance: round(averageLuminance / 255 * 100),
       grayscaleShare: round(grayscaleShare * 100), darkPixelShare: round(darkPixelShare * 100), overexposedShare: round(overexposedShare * 100),
       foregroundWarmPenalty: round(foregroundWarmPenalty), astronomicalPlausibility: round(astronomicalPlausibility), evidenceGateCeiling: round(evidenceGateCeiling),
