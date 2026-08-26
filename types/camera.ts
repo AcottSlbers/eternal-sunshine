@@ -15,8 +15,52 @@ export interface Camera {
   enabled: boolean;
   qualityWeight: number;
   direction?: number;
+  viewAzimuth?: number;
+  viewAzimuthSource?: "curated" | "name-inferred";
+  directionConfidence?: "manual" | "metadata" | "inferred" | "unknown";
+  manualQualityOverride?: number;
+  manualViewAzimuth?: number;
+  manualDirectionConfidence?: "manual" | "metadata" | "inferred" | "unknown";
+  permanentlyRejected?: boolean;
   notes?: string;
   discovery?: CameraDiscoveryMetadata;
+  review?: CameraReviewMetadata;
+}
+
+export interface CameraImageQuality {
+  skyShare: number;
+  openComposition: number;
+  edgeDensity: number;
+  artificialLightRatio: number;
+  score: number;
+  status: "analyzed" | "unavailable";
+  reason?: string;
+}
+
+export interface CameraQualityMetrics {
+  score: number;
+  metadataScore: number;
+  scenicScore: number;
+  freshnessReliability: number;
+  directionScore: number;
+  resolutionScore: number;
+  categoryPenalty: number;
+  image?: CameraImageQuality;
+  imageTimestamp?: string;
+  analyzedAt: string;
+}
+
+export interface CameraCoverageSummary {
+  strictSlotCount: number;
+  extendedSlotCount: number;
+  representativeDates: number;
+}
+
+export interface CameraReviewMetadata {
+  quality: CameraQualityMetrics;
+  coverage: CameraCoverageSummary;
+  coverageContributionScore?: number;
+  selectionRank?: number;
 }
 
 export interface CameraCandidateScore {

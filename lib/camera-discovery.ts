@@ -1,7 +1,7 @@
 import type { Camera, CameraCandidateScore } from "@/types/camera";
+import { CAMERAS_PER_BUCKET, LONGITUDE_BUCKET_COUNT, TARGET_CAMERA_COUNT } from "@/lib/config";
 
-export const LONGITUDE_BUCKET_COUNT = 24;
-export const CAMERAS_PER_BUCKET = 4;
+export { CAMERAS_PER_BUCKET, LONGITUDE_BUCKET_COUNT, TARGET_CAMERA_COUNT };
 export const SCENIC_TERMS = ["beach", "coast", "ocean", "landscape", "lake", "mountain", "harbor", "harbour", "scenic", "island", "bay"];
 const UNSUITABLE_TERMS = ["indoor", "traffic", "parking", "tunnel", "intersection", "industrial", "lift"];
 
@@ -30,16 +30,21 @@ export function selectDistributedPool(candidates: Camera[], perBucket = CAMERAS_
   const unique = [...new Map(candidates.map((camera) => [camera.id, camera])).values()];
   const selected: Camera[] = [];
   for (let bucket = 0; bucket < LONGITUDE_BUCKET_COUNT; bucket += 1) {
-    const bucketCameras = unique.filter((camera) => getLongitudeBucket(camera.longitude) === bucket && camera.enabled && camera.lastKnownImageUrl)
-      .sort((a, b) => (b.discovery?.candidateScore.total ?? 0) - (a.discovery?.candidateScore.total ?? 0));
-    const latitudeBands = [-90, -30, 0, 30, 90];
-    const diverse = latitudeBands.slice(0, -1).flatMap((minimum, index) => {
-      const maximum = latitudeBands[index + 1];
-      const found = bucketCameras.find((camera) => camera.latitude >= minimum && camera.latitude < maximum && !selected.some((item) => item.id === camera.id));
-      return found ? [found] : [];
-    });
-    const fill = bucketCameras.filter((camera) => !diverse.some((item) => item.id === camera.id)).slice(0, Math.max(0, perBucket - diverse.length));
-    selected.push(...diverse.slice(0, perBucket), ...fill);
+    const available = unique.filter((camera) => getLongitudeBucket(camera.longitude) === bucket && camera.enabled && camera.lastKnownImageUrl);
+    const chosen: Camera[] = [];
+    while (chosen.length < perBucket && available.length > 0) {
+      const ranked = available.map((camera) => {
+        const countries = new Set(chosen.map((item) => item.country).filter(Boolean));
+        const regions = new Set(chosen.map((item) => item.region).filter(Boolean));
+        const minimumLatitudeDistance = chosen.length === 0 ? 90 : Math.min(...chosen.map((item) => Math.abs(item.latitude - camera.latitude)));
+        const diversityBonus = (camera.country && !countries.has(camera.country) ? 15 : 0) + (camera.region && !regions.has(camera.region) ? 8 : 0) + Math.min(20, minimumLatitudeDistance / 3);
+        return { camera, score: (camera.discovery?.candidateScore.total ?? 0) + diversityBonus };
+      }).sort((a, b) => b.score - a.score);
+      const next = ranked[0].camera;
+      chosen.push(next);
+      available.splice(available.findIndex((camera) => camera.id === next.id), 1);
+    }
+    selected.push(...chosen);
   }
   return selected;
 }

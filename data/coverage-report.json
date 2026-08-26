@@ -1,0 +1,7324 @@
+{
+  "generatedAt": "2026-08-26T17:08:53.040Z",
+  "candidateCount": 1139,
+  "goldCount": 300,
+  "countries": 53,
+  "knownDirections": 189,
+  "unknownDirections": 111,
+  "quality": {
+    "minimum": 41.7,
+    "average": 77.07,
+    "median": 78.8,
+    "percentile5": 54.8,
+    "maximum": 94.2,
+    "eligibleCount": 1084,
+    "minimumRequired": 50
+  },
+  "goldQuality": {
+    "minimum": 50.3,
+    "average": 77.82,
+    "median": 79.4,
+    "percentile5": 55.5,
+    "maximum": 94.2
+  },
+  "imageAnalysis": {
+    "analyzed": 1139,
+    "unavailable": 0
+  },
+  "registryComparisons": [
+    {
+      "cameraCount": 192,
+      "averageStrict": 7.68,
+      "medianStrict": 7,
+      "minimumStrict": 0,
+      "percentile5Strict": 3,
+      "maximumStrict": 20,
+      "slotsBelowStrictTarget": 593,
+      "averageTotal": 10.75,
+      "minimumTotal": 1,
+      "slotsBelowTotalTarget": 1059
+    },
+    {
+      "cameraCount": 250,
+      "averageStrict": 9.22,
+      "medianStrict": 9,
+      "minimumStrict": 0,
+      "percentile5Strict": 4,
+      "maximumStrict": 25,
+      "slotsBelowStrictTarget": 397,
+      "averageTotal": 12.96,
+      "minimumTotal": 1,
+      "slotsBelowTotalTarget": 974
+    },
+    {
+      "cameraCount": 300,
+      "averageStrict": 10.42,
+      "medianStrict": 10,
+      "minimumStrict": 0,
+      "percentile5Strict": 4,
+      "maximumStrict": 28,
+      "slotsBelowStrictTarget": 266,
+      "averageTotal": 14.65,
+      "minimumTotal": 1,
+      "slotsBelowTotalTarget": 884
+    },
+    {
+      "cameraCount": 400,
+      "averageStrict": 12.7,
+      "medianStrict": 12,
+      "minimumStrict": 0,
+      "percentile5Strict": 5,
+      "maximumStrict": 35,
+      "slotsBelowStrictTarget": 145,
+      "averageTotal": 17.91,
+      "minimumTotal": 1,
+      "slotsBelowTotalTarget": 619
+    }
+  ],
+  "recommendedSize": 400,
+  "worstSlots": [
+    {
+      "index": 978,
+      "timestamp": "2026-11-15T04:30:00.000Z",
+      "dateLabel": "Nov",
+      "utcTime": "04:30",
+      "strict": 0,
+      "total": 10,
+      "suggestions": []
+    },
+    {
+      "index": 119,
+      "timestamp": "2026-02-15T05:45:00.000Z",
+      "dateLabel": "Feb",
+      "utcTime": "05:45",
+      "strict": 1,
+      "total": 1,
+      "suggestions": []
+    },
+    {
+      "index": 887,
+      "timestamp": "2026-10-15T05:45:00.000Z",
+      "dateLabel": "Oct",
+      "utcTime": "05:45",
+      "strict": 1,
+      "total": 1,
+      "suggestions": []
+    },
+    {
+      "index": 1139,
+      "timestamp": "2026-12-21T20:45:00.000Z",
+      "dateLabel": "Dec solstice",
+      "utcTime": "20:45",
+      "strict": 1,
+      "total": 2,
+      "suggestions": []
+    },
+    {
+      "index": 886,
+      "timestamp": "2026-10-15T05:30:00.000Z",
+      "dateLabel": "Oct",
+      "utcTime": "05:30",
+      "strict": 1,
+      "total": 3,
+      "suggestions": []
+    },
+    {
+      "index": 1038,
+      "timestamp": "2026-11-15T19:30:00.000Z",
+      "dateLabel": "Nov",
+      "utcTime": "19:30",
+      "strict": 1,
+      "total": 3,
+      "suggestions": []
+    },
+    {
+      "index": 984,
+      "timestamp": "2026-11-15T06:00:00.000Z",
+      "dateLabel": "Nov",
+      "utcTime": "06:00",
+      "strict": 1,
+      "total": 5,
+      "suggestions": [
+        {
+          "id": "1359321680",
+          "name": "Petropavlovsk-Kamchatsky: Gorely volcano",
+          "quality": 75.9
+        }
+      ]
+    },
+    {
+      "index": 1140,
+      "timestamp": "2026-12-21T21:00:00.000Z",
+      "dateLabel": "Dec solstice",
+      "utcTime": "21:00",
+      "strict": 1,
+      "total": 6,
+      "suggestions": []
+    },
+    {
+      "index": 1043,
+      "timestamp": "2026-11-15T20:45:00.000Z",
+      "dateLabel": "Nov",
+      "utcTime": "20:45",
+      "strict": 2,
+      "total": 2,
+      "suggestions": [
+        {
+          "id": "1793911055",
+          "name": "Teofilo Otoni: Kemil Kumaira Airport",
+          "quality": 90.9
+        },
+        {
+          "id": "1793906941",
+          "name": "Vitória: Jabour",
+          "quality": 74.8
+        }
+      ]
+    },
+    {
+      "index": 1138,
+      "timestamp": "2026-12-21T20:30:00.000Z",
+      "dateLabel": "Dec solstice",
+      "utcTime": "20:30",
+      "strict": 2,
+      "total": 3,
+      "suggestions": []
+    },
+    {
+      "index": 571,
+      "timestamp": "2026-06-21T22:45:00.000Z",
+      "dateLabel": "Jun solstice",
+      "utcTime": "22:45",
+      "strict": 2,
+      "total": 6,
+      "suggestions": []
+    },
+    {
+      "index": 951,
+      "timestamp": "2026-10-15T21:45:00.000Z",
+      "dateLabel": "Oct",
+      "utcTime": "21:45",
+      "strict": 2,
+      "total": 6,
+      "suggestions": [
+        {
+          "id": "1476447485",
+          "name": "Imigrante › South-west: Morro das Antenas - Teutônia/RS: Morro das Antenas",
+          "quality": 93.6
+        },
+        {
+          "id": "1497959815",
+          "name": "Teutonia › North-east: Mirante Teutônia",
+          "quality": 93.4
+        },
+        {
+          "id": "1716651774",
+          "name": "Sertaneja › North",
+          "quality": 90.1
+        },
+        {
+          "id": "1762203218",
+          "name": "Sao Sebastiao do Uatuma › East: Amazon Tall Tower Observatory",
+          "quality": 83.2
+        },
+        {
+          "id": "1705354735",
+          "name": "Santa Maria › South-west: Travessa Adão Comasseto",
+          "quality": 79.8
+        }
+      ]
+    },
+    {
+      "index": 320,
+      "timestamp": "2026-04-15T08:00:00.000Z",
+      "dateLabel": "Apr",
+      "utcTime": "08:00",
+      "strict": 2,
+      "total": 7,
+      "suggestions": [
+        {
+          "id": "1431412855",
+          "name": "Mt Buller Village: Mt Buller Apira Lodge, Victoria, Australia",
+          "quality": 85.6
+        },
+        {
+          "id": "1466592254",
+          "name": "Maydena › West: Mount Mawson Skifield",
+          "quality": 83.5
+        },
+        {
+          "id": "1557834902",
+          "name": "Agnes Water",
+          "quality": 82.3
+        },
+        {
+          "id": "1230651774",
+          "name": "Kuranda: Barron Falls - Kuranda Scenic Railway - Barron Gorge",
+          "quality": 80.1
+        },
+        {
+          "id": "1579221641",
+          "name": "Mount Victoria › North-east",
+          "quality": 79
+        }
+      ]
+    },
+    {
+      "index": 888,
+      "timestamp": "2026-10-15T06:00:00.000Z",
+      "dateLabel": "Oct",
+      "utcTime": "06:00",
+      "strict": 2,
+      "total": 7,
+      "suggestions": [
+        {
+          "id": "1359325500",
+          "name": "Klyuchi: Klyuchevskoy volcano Cam-2",
+          "quality": 73
+        },
+        {
+          "id": "1607576017",
+          "name": "Ust-Kamchatsky District",
+          "quality": 61.4
+        }
+      ]
+    },
+    {
+      "index": 118,
+      "timestamp": "2026-02-15T05:30:00.000Z",
+      "dateLabel": "Feb",
+      "utcTime": "05:30",
+      "strict": 2,
+      "total": 8,
+      "suggestions": [
+        {
+          "id": "1646432090",
+          "name": "Takitumu › South: Avaavaroa Passage",
+          "quality": 87.3
+        },
+        {
+          "id": "1581120164",
+          "name": "Aitutaki › North-west: Tamanu Beach Aitutaki",
+          "quality": 81.3
+        }
+      ]
+    },
+    {
+      "index": 120,
+      "timestamp": "2026-02-15T06:00:00.000Z",
+      "dateLabel": "Feb",
+      "utcTime": "06:00",
+      "strict": 2,
+      "total": 8,
+      "suggestions": [
+        {
+          "id": "1359325500",
+          "name": "Klyuchi: Klyuchevskoy volcano Cam-2",
+          "quality": 73
+        },
+        {
+          "id": "1607576017",
+          "name": "Ust-Kamchatsky District",
+          "quality": 61.4
+        }
+      ]
+    },
+    {
+      "index": 808,
+      "timestamp": "2026-09-22T10:00:00.000Z",
+      "dateLabel": "Sep equinox",
+      "utcTime": "10:00",
+      "strict": 2,
+      "total": 8,
+      "suggestions": [
+        {
+          "id": "1643328456",
+          "name": "Perth › North: Cottesloe Golf Club Inc.",
+          "quality": 94
+        },
+        {
+          "id": "1739611817",
+          "name": "Malay: Crimson Resort and Spa Boracay - Punta Bunga Beach - Sibuyan Sea",
+          "quality": 87
+        },
+        {
+          "id": "1706632696",
+          "name": "Angeles › West: Dolores River",
+          "quality": 78.6
+        },
+        {
+          "id": "1697445488",
+          "name": "Navotas › South: Paco - Obando",
+          "quality": 76.9
+        },
+        {
+          "id": "1610262974",
+          "name": "Renai Township",
+          "quality": 76.8
+        }
+      ]
+    },
+    {
+      "index": 979,
+      "timestamp": "2026-11-15T04:45:00.000Z",
+      "dateLabel": "Nov",
+      "utcTime": "04:45",
+      "strict": 2,
+      "total": 8,
+      "suggestions": [
+        {
+          "id": "1646432090",
+          "name": "Takitumu › South: Avaavaroa Passage",
+          "quality": 87.3
+        },
+        {
+          "id": "1581120164",
+          "name": "Aitutaki › North-west: Tamanu Beach Aitutaki",
+          "quality": 81.3
+        },
+        {
+          "id": "1359325500",
+          "name": "Klyuchi: Klyuchevskoy volcano Cam-2",
+          "quality": 73
+        },
+        {
+          "id": "1607576017",
+          "name": "Ust-Kamchatsky District",
+          "quality": 61.4
+        }
+      ]
+    },
+    {
+      "index": 79,
+      "timestamp": "2026-01-15T19:45:00.000Z",
+      "dateLabel": "Jan",
+      "utcTime": "19:45",
+      "strict": 2,
+      "total": 9,
+      "suggestions": []
+    },
+    {
+      "index": 26,
+      "timestamp": "2026-01-15T06:30:00.000Z",
+      "dateLabel": "Jan",
+      "utcTime": "06:30",
+      "strict": 3,
+      "total": 3,
+      "suggestions": []
+    }
+  ],
+  "heatmap": [
+    {
+      "dateLabel": "Jan",
+      "utcTime": "00:00",
+      "strict": 16,
+      "total": 23
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "00:15",
+      "strict": 20,
+      "total": 28
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "00:30",
+      "strict": 23,
+      "total": 32
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "00:45",
+      "strict": 25,
+      "total": 35
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "01:00",
+      "strict": 27,
+      "total": 36
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "01:15",
+      "strict": 25,
+      "total": 30
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "01:30",
+      "strict": 14,
+      "total": 25
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "01:45",
+      "strict": 15,
+      "total": 17
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "02:00",
+      "strict": 13,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "02:15",
+      "strict": 12,
+      "total": 13
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "02:30",
+      "strict": 9,
+      "total": 13
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "02:45",
+      "strict": 4,
+      "total": 11
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "03:00",
+      "strict": 6,
+      "total": 11
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "03:15",
+      "strict": 6,
+      "total": 9
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "03:30",
+      "strict": 5,
+      "total": 6
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "03:45",
+      "strict": 5,
+      "total": 11
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "04:00",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "04:15",
+      "strict": 9,
+      "total": 12
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "04:30",
+      "strict": 9,
+      "total": 12
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "04:45",
+      "strict": 3,
+      "total": 9
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "05:00",
+      "strict": 7,
+      "total": 9
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "05:15",
+      "strict": 8,
+      "total": 13
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "05:30",
+      "strict": 13,
+      "total": 13
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "05:45",
+      "strict": 9,
+      "total": 13
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "06:00",
+      "strict": 5,
+      "total": 11
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "06:15",
+      "strict": 3,
+      "total": 8
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "06:30",
+      "strict": 3,
+      "total": 3
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "06:45",
+      "strict": 4,
+      "total": 5
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "07:00",
+      "strict": 8,
+      "total": 9
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "07:15",
+      "strict": 9,
+      "total": 12
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "07:30",
+      "strict": 8,
+      "total": 13
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "07:45",
+      "strict": 10,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "08:00",
+      "strict": 13,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "08:15",
+      "strict": 10,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "08:30",
+      "strict": 11,
+      "total": 18
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "08:45",
+      "strict": 12,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "09:00",
+      "strict": 13,
+      "total": 25
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "09:15",
+      "strict": 14,
+      "total": 24
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "09:30",
+      "strict": 18,
+      "total": 21
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "09:45",
+      "strict": 16,
+      "total": 30
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "10:00",
+      "strict": 23,
+      "total": 28
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "10:15",
+      "strict": 23,
+      "total": 27
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "10:30",
+      "strict": 20,
+      "total": 26
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "10:45",
+      "strict": 21,
+      "total": 23
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "11:00",
+      "strict": 13,
+      "total": 25
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "11:15",
+      "strict": 13,
+      "total": 22
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "11:30",
+      "strict": 16,
+      "total": 22
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "11:45",
+      "strict": 14,
+      "total": 19
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "12:00",
+      "strict": 15,
+      "total": 17
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "12:15",
+      "strict": 11,
+      "total": 16
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "12:30",
+      "strict": 9,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "12:45",
+      "strict": 10,
+      "total": 12
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "13:00",
+      "strict": 7,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "13:15",
+      "strict": 12,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "13:30",
+      "strict": 12,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "13:45",
+      "strict": 9,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "14:00",
+      "strict": 10,
+      "total": 11
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "14:15",
+      "strict": 7,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "14:30",
+      "strict": 8,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "14:45",
+      "strict": 10,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "15:00",
+      "strict": 10,
+      "total": 17
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "15:15",
+      "strict": 14,
+      "total": 17
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "15:30",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "15:45",
+      "strict": 11,
+      "total": 19
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "16:00",
+      "strict": 13,
+      "total": 20
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "16:15",
+      "strict": 16,
+      "total": 18
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "16:30",
+      "strict": 14,
+      "total": 20
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "16:45",
+      "strict": 11,
+      "total": 17
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "17:00",
+      "strict": 9,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "17:15",
+      "strict": 9,
+      "total": 16
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "17:30",
+      "strict": 9,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "17:45",
+      "strict": 10,
+      "total": 16
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "18:00",
+      "strict": 10,
+      "total": 13
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "18:15",
+      "strict": 11,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "18:30",
+      "strict": 10,
+      "total": 13
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "18:45",
+      "strict": 13,
+      "total": 17
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "19:00",
+      "strict": 11,
+      "total": 13
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "19:15",
+      "strict": 6,
+      "total": 13
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "19:30",
+      "strict": 3,
+      "total": 5
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "19:45",
+      "strict": 2,
+      "total": 9
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "20:00",
+      "strict": 7,
+      "total": 9
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "20:15",
+      "strict": 9,
+      "total": 10
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "20:30",
+      "strict": 10,
+      "total": 10
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "20:45",
+      "strict": 4,
+      "total": 6
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "21:00",
+      "strict": 3,
+      "total": 3
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "21:15",
+      "strict": 3,
+      "total": 5
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "21:30",
+      "strict": 7,
+      "total": 9
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "21:45",
+      "strict": 9,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "22:00",
+      "strict": 12,
+      "total": 20
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "22:15",
+      "strict": 15,
+      "total": 20
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "22:30",
+      "strict": 15,
+      "total": 22
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "22:45",
+      "strict": 15,
+      "total": 20
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "23:00",
+      "strict": 16,
+      "total": 21
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "23:15",
+      "strict": 17,
+      "total": 22
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "23:30",
+      "strict": 19,
+      "total": 24
+    },
+    {
+      "dateLabel": "Jan",
+      "utcTime": "23:45",
+      "strict": 12,
+      "total": 25
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "00:00",
+      "strict": 15,
+      "total": 22
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "00:15",
+      "strict": 17,
+      "total": 19
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "00:30",
+      "strict": 13,
+      "total": 16
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "00:45",
+      "strict": 11,
+      "total": 20
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "01:00",
+      "strict": 8,
+      "total": 16
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "01:15",
+      "strict": 10,
+      "total": 18
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "01:30",
+      "strict": 15,
+      "total": 24
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "01:45",
+      "strict": 16,
+      "total": 23
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "02:00",
+      "strict": 17,
+      "total": 21
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "02:15",
+      "strict": 16,
+      "total": 18
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "02:30",
+      "strict": 11,
+      "total": 18
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "02:45",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "03:00",
+      "strict": 9,
+      "total": 16
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "03:15",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "03:30",
+      "strict": 6,
+      "total": 8
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "03:45",
+      "strict": 5,
+      "total": 7
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "04:00",
+      "strict": 6,
+      "total": 8
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "04:15",
+      "strict": 5,
+      "total": 6
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "04:30",
+      "strict": 6,
+      "total": 9
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "04:45",
+      "strict": 8,
+      "total": 13
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "05:00",
+      "strict": 7,
+      "total": 7
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "05:15",
+      "strict": 8,
+      "total": 8
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "05:30",
+      "strict": 2,
+      "total": 8
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "05:45",
+      "strict": 1,
+      "total": 1
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "06:00",
+      "strict": 2,
+      "total": 8
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "06:15",
+      "strict": 7,
+      "total": 12
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "06:30",
+      "strict": 13,
+      "total": 13
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "06:45",
+      "strict": 13,
+      "total": 13
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "07:00",
+      "strict": 7,
+      "total": 11
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "07:15",
+      "strict": 5,
+      "total": 7
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "07:30",
+      "strict": 6,
+      "total": 9
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "07:45",
+      "strict": 13,
+      "total": 16
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "08:00",
+      "strict": 13,
+      "total": 15
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "08:15",
+      "strict": 10,
+      "total": 13
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "08:30",
+      "strict": 9,
+      "total": 13
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "08:45",
+      "strict": 7,
+      "total": 11
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "09:00",
+      "strict": 11,
+      "total": 11
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "09:15",
+      "strict": 8,
+      "total": 8
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "09:30",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "09:45",
+      "strict": 8,
+      "total": 13
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "10:00",
+      "strict": 11,
+      "total": 14
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "10:15",
+      "strict": 11,
+      "total": 16
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "10:30",
+      "strict": 8,
+      "total": 14
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "10:45",
+      "strict": 9,
+      "total": 12
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "11:00",
+      "strict": 6,
+      "total": 17
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "11:15",
+      "strict": 15,
+      "total": 20
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "11:30",
+      "strict": 16,
+      "total": 20
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "11:45",
+      "strict": 15,
+      "total": 19
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "12:00",
+      "strict": 11,
+      "total": 17
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "12:15",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "12:30",
+      "strict": 13,
+      "total": 15
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "12:45",
+      "strict": 13,
+      "total": 17
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "13:00",
+      "strict": 11,
+      "total": 14
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "13:15",
+      "strict": 8,
+      "total": 14
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "13:30",
+      "strict": 6,
+      "total": 11
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "13:45",
+      "strict": 5,
+      "total": 9
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "14:00",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "14:15",
+      "strict": 11,
+      "total": 13
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "14:30",
+      "strict": 14,
+      "total": 16
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "14:45",
+      "strict": 12,
+      "total": 18
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "15:00",
+      "strict": 12,
+      "total": 16
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "15:15",
+      "strict": 11,
+      "total": 17
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "15:30",
+      "strict": 9,
+      "total": 16
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "15:45",
+      "strict": 9,
+      "total": 14
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "16:00",
+      "strict": 14,
+      "total": 15
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "16:15",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "16:30",
+      "strict": 10,
+      "total": 14
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "16:45",
+      "strict": 9,
+      "total": 14
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "17:00",
+      "strict": 10,
+      "total": 16
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "17:15",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "17:30",
+      "strict": 12,
+      "total": 17
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "17:45",
+      "strict": 14,
+      "total": 19
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "18:00",
+      "strict": 12,
+      "total": 16
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "18:15",
+      "strict": 9,
+      "total": 14
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "18:30",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "18:45",
+      "strict": 7,
+      "total": 10
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "19:00",
+      "strict": 7,
+      "total": 7
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "19:15",
+      "strict": 6,
+      "total": 12
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "19:30",
+      "strict": 9,
+      "total": 16
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "19:45",
+      "strict": 11,
+      "total": 14
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "20:00",
+      "strict": 7,
+      "total": 8
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "20:15",
+      "strict": 5,
+      "total": 6
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "20:30",
+      "strict": 5,
+      "total": 6
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "20:45",
+      "strict": 7,
+      "total": 11
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "21:00",
+      "strict": 8,
+      "total": 8
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "21:15",
+      "strict": 10,
+      "total": 12
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "21:30",
+      "strict": 6,
+      "total": 7
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "21:45",
+      "strict": 4,
+      "total": 7
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "22:00",
+      "strict": 5,
+      "total": 5
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "22:15",
+      "strict": 5,
+      "total": 9
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "22:30",
+      "strict": 10,
+      "total": 14
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "22:45",
+      "strict": 10,
+      "total": 11
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "23:00",
+      "strict": 6,
+      "total": 12
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "23:15",
+      "strict": 10,
+      "total": 12
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "23:30",
+      "strict": 12,
+      "total": 17
+    },
+    {
+      "dateLabel": "Feb",
+      "utcTime": "23:45",
+      "strict": 11,
+      "total": 19
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "00:00",
+      "strict": 7,
+      "total": 8
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "00:15",
+      "strict": 6,
+      "total": 9
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "00:30",
+      "strict": 6,
+      "total": 13
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "00:45",
+      "strict": 8,
+      "total": 9
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "01:00",
+      "strict": 9,
+      "total": 10
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "01:15",
+      "strict": 7,
+      "total": 8
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "01:30",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "01:45",
+      "strict": 11,
+      "total": 13
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "02:00",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "02:15",
+      "strict": 13,
+      "total": 15
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "02:30",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "02:45",
+      "strict": 6,
+      "total": 10
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "03:00",
+      "strict": 8,
+      "total": 9
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "03:15",
+      "strict": 6,
+      "total": 7
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "03:30",
+      "strict": 7,
+      "total": 10
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "03:45",
+      "strict": 6,
+      "total": 13
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "04:00",
+      "strict": 10,
+      "total": 14
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "04:15",
+      "strict": 14,
+      "total": 15
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "04:30",
+      "strict": 12,
+      "total": 16
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "04:45",
+      "strict": 12,
+      "total": 18
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "05:00",
+      "strict": 11,
+      "total": 17
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "05:15",
+      "strict": 10,
+      "total": 10
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "05:30",
+      "strict": 6,
+      "total": 9
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "05:45",
+      "strict": 6,
+      "total": 13
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "06:00",
+      "strict": 8,
+      "total": 9
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "06:15",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "06:30",
+      "strict": 5,
+      "total": 11
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "06:45",
+      "strict": 5,
+      "total": 9
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "07:00",
+      "strict": 5,
+      "total": 9
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "07:15",
+      "strict": 9,
+      "total": 11
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "07:30",
+      "strict": 12,
+      "total": 15
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "07:45",
+      "strict": 14,
+      "total": 15
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "08:00",
+      "strict": 11,
+      "total": 16
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "08:15",
+      "strict": 6,
+      "total": 10
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "08:30",
+      "strict": 10,
+      "total": 12
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "08:45",
+      "strict": 8,
+      "total": 14
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "09:00",
+      "strict": 6,
+      "total": 8
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "09:15",
+      "strict": 9,
+      "total": 11
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "09:30",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "09:45",
+      "strict": 7,
+      "total": 12
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "10:00",
+      "strict": 8,
+      "total": 9
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "10:15",
+      "strict": 5,
+      "total": 8
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "10:30",
+      "strict": 6,
+      "total": 8
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "10:45",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "11:00",
+      "strict": 8,
+      "total": 9
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "11:15",
+      "strict": 10,
+      "total": 13
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "11:30",
+      "strict": 11,
+      "total": 16
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "11:45",
+      "strict": 11,
+      "total": 12
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "12:00",
+      "strict": 7,
+      "total": 11
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "12:15",
+      "strict": 7,
+      "total": 13
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "12:30",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "12:45",
+      "strict": 10,
+      "total": 13
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "13:00",
+      "strict": 6,
+      "total": 13
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "13:15",
+      "strict": 9,
+      "total": 12
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "13:30",
+      "strict": 13,
+      "total": 15
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "13:45",
+      "strict": 12,
+      "total": 18
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "14:00",
+      "strict": 10,
+      "total": 18
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "14:15",
+      "strict": 13,
+      "total": 15
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "14:30",
+      "strict": 10,
+      "total": 12
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "14:45",
+      "strict": 6,
+      "total": 13
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "15:00",
+      "strict": 7,
+      "total": 10
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "15:15",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "15:30",
+      "strict": 9,
+      "total": 13
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "15:45",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "16:00",
+      "strict": 12,
+      "total": 15
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "16:15",
+      "strict": 10,
+      "total": 15
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "16:30",
+      "strict": 9,
+      "total": 16
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "16:45",
+      "strict": 9,
+      "total": 15
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "17:00",
+      "strict": 13,
+      "total": 14
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "17:15",
+      "strict": 10,
+      "total": 15
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "17:30",
+      "strict": 10,
+      "total": 12
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "17:45",
+      "strict": 6,
+      "total": 9
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "18:00",
+      "strict": 6,
+      "total": 10
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "18:15",
+      "strict": 5,
+      "total": 8
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "18:30",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "18:45",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "19:00",
+      "strict": 6,
+      "total": 12
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "19:15",
+      "strict": 7,
+      "total": 9
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "19:30",
+      "strict": 10,
+      "total": 11
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "19:45",
+      "strict": 10,
+      "total": 12
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "20:00",
+      "strict": 9,
+      "total": 14
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "20:15",
+      "strict": 9,
+      "total": 12
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "20:30",
+      "strict": 4,
+      "total": 11
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "20:45",
+      "strict": 7,
+      "total": 8
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "21:00",
+      "strict": 8,
+      "total": 9
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "21:15",
+      "strict": 4,
+      "total": 13
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "21:30",
+      "strict": 8,
+      "total": 13
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "21:45",
+      "strict": 12,
+      "total": 16
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "22:00",
+      "strict": 16,
+      "total": 16
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "22:15",
+      "strict": 12,
+      "total": 16
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "22:30",
+      "strict": 9,
+      "total": 10
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "22:45",
+      "strict": 9,
+      "total": 15
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "23:00",
+      "strict": 10,
+      "total": 14
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "23:15",
+      "strict": 9,
+      "total": 12
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "23:30",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Mar equinox",
+      "utcTime": "23:45",
+      "strict": 5,
+      "total": 8
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "00:00",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "00:15",
+      "strict": 3,
+      "total": 10
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "00:30",
+      "strict": 6,
+      "total": 8
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "00:45",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "01:00",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "01:15",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "01:30",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "01:45",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "02:00",
+      "strict": 7,
+      "total": 12
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "02:15",
+      "strict": 7,
+      "total": 10
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "02:30",
+      "strict": 9,
+      "total": 13
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "02:45",
+      "strict": 13,
+      "total": 17
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "03:00",
+      "strict": 14,
+      "total": 18
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "03:15",
+      "strict": 12,
+      "total": 13
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "03:30",
+      "strict": 7,
+      "total": 12
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "03:45",
+      "strict": 6,
+      "total": 12
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "04:00",
+      "strict": 8,
+      "total": 9
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "04:15",
+      "strict": 6,
+      "total": 8
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "04:30",
+      "strict": 7,
+      "total": 9
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "04:45",
+      "strict": 6,
+      "total": 11
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "05:00",
+      "strict": 8,
+      "total": 13
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "05:15",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "05:30",
+      "strict": 13,
+      "total": 16
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "05:45",
+      "strict": 17,
+      "total": 24
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "06:00",
+      "strict": 19,
+      "total": 25
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "06:15",
+      "strict": 16,
+      "total": 23
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "06:30",
+      "strict": 19,
+      "total": 22
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "06:45",
+      "strict": 13,
+      "total": 16
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "07:00",
+      "strict": 12,
+      "total": 15
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "07:15",
+      "strict": 3,
+      "total": 10
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "07:30",
+      "strict": 4,
+      "total": 7
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "07:45",
+      "strict": 3,
+      "total": 6
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "08:00",
+      "strict": 2,
+      "total": 7
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "08:15",
+      "strict": 10,
+      "total": 10
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "08:30",
+      "strict": 10,
+      "total": 11
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "08:45",
+      "strict": 10,
+      "total": 12
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "09:00",
+      "strict": 7,
+      "total": 20
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "09:15",
+      "strict": 11,
+      "total": 11
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "09:30",
+      "strict": 9,
+      "total": 10
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "09:45",
+      "strict": 9,
+      "total": 13
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "10:00",
+      "strict": 9,
+      "total": 12
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "10:15",
+      "strict": 10,
+      "total": 15
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "10:30",
+      "strict": 5,
+      "total": 9
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "10:45",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "11:00",
+      "strict": 9,
+      "total": 9
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "11:15",
+      "strict": 7,
+      "total": 11
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "11:30",
+      "strict": 8,
+      "total": 16
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "11:45",
+      "strict": 14,
+      "total": 15
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "12:00",
+      "strict": 10,
+      "total": 14
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "12:15",
+      "strict": 10,
+      "total": 16
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "12:30",
+      "strict": 7,
+      "total": 12
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "12:45",
+      "strict": 9,
+      "total": 11
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "13:00",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "13:15",
+      "strict": 11,
+      "total": 14
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "13:30",
+      "strict": 9,
+      "total": 12
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "13:45",
+      "strict": 7,
+      "total": 14
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "14:00",
+      "strict": 8,
+      "total": 14
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "14:15",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "14:30",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "14:45",
+      "strict": 8,
+      "total": 13
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "15:00",
+      "strict": 11,
+      "total": 14
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "15:15",
+      "strict": 11,
+      "total": 16
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "15:30",
+      "strict": 11,
+      "total": 16
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "15:45",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "16:00",
+      "strict": 10,
+      "total": 13
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "16:15",
+      "strict": 10,
+      "total": 14
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "16:30",
+      "strict": 9,
+      "total": 14
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "16:45",
+      "strict": 7,
+      "total": 11
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "17:00",
+      "strict": 9,
+      "total": 11
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "17:15",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "17:30",
+      "strict": 10,
+      "total": 13
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "17:45",
+      "strict": 14,
+      "total": 16
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "18:00",
+      "strict": 12,
+      "total": 18
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "18:15",
+      "strict": 12,
+      "total": 17
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "18:30",
+      "strict": 10,
+      "total": 13
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "18:45",
+      "strict": 8,
+      "total": 14
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "19:00",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "19:15",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "19:30",
+      "strict": 12,
+      "total": 16
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "19:45",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "20:00",
+      "strict": 4,
+      "total": 11
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "20:15",
+      "strict": 6,
+      "total": 11
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "20:30",
+      "strict": 15,
+      "total": 18
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "20:45",
+      "strict": 16,
+      "total": 19
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "21:00",
+      "strict": 13,
+      "total": 15
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "21:15",
+      "strict": 10,
+      "total": 15
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "21:30",
+      "strict": 8,
+      "total": 15
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "21:45",
+      "strict": 7,
+      "total": 11
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "22:00",
+      "strict": 6,
+      "total": 10
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "22:15",
+      "strict": 13,
+      "total": 18
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "22:30",
+      "strict": 15,
+      "total": 20
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "22:45",
+      "strict": 11,
+      "total": 18
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "23:00",
+      "strict": 7,
+      "total": 10
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "23:15",
+      "strict": 6,
+      "total": 6
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "23:30",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "Apr",
+      "utcTime": "23:45",
+      "strict": 11,
+      "total": 14
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "00:00",
+      "strict": 8,
+      "total": 13
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "00:15",
+      "strict": 13,
+      "total": 14
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "00:30",
+      "strict": 11,
+      "total": 16
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "00:45",
+      "strict": 9,
+      "total": 14
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "01:00",
+      "strict": 9,
+      "total": 14
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "01:15",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "01:30",
+      "strict": 12,
+      "total": 14
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "01:45",
+      "strict": 6,
+      "total": 13
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "02:00",
+      "strict": 8,
+      "total": 14
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "02:15",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "02:30",
+      "strict": 11,
+      "total": 13
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "02:45",
+      "strict": 7,
+      "total": 10
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "03:00",
+      "strict": 8,
+      "total": 9
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "03:15",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "03:30",
+      "strict": 8,
+      "total": 13
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "03:45",
+      "strict": 10,
+      "total": 13
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "04:00",
+      "strict": 10,
+      "total": 16
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "04:15",
+      "strict": 8,
+      "total": 14
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "04:30",
+      "strict": 7,
+      "total": 11
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "04:45",
+      "strict": 6,
+      "total": 9
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "05:00",
+      "strict": 13,
+      "total": 17
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "05:15",
+      "strict": 20,
+      "total": 22
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "05:30",
+      "strict": 15,
+      "total": 21
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "05:45",
+      "strict": 10,
+      "total": 17
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "06:00",
+      "strict": 8,
+      "total": 14
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "06:15",
+      "strict": 9,
+      "total": 13
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "06:30",
+      "strict": 12,
+      "total": 16
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "06:45",
+      "strict": 16,
+      "total": 18
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "07:00",
+      "strict": 18,
+      "total": 20
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "07:15",
+      "strict": 18,
+      "total": 29
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "07:30",
+      "strict": 16,
+      "total": 28
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "07:45",
+      "strict": 15,
+      "total": 21
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "08:00",
+      "strict": 13,
+      "total": 17
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "08:15",
+      "strict": 8,
+      "total": 13
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "08:30",
+      "strict": 7,
+      "total": 11
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "08:45",
+      "strict": 7,
+      "total": 11
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "09:00",
+      "strict": 12,
+      "total": 20
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "09:15",
+      "strict": 17,
+      "total": 21
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "09:30",
+      "strict": 19,
+      "total": 23
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "09:45",
+      "strict": 23,
+      "total": 25
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "10:00",
+      "strict": 14,
+      "total": 25
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "10:15",
+      "strict": 10,
+      "total": 24
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "10:30",
+      "strict": 15,
+      "total": 19
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "10:45",
+      "strict": 17,
+      "total": 20
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "11:00",
+      "strict": 9,
+      "total": 18
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "11:15",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "11:30",
+      "strict": 8,
+      "total": 13
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "11:45",
+      "strict": 8,
+      "total": 14
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "12:00",
+      "strict": 9,
+      "total": 12
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "12:15",
+      "strict": 7,
+      "total": 9
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "12:30",
+      "strict": 11,
+      "total": 13
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "12:45",
+      "strict": 12,
+      "total": 14
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "13:00",
+      "strict": 10,
+      "total": 15
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "13:15",
+      "strict": 8,
+      "total": 15
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "13:30",
+      "strict": 7,
+      "total": 12
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "13:45",
+      "strict": 10,
+      "total": 13
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "14:00",
+      "strict": 8,
+      "total": 17
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "14:15",
+      "strict": 12,
+      "total": 13
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "14:30",
+      "strict": 10,
+      "total": 14
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "14:45",
+      "strict": 9,
+      "total": 11
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "15:00",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "15:15",
+      "strict": 5,
+      "total": 13
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "15:30",
+      "strict": 6,
+      "total": 11
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "15:45",
+      "strict": 12,
+      "total": 13
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "16:00",
+      "strict": 14,
+      "total": 17
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "16:15",
+      "strict": 15,
+      "total": 18
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "16:30",
+      "strict": 11,
+      "total": 21
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "16:45",
+      "strict": 10,
+      "total": 14
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "17:00",
+      "strict": 9,
+      "total": 14
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "17:15",
+      "strict": 12,
+      "total": 16
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "17:30",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "17:45",
+      "strict": 10,
+      "total": 14
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "18:00",
+      "strict": 11,
+      "total": 16
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "18:15",
+      "strict": 11,
+      "total": 18
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "18:30",
+      "strict": 17,
+      "total": 21
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "18:45",
+      "strict": 20,
+      "total": 28
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "19:00",
+      "strict": 25,
+      "total": 25
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "19:15",
+      "strict": 19,
+      "total": 30
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "19:30",
+      "strict": 13,
+      "total": 32
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "19:45",
+      "strict": 17,
+      "total": 24
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "20:00",
+      "strict": 18,
+      "total": 22
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "20:15",
+      "strict": 12,
+      "total": 24
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "20:30",
+      "strict": 12,
+      "total": 15
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "20:45",
+      "strict": 14,
+      "total": 17
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "21:00",
+      "strict": 15,
+      "total": 17
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "21:15",
+      "strict": 11,
+      "total": 14
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "21:30",
+      "strict": 7,
+      "total": 10
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "21:45",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "22:00",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "22:15",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "22:30",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "22:45",
+      "strict": 7,
+      "total": 13
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "23:00",
+      "strict": 17,
+      "total": 17
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "23:15",
+      "strict": 16,
+      "total": 17
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "23:30",
+      "strict": 10,
+      "total": 18
+    },
+    {
+      "dateLabel": "May",
+      "utcTime": "23:45",
+      "strict": 7,
+      "total": 12
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "00:00",
+      "strict": 14,
+      "total": 17
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "00:15",
+      "strict": 10,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "00:30",
+      "strict": 10,
+      "total": 11
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "00:45",
+      "strict": 14,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "01:00",
+      "strict": 10,
+      "total": 16
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "01:15",
+      "strict": 12,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "01:30",
+      "strict": 10,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "01:45",
+      "strict": 12,
+      "total": 12
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "02:00",
+      "strict": 12,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "02:15",
+      "strict": 8,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "02:30",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "02:45",
+      "strict": 11,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "03:00",
+      "strict": 14,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "03:15",
+      "strict": 10,
+      "total": 17
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "03:30",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "03:45",
+      "strict": 6,
+      "total": 10
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "04:00",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "04:15",
+      "strict": 9,
+      "total": 11
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "04:30",
+      "strict": 11,
+      "total": 12
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "04:45",
+      "strict": 11,
+      "total": 18
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "05:00",
+      "strict": 14,
+      "total": 18
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "05:15",
+      "strict": 16,
+      "total": 19
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "05:30",
+      "strict": 10,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "05:45",
+      "strict": 6,
+      "total": 12
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "06:00",
+      "strict": 6,
+      "total": 10
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "06:15",
+      "strict": 9,
+      "total": 10
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "06:30",
+      "strict": 9,
+      "total": 10
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "06:45",
+      "strict": 9,
+      "total": 16
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "07:00",
+      "strict": 15,
+      "total": 18
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "07:15",
+      "strict": 16,
+      "total": 25
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "07:30",
+      "strict": 19,
+      "total": 22
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "07:45",
+      "strict": 18,
+      "total": 25
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "08:00",
+      "strict": 25,
+      "total": 26
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "08:15",
+      "strict": 22,
+      "total": 26
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "08:30",
+      "strict": 18,
+      "total": 25
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "08:45",
+      "strict": 11,
+      "total": 22
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "09:00",
+      "strict": 8,
+      "total": 16
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "09:15",
+      "strict": 8,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "09:30",
+      "strict": 7,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "09:45",
+      "strict": 12,
+      "total": 18
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "10:00",
+      "strict": 17,
+      "total": 19
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "10:15",
+      "strict": 20,
+      "total": 21
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "10:30",
+      "strict": 19,
+      "total": 22
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "10:45",
+      "strict": 20,
+      "total": 29
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "11:00",
+      "strict": 14,
+      "total": 23
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "11:15",
+      "strict": 12,
+      "total": 16
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "11:30",
+      "strict": 6,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "11:45",
+      "strict": 7,
+      "total": 8
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "12:00",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "12:15",
+      "strict": 6,
+      "total": 8
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "12:30",
+      "strict": 3,
+      "total": 9
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "12:45",
+      "strict": 7,
+      "total": 10
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "13:00",
+      "strict": 9,
+      "total": 13
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "13:15",
+      "strict": 11,
+      "total": 12
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "13:30",
+      "strict": 12,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "13:45",
+      "strict": 14,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "14:00",
+      "strict": 12,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "14:15",
+      "strict": 11,
+      "total": 17
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "14:30",
+      "strict": 16,
+      "total": 19
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "14:45",
+      "strict": 15,
+      "total": 22
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "15:00",
+      "strict": 18,
+      "total": 23
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "15:15",
+      "strict": 14,
+      "total": 20
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "15:30",
+      "strict": 8,
+      "total": 16
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "15:45",
+      "strict": 8,
+      "total": 13
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "16:00",
+      "strict": 4,
+      "total": 12
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "16:15",
+      "strict": 8,
+      "total": 17
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "16:30",
+      "strict": 11,
+      "total": 13
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "16:45",
+      "strict": 14,
+      "total": 18
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "17:00",
+      "strict": 18,
+      "total": 19
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "17:15",
+      "strict": 19,
+      "total": 21
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "17:30",
+      "strict": 15,
+      "total": 23
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "17:45",
+      "strict": 13,
+      "total": 22
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "18:00",
+      "strict": 19,
+      "total": 25
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "18:15",
+      "strict": 18,
+      "total": 29
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "18:30",
+      "strict": 16,
+      "total": 29
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "18:45",
+      "strict": 17,
+      "total": 26
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "19:00",
+      "strict": 18,
+      "total": 27
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "19:15",
+      "strict": 25,
+      "total": 30
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "19:30",
+      "strict": 21,
+      "total": 28
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "19:45",
+      "strict": 22,
+      "total": 24
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "20:00",
+      "strict": 23,
+      "total": 34
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "20:15",
+      "strict": 22,
+      "total": 33
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "20:30",
+      "strict": 15,
+      "total": 29
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "20:45",
+      "strict": 11,
+      "total": 26
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "21:00",
+      "strict": 11,
+      "total": 19
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "21:15",
+      "strict": 11,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "21:30",
+      "strict": 9,
+      "total": 12
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "21:45",
+      "strict": 7,
+      "total": 11
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "22:00",
+      "strict": 6,
+      "total": 9
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "22:15",
+      "strict": 4,
+      "total": 6
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "22:30",
+      "strict": 3,
+      "total": 5
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "22:45",
+      "strict": 2,
+      "total": 6
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "23:00",
+      "strict": 4,
+      "total": 7
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "23:15",
+      "strict": 6,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "23:30",
+      "strict": 14,
+      "total": 16
+    },
+    {
+      "dateLabel": "Jun solstice",
+      "utcTime": "23:45",
+      "strict": 14,
+      "total": 18
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "00:00",
+      "strict": 11,
+      "total": 17
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "00:15",
+      "strict": 11,
+      "total": 13
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "00:30",
+      "strict": 11,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "00:45",
+      "strict": 14,
+      "total": 18
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "01:00",
+      "strict": 14,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "01:15",
+      "strict": 10,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "01:30",
+      "strict": 11,
+      "total": 16
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "01:45",
+      "strict": 13,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "02:00",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "02:15",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "02:30",
+      "strict": 13,
+      "total": 13
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "02:45",
+      "strict": 11,
+      "total": 16
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "03:00",
+      "strict": 11,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "03:15",
+      "strict": 11,
+      "total": 13
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "03:30",
+      "strict": 6,
+      "total": 10
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "03:45",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "04:00",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "04:15",
+      "strict": 11,
+      "total": 12
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "04:30",
+      "strict": 8,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "04:45",
+      "strict": 6,
+      "total": 10
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "05:00",
+      "strict": 10,
+      "total": 16
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "05:15",
+      "strict": 16,
+      "total": 19
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "05:30",
+      "strict": 17,
+      "total": 21
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "05:45",
+      "strict": 11,
+      "total": 17
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "06:00",
+      "strict": 9,
+      "total": 11
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "06:15",
+      "strict": 9,
+      "total": 9
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "06:30",
+      "strict": 9,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "06:45",
+      "strict": 9,
+      "total": 16
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "07:00",
+      "strict": 12,
+      "total": 20
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "07:15",
+      "strict": 19,
+      "total": 24
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "07:30",
+      "strict": 18,
+      "total": 23
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "07:45",
+      "strict": 22,
+      "total": 24
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "08:00",
+      "strict": 23,
+      "total": 26
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "08:15",
+      "strict": 16,
+      "total": 27
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "08:30",
+      "strict": 14,
+      "total": 20
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "08:45",
+      "strict": 9,
+      "total": 19
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "09:00",
+      "strict": 9,
+      "total": 12
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "09:15",
+      "strict": 9,
+      "total": 12
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "09:30",
+      "strict": 14,
+      "total": 22
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "09:45",
+      "strict": 19,
+      "total": 23
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "10:00",
+      "strict": 19,
+      "total": 20
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "10:15",
+      "strict": 21,
+      "total": 21
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "10:30",
+      "strict": 16,
+      "total": 26
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "10:45",
+      "strict": 16,
+      "total": 24
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "11:00",
+      "strict": 17,
+      "total": 21
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "11:15",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "11:30",
+      "strict": 9,
+      "total": 10
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "11:45",
+      "strict": 8,
+      "total": 9
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "12:00",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "12:15",
+      "strict": 6,
+      "total": 12
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "12:30",
+      "strict": 8,
+      "total": 8
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "12:45",
+      "strict": 10,
+      "total": 11
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "13:00",
+      "strict": 11,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "13:15",
+      "strict": 10,
+      "total": 13
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "13:30",
+      "strict": 12,
+      "total": 16
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "13:45",
+      "strict": 12,
+      "total": 17
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "14:00",
+      "strict": 7,
+      "total": 16
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "14:15",
+      "strict": 12,
+      "total": 16
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "14:30",
+      "strict": 11,
+      "total": 22
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "14:45",
+      "strict": 13,
+      "total": 16
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "15:00",
+      "strict": 13,
+      "total": 18
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "15:15",
+      "strict": 9,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "15:30",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "15:45",
+      "strict": 5,
+      "total": 11
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "16:00",
+      "strict": 7,
+      "total": 11
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "16:15",
+      "strict": 12,
+      "total": 13
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "16:30",
+      "strict": 12,
+      "total": 16
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "16:45",
+      "strict": 15,
+      "total": 19
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "17:00",
+      "strict": 18,
+      "total": 20
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "17:15",
+      "strict": 10,
+      "total": 20
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "17:30",
+      "strict": 9,
+      "total": 16
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "17:45",
+      "strict": 10,
+      "total": 19
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "18:00",
+      "strict": 11,
+      "total": 20
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "18:15",
+      "strict": 15,
+      "total": 23
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "18:30",
+      "strict": 18,
+      "total": 22
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "18:45",
+      "strict": 18,
+      "total": 25
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "19:00",
+      "strict": 24,
+      "total": 29
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "19:15",
+      "strict": 23,
+      "total": 29
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "19:30",
+      "strict": 23,
+      "total": 28
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "19:45",
+      "strict": 17,
+      "total": 28
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "20:00",
+      "strict": 15,
+      "total": 33
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "20:15",
+      "strict": 18,
+      "total": 25
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "20:30",
+      "strict": 18,
+      "total": 22
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "20:45",
+      "strict": 8,
+      "total": 18
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "21:00",
+      "strict": 12,
+      "total": 15
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "21:15",
+      "strict": 14,
+      "total": 14
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "21:30",
+      "strict": 8,
+      "total": 16
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "21:45",
+      "strict": 4,
+      "total": 10
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "22:00",
+      "strict": 5,
+      "total": 7
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "22:15",
+      "strict": 5,
+      "total": 9
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "22:30",
+      "strict": 6,
+      "total": 8
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "22:45",
+      "strict": 4,
+      "total": 7
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "23:00",
+      "strict": 6,
+      "total": 7
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "23:15",
+      "strict": 11,
+      "total": 17
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "23:30",
+      "strict": 15,
+      "total": 18
+    },
+    {
+      "dateLabel": "Jul",
+      "utcTime": "23:45",
+      "strict": 16,
+      "total": 18
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "00:00",
+      "strict": 11,
+      "total": 13
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "00:15",
+      "strict": 11,
+      "total": 14
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "00:30",
+      "strict": 9,
+      "total": 10
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "00:45",
+      "strict": 6,
+      "total": 11
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "01:00",
+      "strict": 10,
+      "total": 11
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "01:15",
+      "strict": 12,
+      "total": 13
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "01:30",
+      "strict": 7,
+      "total": 12
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "01:45",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "02:00",
+      "strict": 9,
+      "total": 12
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "02:15",
+      "strict": 9,
+      "total": 14
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "02:30",
+      "strict": 9,
+      "total": 9
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "02:45",
+      "strict": 10,
+      "total": 11
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "03:00",
+      "strict": 10,
+      "total": 12
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "03:15",
+      "strict": 14,
+      "total": 17
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "03:30",
+      "strict": 14,
+      "total": 18
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "03:45",
+      "strict": 13,
+      "total": 17
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "04:00",
+      "strict": 9,
+      "total": 15
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "04:15",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "04:30",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "04:45",
+      "strict": 9,
+      "total": 12
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "05:00",
+      "strict": 9,
+      "total": 10
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "05:15",
+      "strict": 7,
+      "total": 13
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "05:30",
+      "strict": 9,
+      "total": 18
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "05:45",
+      "strict": 14,
+      "total": 20
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "06:00",
+      "strict": 16,
+      "total": 20
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "06:15",
+      "strict": 15,
+      "total": 20
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "06:30",
+      "strict": 14,
+      "total": 21
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "06:45",
+      "strict": 13,
+      "total": 17
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "07:00",
+      "strict": 15,
+      "total": 20
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "07:15",
+      "strict": 10,
+      "total": 21
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "07:30",
+      "strict": 16,
+      "total": 16
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "07:45",
+      "strict": 10,
+      "total": 16
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "08:00",
+      "strict": 6,
+      "total": 9
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "08:15",
+      "strict": 5,
+      "total": 7
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "08:30",
+      "strict": 4,
+      "total": 7
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "08:45",
+      "strict": 11,
+      "total": 13
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "09:00",
+      "strict": 11,
+      "total": 13
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "09:15",
+      "strict": 12,
+      "total": 15
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "09:30",
+      "strict": 10,
+      "total": 23
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "09:45",
+      "strict": 12,
+      "total": 15
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "10:00",
+      "strict": 11,
+      "total": 19
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "10:15",
+      "strict": 15,
+      "total": 19
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "10:30",
+      "strict": 15,
+      "total": 17
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "10:45",
+      "strict": 8,
+      "total": 18
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "11:00",
+      "strict": 8,
+      "total": 14
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "11:15",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "11:30",
+      "strict": 7,
+      "total": 13
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "11:45",
+      "strict": 9,
+      "total": 11
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "12:00",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "12:15",
+      "strict": 9,
+      "total": 16
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "12:30",
+      "strict": 9,
+      "total": 13
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "12:45",
+      "strict": 11,
+      "total": 14
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "13:00",
+      "strict": 7,
+      "total": 11
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "13:15",
+      "strict": 9,
+      "total": 12
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "13:30",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "13:45",
+      "strict": 12,
+      "total": 13
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "14:00",
+      "strict": 8,
+      "total": 13
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "14:15",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "14:30",
+      "strict": 10,
+      "total": 12
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "14:45",
+      "strict": 6,
+      "total": 8
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "15:00",
+      "strict": 6,
+      "total": 11
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "15:15",
+      "strict": 9,
+      "total": 12
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "15:30",
+      "strict": 12,
+      "total": 17
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "15:45",
+      "strict": 14,
+      "total": 15
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "16:00",
+      "strict": 9,
+      "total": 18
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "16:15",
+      "strict": 12,
+      "total": 16
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "16:30",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "16:45",
+      "strict": 9,
+      "total": 13
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "17:00",
+      "strict": 11,
+      "total": 12
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "17:15",
+      "strict": 10,
+      "total": 11
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "17:30",
+      "strict": 9,
+      "total": 15
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "17:45",
+      "strict": 7,
+      "total": 15
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "18:00",
+      "strict": 10,
+      "total": 14
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "18:15",
+      "strict": 12,
+      "total": 15
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "18:30",
+      "strict": 14,
+      "total": 17
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "18:45",
+      "strict": 11,
+      "total": 16
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "19:00",
+      "strict": 8,
+      "total": 18
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "19:15",
+      "strict": 12,
+      "total": 16
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "19:30",
+      "strict": 16,
+      "total": 19
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "19:45",
+      "strict": 17,
+      "total": 23
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "20:00",
+      "strict": 11,
+      "total": 23
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "20:15",
+      "strict": 8,
+      "total": 14
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "20:30",
+      "strict": 13,
+      "total": 15
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "20:45",
+      "strict": 17,
+      "total": 19
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "21:00",
+      "strict": 11,
+      "total": 19
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "21:15",
+      "strict": 8,
+      "total": 15
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "21:30",
+      "strict": 9,
+      "total": 15
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "21:45",
+      "strict": 9,
+      "total": 13
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "22:00",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "22:15",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "22:30",
+      "strict": 10,
+      "total": 15
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "22:45",
+      "strict": 13,
+      "total": 17
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "23:00",
+      "strict": 12,
+      "total": 15
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "23:15",
+      "strict": 7,
+      "total": 17
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "23:30",
+      "strict": 6,
+      "total": 9
+    },
+    {
+      "dateLabel": "Aug",
+      "utcTime": "23:45",
+      "strict": 10,
+      "total": 11
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "00:00",
+      "strict": 8,
+      "total": 9
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "00:15",
+      "strict": 6,
+      "total": 11
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "00:30",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "00:45",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "01:00",
+      "strict": 6,
+      "total": 9
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "01:15",
+      "strict": 9,
+      "total": 11
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "01:30",
+      "strict": 8,
+      "total": 14
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "01:45",
+      "strict": 9,
+      "total": 15
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "02:00",
+      "strict": 13,
+      "total": 14
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "02:15",
+      "strict": 8,
+      "total": 16
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "02:30",
+      "strict": 6,
+      "total": 8
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "02:45",
+      "strict": 5,
+      "total": 10
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "03:00",
+      "strict": 6,
+      "total": 7
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "03:15",
+      "strict": 6,
+      "total": 8
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "03:30",
+      "strict": 7,
+      "total": 12
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "03:45",
+      "strict": 10,
+      "total": 13
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "04:00",
+      "strict": 12,
+      "total": 15
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "04:15",
+      "strict": 12,
+      "total": 16
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "04:30",
+      "strict": 15,
+      "total": 16
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "04:45",
+      "strict": 10,
+      "total": 18
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "05:00",
+      "strict": 10,
+      "total": 12
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "05:15",
+      "strict": 9,
+      "total": 10
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "05:30",
+      "strict": 5,
+      "total": 14
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "05:45",
+      "strict": 8,
+      "total": 9
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "06:00",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "06:15",
+      "strict": 7,
+      "total": 12
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "06:30",
+      "strict": 7,
+      "total": 9
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "06:45",
+      "strict": 6,
+      "total": 7
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "07:00",
+      "strict": 6,
+      "total": 12
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "07:15",
+      "strict": 12,
+      "total": 13
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "07:30",
+      "strict": 12,
+      "total": 15
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "07:45",
+      "strict": 16,
+      "total": 16
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "08:00",
+      "strict": 8,
+      "total": 14
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "08:15",
+      "strict": 7,
+      "total": 12
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "08:30",
+      "strict": 8,
+      "total": 13
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "08:45",
+      "strict": 6,
+      "total": 8
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "09:00",
+      "strict": 5,
+      "total": 12
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "09:15",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "09:30",
+      "strict": 12,
+      "total": 12
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "09:45",
+      "strict": 8,
+      "total": 9
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "10:00",
+      "strict": 2,
+      "total": 8
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "10:15",
+      "strict": 7,
+      "total": 8
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "10:30",
+      "strict": 7,
+      "total": 10
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "10:45",
+      "strict": 7,
+      "total": 10
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "11:00",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "11:15",
+      "strict": 13,
+      "total": 16
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "11:30",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "11:45",
+      "strict": 7,
+      "total": 10
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "12:00",
+      "strict": 7,
+      "total": 14
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "12:15",
+      "strict": 11,
+      "total": 12
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "12:30",
+      "strict": 10,
+      "total": 13
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "12:45",
+      "strict": 10,
+      "total": 11
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "13:00",
+      "strict": 9,
+      "total": 13
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "13:15",
+      "strict": 12,
+      "total": 15
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "13:30",
+      "strict": 12,
+      "total": 17
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "13:45",
+      "strict": 10,
+      "total": 16
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "14:00",
+      "strict": 13,
+      "total": 15
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "14:15",
+      "strict": 10,
+      "total": 13
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "14:30",
+      "strict": 8,
+      "total": 14
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "14:45",
+      "strict": 7,
+      "total": 10
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "15:00",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "15:15",
+      "strict": 10,
+      "total": 12
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "15:30",
+      "strict": 9,
+      "total": 11
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "15:45",
+      "strict": 12,
+      "total": 14
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "16:00",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "16:15",
+      "strict": 9,
+      "total": 16
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "16:30",
+      "strict": 12,
+      "total": 15
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "16:45",
+      "strict": 13,
+      "total": 14
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "17:00",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "17:15",
+      "strict": 9,
+      "total": 12
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "17:30",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "17:45",
+      "strict": 6,
+      "total": 9
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "18:00",
+      "strict": 5,
+      "total": 8
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "18:15",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "18:30",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "18:45",
+      "strict": 7,
+      "total": 11
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "19:00",
+      "strict": 8,
+      "total": 9
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "19:15",
+      "strict": 10,
+      "total": 12
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "19:30",
+      "strict": 10,
+      "total": 13
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "19:45",
+      "strict": 10,
+      "total": 14
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "20:00",
+      "strict": 9,
+      "total": 12
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "20:15",
+      "strict": 6,
+      "total": 11
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "20:30",
+      "strict": 7,
+      "total": 8
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "20:45",
+      "strict": 8,
+      "total": 9
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "21:00",
+      "strict": 4,
+      "total": 13
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "21:15",
+      "strict": 6,
+      "total": 13
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "21:30",
+      "strict": 12,
+      "total": 16
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "21:45",
+      "strict": 16,
+      "total": 17
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "22:00",
+      "strict": 12,
+      "total": 18
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "22:15",
+      "strict": 10,
+      "total": 13
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "22:30",
+      "strict": 10,
+      "total": 16
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "22:45",
+      "strict": 10,
+      "total": 14
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "23:00",
+      "strict": 9,
+      "total": 14
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "23:15",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "23:30",
+      "strict": 5,
+      "total": 9
+    },
+    {
+      "dateLabel": "Sep equinox",
+      "utcTime": "23:45",
+      "strict": 7,
+      "total": 8
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "00:00",
+      "strict": 11,
+      "total": 14
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "00:15",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "00:30",
+      "strict": 10,
+      "total": 10
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "00:45",
+      "strict": 9,
+      "total": 11
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "01:00",
+      "strict": 11,
+      "total": 13
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "01:15",
+      "strict": 11,
+      "total": 12
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "01:30",
+      "strict": 8,
+      "total": 14
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "01:45",
+      "strict": 12,
+      "total": 15
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "02:00",
+      "strict": 11,
+      "total": 17
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "02:15",
+      "strict": 14,
+      "total": 15
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "02:30",
+      "strict": 11,
+      "total": 16
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "02:45",
+      "strict": 12,
+      "total": 14
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "03:00",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "03:15",
+      "strict": 9,
+      "total": 14
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "03:30",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "03:45",
+      "strict": 5,
+      "total": 11
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "04:00",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "04:15",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "04:30",
+      "strict": 5,
+      "total": 10
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "04:45",
+      "strict": 7,
+      "total": 9
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "05:00",
+      "strict": 6,
+      "total": 7
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "05:15",
+      "strict": 7,
+      "total": 7
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "05:30",
+      "strict": 1,
+      "total": 3
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "05:45",
+      "strict": 1,
+      "total": 1
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "06:00",
+      "strict": 2,
+      "total": 7
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "06:15",
+      "strict": 7,
+      "total": 14
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "06:30",
+      "strict": 15,
+      "total": 17
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "06:45",
+      "strict": 16,
+      "total": 17
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "07:00",
+      "strict": 10,
+      "total": 16
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "07:15",
+      "strict": 5,
+      "total": 8
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "07:30",
+      "strict": 6,
+      "total": 9
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "07:45",
+      "strict": 8,
+      "total": 13
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "08:00",
+      "strict": 11,
+      "total": 12
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "08:15",
+      "strict": 7,
+      "total": 15
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "08:30",
+      "strict": 11,
+      "total": 11
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "08:45",
+      "strict": 9,
+      "total": 16
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "09:00",
+      "strict": 7,
+      "total": 11
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "09:15",
+      "strict": 6,
+      "total": 9
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "09:30",
+      "strict": 9,
+      "total": 9
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "09:45",
+      "strict": 11,
+      "total": 12
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "10:00",
+      "strict": 9,
+      "total": 14
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "10:15",
+      "strict": 12,
+      "total": 14
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "10:30",
+      "strict": 8,
+      "total": 14
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "10:45",
+      "strict": 12,
+      "total": 13
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "11:00",
+      "strict": 9,
+      "total": 18
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "11:15",
+      "strict": 14,
+      "total": 18
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "11:30",
+      "strict": 13,
+      "total": 15
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "11:45",
+      "strict": 10,
+      "total": 15
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "12:00",
+      "strict": 8,
+      "total": 12
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "12:15",
+      "strict": 10,
+      "total": 15
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "12:30",
+      "strict": 13,
+      "total": 15
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "12:45",
+      "strict": 13,
+      "total": 16
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "13:00",
+      "strict": 10,
+      "total": 13
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "13:15",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "13:30",
+      "strict": 5,
+      "total": 11
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "13:45",
+      "strict": 3,
+      "total": 12
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "14:00",
+      "strict": 10,
+      "total": 11
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "14:15",
+      "strict": 11,
+      "total": 14
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "14:30",
+      "strict": 11,
+      "total": 18
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "14:45",
+      "strict": 17,
+      "total": 17
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "15:00",
+      "strict": 13,
+      "total": 19
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "15:15",
+      "strict": 10,
+      "total": 16
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "15:30",
+      "strict": 8,
+      "total": 15
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "15:45",
+      "strict": 7,
+      "total": 12
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "16:00",
+      "strict": 11,
+      "total": 14
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "16:15",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "16:30",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "16:45",
+      "strict": 7,
+      "total": 10
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "17:00",
+      "strict": 10,
+      "total": 12
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "17:15",
+      "strict": 8,
+      "total": 13
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "17:30",
+      "strict": 12,
+      "total": 13
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "17:45",
+      "strict": 11,
+      "total": 18
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "18:00",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "18:15",
+      "strict": 7,
+      "total": 10
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "18:30",
+      "strict": 7,
+      "total": 11
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "18:45",
+      "strict": 7,
+      "total": 8
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "19:00",
+      "strict": 5,
+      "total": 12
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "19:15",
+      "strict": 9,
+      "total": 10
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "19:30",
+      "strict": 6,
+      "total": 11
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "19:45",
+      "strict": 3,
+      "total": 7
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "20:00",
+      "strict": 5,
+      "total": 6
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "20:15",
+      "strict": 5,
+      "total": 5
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "20:30",
+      "strict": 7,
+      "total": 12
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "20:45",
+      "strict": 13,
+      "total": 17
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "21:00",
+      "strict": 14,
+      "total": 17
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "21:15",
+      "strict": 6,
+      "total": 12
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "21:30",
+      "strict": 4,
+      "total": 5
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "21:45",
+      "strict": 2,
+      "total": 6
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "22:00",
+      "strict": 5,
+      "total": 8
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "22:15",
+      "strict": 6,
+      "total": 11
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "22:30",
+      "strict": 8,
+      "total": 13
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "22:45",
+      "strict": 11,
+      "total": 14
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "23:00",
+      "strict": 13,
+      "total": 17
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "23:15",
+      "strict": 16,
+      "total": 18
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "23:30",
+      "strict": 16,
+      "total": 20
+    },
+    {
+      "dateLabel": "Oct",
+      "utcTime": "23:45",
+      "strict": 12,
+      "total": 17
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "00:00",
+      "strict": 17,
+      "total": 23
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "00:15",
+      "strict": 24,
+      "total": 32
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "00:30",
+      "strict": 28,
+      "total": 38
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "00:45",
+      "strict": 28,
+      "total": 33
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "01:00",
+      "strict": 25,
+      "total": 29
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "01:15",
+      "strict": 14,
+      "total": 28
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "01:30",
+      "strict": 11,
+      "total": 23
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "01:45",
+      "strict": 10,
+      "total": 13
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "02:00",
+      "strict": 9,
+      "total": 12
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "02:15",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "02:30",
+      "strict": 5,
+      "total": 9
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "02:45",
+      "strict": 5,
+      "total": 10
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "03:00",
+      "strict": 5,
+      "total": 7
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "03:15",
+      "strict": 5,
+      "total": 5
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "03:30",
+      "strict": 4,
+      "total": 7
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "03:45",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "04:00",
+      "strict": 9,
+      "total": 10
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "04:15",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "04:30",
+      "strict": 0,
+      "total": 10
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "04:45",
+      "strict": 2,
+      "total": 8
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "05:00",
+      "strict": 8,
+      "total": 9
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "05:15",
+      "strict": 12,
+      "total": 13
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "05:30",
+      "strict": 12,
+      "total": 12
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "05:45",
+      "strict": 6,
+      "total": 12
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "06:00",
+      "strict": 1,
+      "total": 5
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "06:15",
+      "strict": 4,
+      "total": 5
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "06:30",
+      "strict": 4,
+      "total": 4
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "06:45",
+      "strict": 7,
+      "total": 9
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "07:00",
+      "strict": 11,
+      "total": 14
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "07:15",
+      "strict": 15,
+      "total": 17
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "07:30",
+      "strict": 8,
+      "total": 19
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "07:45",
+      "strict": 10,
+      "total": 13
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "08:00",
+      "strict": 9,
+      "total": 11
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "08:15",
+      "strict": 9,
+      "total": 16
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "08:30",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "08:45",
+      "strict": 8,
+      "total": 15
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "09:00",
+      "strict": 14,
+      "total": 20
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "09:15",
+      "strict": 15,
+      "total": 23
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "09:30",
+      "strict": 13,
+      "total": 19
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "09:45",
+      "strict": 13,
+      "total": 24
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "10:00",
+      "strict": 16,
+      "total": 25
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "10:15",
+      "strict": 16,
+      "total": 23
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "10:30",
+      "strict": 19,
+      "total": 23
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "10:45",
+      "strict": 16,
+      "total": 22
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "11:00",
+      "strict": 11,
+      "total": 20
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "11:15",
+      "strict": 13,
+      "total": 19
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "11:30",
+      "strict": 14,
+      "total": 17
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "11:45",
+      "strict": 12,
+      "total": 18
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "12:00",
+      "strict": 12,
+      "total": 19
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "12:15",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "12:30",
+      "strict": 9,
+      "total": 13
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "12:45",
+      "strict": 9,
+      "total": 12
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "13:00",
+      "strict": 9,
+      "total": 16
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "13:15",
+      "strict": 11,
+      "total": 18
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "13:30",
+      "strict": 14,
+      "total": 15
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "13:45",
+      "strict": 12,
+      "total": 14
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "14:00",
+      "strict": 9,
+      "total": 14
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "14:15",
+      "strict": 8,
+      "total": 14
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "14:30",
+      "strict": 9,
+      "total": 11
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "14:45",
+      "strict": 10,
+      "total": 10
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "15:00",
+      "strict": 8,
+      "total": 13
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "15:15",
+      "strict": 7,
+      "total": 13
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "15:30",
+      "strict": 9,
+      "total": 16
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "15:45",
+      "strict": 10,
+      "total": 18
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "16:00",
+      "strict": 15,
+      "total": 16
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "16:15",
+      "strict": 14,
+      "total": 18
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "16:30",
+      "strict": 15,
+      "total": 20
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "16:45",
+      "strict": 16,
+      "total": 21
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "17:00",
+      "strict": 14,
+      "total": 19
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "17:15",
+      "strict": 11,
+      "total": 17
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "17:30",
+      "strict": 12,
+      "total": 13
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "17:45",
+      "strict": 10,
+      "total": 14
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "18:00",
+      "strict": 12,
+      "total": 14
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "18:15",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "18:30",
+      "strict": 12,
+      "total": 16
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "18:45",
+      "strict": 13,
+      "total": 14
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "19:00",
+      "strict": 10,
+      "total": 12
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "19:15",
+      "strict": 3,
+      "total": 9
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "19:30",
+      "strict": 1,
+      "total": 3
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "19:45",
+      "strict": 7,
+      "total": 9
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "20:00",
+      "strict": 9,
+      "total": 9
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "20:15",
+      "strict": 9,
+      "total": 9
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "20:30",
+      "strict": 3,
+      "total": 5
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "20:45",
+      "strict": 2,
+      "total": 2
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "21:00",
+      "strict": 5,
+      "total": 6
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "21:15",
+      "strict": 7,
+      "total": 11
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "21:30",
+      "strict": 8,
+      "total": 14
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "21:45",
+      "strict": 12,
+      "total": 16
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "22:00",
+      "strict": 10,
+      "total": 18
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "22:15",
+      "strict": 12,
+      "total": 22
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "22:30",
+      "strict": 16,
+      "total": 20
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "22:45",
+      "strict": 16,
+      "total": 22
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "23:00",
+      "strict": 15,
+      "total": 20
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "23:15",
+      "strict": 16,
+      "total": 20
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "23:30",
+      "strict": 12,
+      "total": 17
+    },
+    {
+      "dateLabel": "Nov",
+      "utcTime": "23:45",
+      "strict": 13,
+      "total": 19
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "00:00",
+      "strict": 27,
+      "total": 32
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "00:15",
+      "strict": 24,
+      "total": 34
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "00:30",
+      "strict": 24,
+      "total": 28
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "00:45",
+      "strict": 22,
+      "total": 28
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "01:00",
+      "strict": 14,
+      "total": 27
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "01:15",
+      "strict": 16,
+      "total": 17
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "01:30",
+      "strict": 15,
+      "total": 17
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "01:45",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "02:00",
+      "strict": 6,
+      "total": 15
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "02:15",
+      "strict": 7,
+      "total": 12
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "02:30",
+      "strict": 9,
+      "total": 10
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "02:45",
+      "strict": 9,
+      "total": 9
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "03:00",
+      "strict": 9,
+      "total": 11
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "03:15",
+      "strict": 7,
+      "total": 16
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "03:30",
+      "strict": 12,
+      "total": 14
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "03:45",
+      "strict": 12,
+      "total": 14
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "04:00",
+      "strict": 11,
+      "total": 11
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "04:15",
+      "strict": 4,
+      "total": 15
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "04:30",
+      "strict": 9,
+      "total": 9
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "04:45",
+      "strict": 9,
+      "total": 13
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "05:00",
+      "strict": 12,
+      "total": 15
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "05:15",
+      "strict": 12,
+      "total": 16
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "05:30",
+      "strict": 9,
+      "total": 13
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "05:45",
+      "strict": 3,
+      "total": 8
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "06:00",
+      "strict": 3,
+      "total": 3
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "06:15",
+      "strict": 3,
+      "total": 3
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "06:30",
+      "strict": 5,
+      "total": 8
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "06:45",
+      "strict": 7,
+      "total": 11
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "07:00",
+      "strict": 9,
+      "total": 9
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "07:15",
+      "strict": 4,
+      "total": 10
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "07:30",
+      "strict": 10,
+      "total": 12
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "07:45",
+      "strict": 13,
+      "total": 14
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "08:00",
+      "strict": 14,
+      "total": 19
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "08:15",
+      "strict": 11,
+      "total": 20
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "08:30",
+      "strict": 18,
+      "total": 25
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "08:45",
+      "strict": 21,
+      "total": 31
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "09:00",
+      "strict": 20,
+      "total": 28
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "09:15",
+      "strict": 20,
+      "total": 31
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "09:30",
+      "strict": 22,
+      "total": 28
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "09:45",
+      "strict": 25,
+      "total": 28
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "10:00",
+      "strict": 25,
+      "total": 28
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "10:15",
+      "strict": 21,
+      "total": 27
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "10:30",
+      "strict": 13,
+      "total": 25
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "10:45",
+      "strict": 13,
+      "total": 24
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "11:00",
+      "strict": 16,
+      "total": 21
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "11:15",
+      "strict": 15,
+      "total": 18
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "11:30",
+      "strict": 15,
+      "total": 18
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "11:45",
+      "strict": 11,
+      "total": 20
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "12:00",
+      "strict": 9,
+      "total": 13
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "12:15",
+      "strict": 9,
+      "total": 14
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "12:30",
+      "strict": 9,
+      "total": 15
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "12:45",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "13:00",
+      "strict": 12,
+      "total": 16
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "13:15",
+      "strict": 11,
+      "total": 15
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "13:30",
+      "strict": 12,
+      "total": 20
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "13:45",
+      "strict": 12,
+      "total": 21
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "14:00",
+      "strict": 13,
+      "total": 17
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "14:15",
+      "strict": 15,
+      "total": 20
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "14:30",
+      "strict": 16,
+      "total": 21
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "14:45",
+      "strict": 16,
+      "total": 21
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "15:00",
+      "strict": 14,
+      "total": 17
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "15:15",
+      "strict": 13,
+      "total": 17
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "15:30",
+      "strict": 15,
+      "total": 22
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "15:45",
+      "strict": 16,
+      "total": 20
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "16:00",
+      "strict": 14,
+      "total": 20
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "16:15",
+      "strict": 8,
+      "total": 18
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "16:30",
+      "strict": 9,
+      "total": 14
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "16:45",
+      "strict": 12,
+      "total": 14
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "17:00",
+      "strict": 11,
+      "total": 13
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "17:15",
+      "strict": 8,
+      "total": 11
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "17:30",
+      "strict": 6,
+      "total": 8
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "17:45",
+      "strict": 6,
+      "total": 6
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "18:00",
+      "strict": 8,
+      "total": 10
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "18:15",
+      "strict": 9,
+      "total": 12
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "18:30",
+      "strict": 7,
+      "total": 14
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "18:45",
+      "strict": 7,
+      "total": 11
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "19:00",
+      "strict": 4,
+      "total": 7
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "19:15",
+      "strict": 4,
+      "total": 4
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "19:30",
+      "strict": 8,
+      "total": 9
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "19:45",
+      "strict": 9,
+      "total": 9
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "20:00",
+      "strict": 9,
+      "total": 9
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "20:15",
+      "strict": 3,
+      "total": 9
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "20:30",
+      "strict": 2,
+      "total": 3
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "20:45",
+      "strict": 1,
+      "total": 2
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "21:00",
+      "strict": 1,
+      "total": 6
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "21:15",
+      "strict": 6,
+      "total": 10
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "21:30",
+      "strict": 13,
+      "total": 15
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "21:45",
+      "strict": 17,
+      "total": 25
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "22:00",
+      "strict": 17,
+      "total": 24
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "22:15",
+      "strict": 14,
+      "total": 21
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "22:30",
+      "strict": 15,
+      "total": 19
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "22:45",
+      "strict": 15,
+      "total": 22
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "23:00",
+      "strict": 15,
+      "total": 24
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "23:15",
+      "strict": 19,
+      "total": 32
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "23:30",
+      "strict": 20,
+      "total": 33
+    },
+    {
+      "dateLabel": "Dec solstice",
+      "utcTime": "23:45",
+      "strict": 21,
+      "total": 33
+    }
+  ]
+}

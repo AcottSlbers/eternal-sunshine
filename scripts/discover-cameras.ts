@@ -1,23 +1,26 @@
 import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import dotenv from "dotenv";
-import { CAMERAS_PER_BUCKET, LONGITUDE_BUCKET_COUNT, getLongitudeBucket, scoreCameraCandidate, selectDistributedPool } from "../lib/camera-discovery";
+import { LONGITUDE_BUCKET_COUNT, getLongitudeBucket, scoreCameraCandidate } from "../lib/camera-discovery";
 import { WindyConfigurationError, WindyWebcamProvider } from "../lib/providers/windy-webcam-provider";
 import type { Camera } from "../types/camera";
 
 const root = process.cwd();
 const dataDirectory = path.join(root, "data");
 const candidatesPath = path.join(dataDirectory, "camera-candidates.json");
+const reviewedPath = path.join(dataDirectory, "cameras-reviewed.json");
 const registryPath = path.join(dataDirectory, "cameras.json");
 dotenv.config({ path: path.join(root, ".env.local"), quiet: true });
 
-async function readExistingRegistry(): Promise<Camera[]> {
-  try { return JSON.parse(await readFile(registryPath, "utf8")) as Camera[]; } catch { return []; }
+async function readCameras(file: string): Promise<Camera[]> {
+  try { return JSON.parse(await readFile(file, "utf8")) as Camera[]; } catch { return []; }
 }
 
-function preserveCuration(discovered: Camera, existing?: Camera): Camera {
-  if (!existing || existing.source !== "windy") return discovered;
-  return { ...discovered, enabled: existing.enabled, qualityWeight: existing.qualityWeight, notes: existing.notes, direction: existing.direction };
+function preserveCuration(discovered: Camera, sources: Array<Camera | undefined>): Camera {
+  const output = { ...discovered };
+  const fields = ["enabled", "qualityWeight", "manualQualityOverride", "manualViewAzimuth", "manualDirectionConfidence", "notes", "permanentlyRejected"] as const;
+  for (const source of sources) for (const field of fields) if (source && source[field] !== undefined) Object.assign(output, { [field]: source[field] });
+  return output;
 }
 
 async function main() {
@@ -41,16 +44,15 @@ async function main() {
       console.log(`Bucket ${String(bucket + 1).padStart(2, "0")}/24 (${west}..${east}): ${scored.length} valid cameras`);
     } catch (error) { console.error(`Bucket ${bucket + 1} failed:`, error instanceof Error ? error.message : error); }
   }
-  const unique = [...new Map(all.map((camera) => [camera.id, camera])).values()];
-  const selected = selectDistributedPool(unique, CAMERAS_PER_BUCKET);
-  const existing = await readExistingRegistry();
-  const existingById = new Map(existing.map((camera) => [camera.id, camera]));
-  const registry = selected.map((camera) => preserveCuration(camera, existingById.get(camera.id)));
+  const [existingCandidates, existingReviewed, existingGold] = await Promise.all([readCameras(candidatesPath), readCameras(reviewedPath), readCameras(registryPath)]);
+  const candidateMap = new Map(existingCandidates.map((camera) => [camera.id, camera]));
+  const reviewedMap = new Map(existingReviewed.map((camera) => [camera.id, camera]));
+  const goldMap = new Map(existingGold.map((camera) => [camera.id, camera]));
+  const unique = [...new Map(all.map((camera) => [camera.id, camera])).values()].map((camera) => preserveCuration(camera, [candidateMap.get(camera.id), reviewedMap.get(camera.id), goldMap.get(camera.id)]));
   await mkdir(dataDirectory, { recursive: true });
   await writeFile(candidatesPath, `${JSON.stringify(unique, null, 2)}\n`, "utf8");
-  await writeFile(registryPath, `${JSON.stringify(registry, null, 2)}\n`, "utf8");
-  console.log(`Discovery complete: ${unique.length} candidates, ${registry.length} selected for the registry.`);
-  if (registry.length < 80) console.warn("Coverage is below target. Review camera-candidates.json and curate sparse longitude buckets manually.");
+  console.log(`Discovery complete: ${unique.length} candidates saved without reducing the pool.`);
+  console.log("Run npm run build-camera-registry to review quality, simulate coverage, and rebuild the Gold Registry.");
 }
 
 void main();

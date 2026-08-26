@@ -1,5 +1,6 @@
 import type { Camera } from "@/types/camera";
 import type { BoundingBox, WebcamProvider } from "@/lib/providers/webcam-provider";
+import { inferViewAzimuth } from "@/lib/camera-direction";
 
 const BASE_URL = "https://api.windy.com/webcams/api/v3";
 const INCLUDE = "categories,images,location,player,urls";
@@ -42,12 +43,15 @@ export function normalizeWindyWebcam(raw: WindyWebcam): Camera | null {
   const longitude = raw.location?.longitude;
   if (typeof raw.webcamId !== "number" || typeof latitude !== "number" || typeof longitude !== "number" || !Number.isFinite(latitude) || !Number.isFinite(longitude) || latitude < -90 || latitude > 90 || longitude < -180 || longitude > 180) return null;
   const imageUrl = chooseImage(raw.images);
+  const name = raw.title?.trim() || raw.location?.city || `Windy webcam ${raw.webcamId}`;
+  const viewAzimuth = inferViewAzimuth(name);
   const largestSize = Object.values(raw.images?.sizes ?? {}).sort((a, b) => ((b.width ?? 0) * (b.height ?? 0)) - ((a.width ?? 0) * (a.height ?? 0)))[0];
   return {
-    id: String(raw.webcamId), name: raw.title?.trim() || raw.location?.city || `Windy webcam ${raw.webcamId}`,
+    id: String(raw.webcamId), name,
     latitude, longitude, country: raw.location?.country, region: raw.location?.region,
     source: "windy", sourceUrl: raw.urls?.detail, categories: raw.categories?.flatMap((category) => [category.id, category.name].filter((value): value is string => Boolean(value))),
     enabled: raw.status === "active", qualityWeight: 1,
+    viewAzimuth, viewAzimuthSource: viewAzimuth === undefined ? undefined : "name-inferred", directionConfidence: viewAzimuth === undefined ? "unknown" : "inferred",
     imageUrl, imageUpdatedAt: raw.lastUpdatedOn, lastKnownImageUrl: imageUrl, lastKnownImageTimestamp: raw.lastUpdatedOn,
     discovery: { longitudeBucket: 0, viewCount: raw.viewCount, imageWidth: largestSize?.width, imageHeight: largestSize?.height, discoveredAt: new Date().toISOString(), candidateScore: { total: 0, active: 0, currentImage: 0, freshness: 0, scenicCategory: 0, popularity: 0, resolution: 0, unsuitablePenalty: 0 } },
   };

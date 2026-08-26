@@ -17,8 +17,8 @@ describe("camera discovery", () => {
     expect(scoreCameraCandidate(scenic).total).toBeGreaterThan(scoreCameraCandidate(traffic).total);
   });
 
-  it("selects at most four cameras per bucket with latitude diversity", () => {
-    const pool = selectDistributedPool([candidate("a", 1, -60, 50), candidate("b", 2, -10, 40), candidate("c", 3, 10, 30), candidate("d", 4, 60, 20), candidate("e", 5, 70, 100)]);
+  it("supports a diverse, configurable selection within a bucket", () => {
+    const pool = selectDistributedPool([candidate("a", 1, -60, 50), candidate("b", 2, -10, 40), candidate("c", 3, 10, 30), candidate("d", 4, 60, 20), candidate("e", 5, 70, 100)], 4);
     expect(pool).toHaveLength(4);
     expect(new Set(pool.map((camera) => Math.sign(camera.latitude))).size).toBeGreaterThan(1);
   });
