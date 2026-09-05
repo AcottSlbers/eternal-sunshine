@@ -5,6 +5,15 @@ export const SUNSET_WINDOWS = {
 
 export const SUNSET_WINDOW = SUNSET_WINDOWS.extended;
 export const MINIMUM_DESIRED_CANDIDATES = 8;
+export const MIN_VISIBLE_SUNSET_EVIDENCE = 20;
+export const MIN_VISIBLE_SUNSET_SCORE = 20;
+export const MIN_FEATURED_SUNSET_EVIDENCE = 30;
+export const MIN_FEATURED_SUNSET_SCORE = 30;
+export const SOLAR_TREND_MINUTES = 10;
+export const SUNSET_EMPTY_STATE = {
+  title: "Searching for the next great sunset…",
+  description: "Cameras near sunset are being checked for a visible sunset. Check back soon.",
+} as const;
 export const LONGITUDE_BUCKET_COUNT = 24;
 export const TARGET_CAMERA_COUNT = 192;
 export const CAMERAS_PER_BUCKET = TARGET_CAMERA_COUNT / LONGITUDE_BUCKET_COUNT;

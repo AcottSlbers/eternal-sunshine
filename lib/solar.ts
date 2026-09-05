@@ -1,7 +1,7 @@
 import SunCalc from "suncalc";
-import { SUNSET_WINDOWS } from "@/lib/config";
+import { SOLAR_TREND_MINUTES, SUNSET_WINDOWS } from "@/lib/config";
 import type { Camera } from "@/types/camera";
-import type { CandidateStage, SunsetCandidate } from "@/types/ranking";
+import type { CandidateStage, SolarTrend, SunsetCandidate } from "@/types/ranking";
 
 const RADIANS_TO_DEGREES = 180 / Math.PI;
 
@@ -38,9 +38,17 @@ export function isSunsetElevation(elevation: number): boolean {
 }
 
 export function isSunDescending(date: Date, latitude: number, longitude: number): boolean {
+  return getSolarTrend(date, latitude, longitude).isSunSetting;
+}
+
+export function getSolarTrend(date: Date, latitude: number, longitude: number): SolarTrend {
   const current = getSolarElevation(date, latitude, longitude);
-  const oneMinuteLater = getSolarElevation(new Date(date.getTime() + 60_000), latitude, longitude);
-  return Number.isFinite(current) && Number.isFinite(oneMinuteLater) && oneMinuteLater < current;
+  const solarElevationLater = getSolarElevation(new Date(date.getTime() + SOLAR_TREND_MINUTES * 60_000), latitude, longitude);
+  const solarTrendDegreesPerMinute = (solarElevationLater - current) / SOLAR_TREND_MINUTES;
+  // Only the sign matters: real polar sunsets can descend extremely slowly.
+  const solarElevationTrend = !Number.isFinite(solarTrendDegreesPerMinute) ? "invalid"
+    : solarTrendDegreesPerMinute < 0 ? "descending" : solarTrendDegreesPerMinute > 0 ? "ascending" : "stationary";
+  return { solarElevationLater, solarTrendDegreesPerMinute, solarElevationTrend, isSunSetting: solarElevationTrend === "descending" };
 }
 
 export function getSunsetPhaseScore(elevation: number): number {
@@ -58,6 +66,7 @@ export function getSunsetCandidates(cameras: Camera[], date: Date, stage: Candid
   return cameras
     .filter((camera) => camera.enabled && validCoordinates(camera.latitude, camera.longitude))
     .map((camera) => ({ camera, ...getSolarPosition(date, camera.latitude, camera.longitude) }))
-    .filter(({ camera, elevation }) => isElevationInWindow(elevation, stage) && isSunDescending(date, camera.latitude, camera.longitude))
-    .map(({ camera, elevation, azimuth }) => ({ camera, solarElevation: elevation, solarAzimuth: azimuth, stage }));
+    .filter(({ elevation }) => isElevationInWindow(elevation, stage))
+    .map(({ camera, elevation, azimuth }) => ({ camera, solarElevation: elevation, solarAzimuth: azimuth, stage, ...getSolarTrend(date, camera.latitude, camera.longitude) }))
+    .filter((candidate) => candidate.isSunSetting);
 }

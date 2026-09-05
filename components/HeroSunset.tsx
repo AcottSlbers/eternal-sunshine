@@ -43,7 +43,7 @@ export function HeroSunset({ item }: { item: RankedSunset }) {
         )}
         <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 p-6 sm:p-9">
           <div className="flex flex-wrap items-center gap-3">
-            <p className="text-[0.65rem] uppercase tracking-[0.35em] text-orange-100/70">Best sunset opportunity right now</p>
+            <p className="text-[0.65rem] uppercase tracking-[0.35em] text-orange-100/70">Best sunset right now</p>
             {camera.hasLiveStream && <span className="rounded-full border border-red-300/40 bg-red-950/65 px-2.5 py-1 text-[0.6rem] font-semibold uppercase tracking-[0.2em] text-red-100">Live available</span>}
           </div>
           <h2 className="mt-3 max-w-3xl text-3xl font-light text-white drop-shadow sm:text-5xl">{camera.name}</h2>

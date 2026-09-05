@@ -5,6 +5,14 @@ import type { Camera } from "../types/camera";
 const base: Camera = { id: "1", name: "Unknown view", latitude: 0, longitude: 0, source: "mock", enabled: true, qualityWeight: 1 };
 
 describe("camera direction", () => {
+  it("rates a 68-degree difference as weak and stays monotonic across the curve", () => {
+    const alignment = getSunAlignmentScore(0, 292);
+    expect(alignment.difference).toBe(68);
+    expect(alignment.score).toBeGreaterThan(20);
+    expect(alignment.score).toBeLessThan(35);
+    const scores = Array.from({ length: 181 }, (_, angle) => getSunAlignmentScore(0, angle).score);
+    expect(scores).toEqual([...scores].sort((a, b) => b - a));
+  });
   it("handles the 0/360 degree boundary", () => {
     expect(getAngularDifference(350, 10)).toBe(20);
   });

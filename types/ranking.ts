@@ -47,7 +47,14 @@ export interface VisualSunsetScore {
   reason?: string;
 }
 
-export interface SunsetCandidate {
+export interface SolarTrend {
+  solarElevationLater: number;
+  solarTrendDegreesPerMinute: number;
+  solarElevationTrend: "descending" | "ascending" | "stationary" | "invalid";
+  isSunSetting: boolean;
+}
+
+export interface SunsetCandidate extends SolarTrend {
   camera: Camera;
   solarElevation: number;
   solarAzimuth: number;
@@ -75,7 +82,26 @@ export interface RankedSunset extends SunsetCandidate {
   temporaryMockScore?: number;
 }
 
-export interface CameraDebugEntry {
+export type SunsetVisibility = "rejected-evidence" | "rejected-other" | "visible" | "featured";
+
+export interface CandidateDiagnostic extends SunsetCandidate {
+  visibility: SunsetVisibility;
+  reason: string;
+  imageChecked: boolean;
+  imageAnalyzed: boolean;
+  scored?: RankedSunset;
+}
+
+export interface RankingDiagnostics {
+  astronomical: number;
+  imagesAnalyzed: number;
+  visibleSunsets: number;
+  rejectedEvidence: number;
+  rejectedOther: number;
+  featured: number;
+}
+
+export interface CameraDebugEntry extends SolarTrend {
   cameraId: string;
   name: string;
   solarElevation: number;
@@ -95,6 +121,9 @@ export interface RankingResponse {
   selectionStage: CandidateStage;
   minimumDesiredCandidates: number;
   results: RankedSunset[];
+  featuredCameraId: string | null;
+  candidateDiagnostics: CandidateDiagnostic[];
+  diagnostics: RankingDiagnostics;
   debug: CameraDebugEntry[];
   provider: { mode: "mock" | "windy"; refreshed: number; imagesChecked: number; error?: string };
 }

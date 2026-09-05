@@ -4,10 +4,11 @@ import { getCameraDirection, getSunAlignmentScore } from "@/lib/camera-direction
 import { UNAVAILABLE_IMAGE_VIABILITY } from "@/lib/image-viability";
 import { fetchCandidateImageAnalysis, UNAVAILABLE_VISUAL_SUNSET_SCORE } from "@/lib/image-score";
 import { WindyWebcamProvider } from "@/lib/providers/windy-webcam-provider";
-import { getSolarPosition, getSunsetCandidates, getSunsetPhaseScore, isSunDescending } from "@/lib/solar";
+import { getSolarPosition, getSolarTrend, getSunsetCandidates, getSunsetPhaseScore } from "@/lib/solar";
+import { classifySunsetVisibility } from "@/lib/sunset-visibility";
 import { getCameraTimeZone } from "@/lib/time-zone";
 import type { Camera } from "@/types/camera";
-import type { CameraDebugEntry, CandidateStage, ImageViability, RankedSunset, RankingResponse, SunsetCandidate } from "@/types/ranking";
+import type { CameraDebugEntry, CandidateDiagnostic, CandidateStage, ImageViability, RankedSunset, RankingResponse, SunsetCandidate } from "@/types/ranking";
 
 const cameras = camerasData as Camera[];
 
@@ -37,14 +38,13 @@ export function getFinalScore(sunsetScore: number, sunsetOpportunityScore: numbe
   return Math.round(sunsetScore * (0.88 + 0.12 * Math.max(0, Math.min(100, sunsetOpportunityScore)) / 100) * 10) / 10;
 }
 
-interface CandidateEvaluation { ranked: RankedSunset | null; imageChecked: boolean; rejection?: string }
-
-async function rankCandidate(candidate: SunsetCandidate, now: Date): Promise<CandidateEvaluation> {
+async function rankCandidate(candidate: SunsetCandidate, now: Date): Promise<CandidateDiagnostic> {
+  const rejected = (reason: string): CandidateDiagnostic => ({ ...candidate, visibility: "rejected-other", reason, imageChecked: false, imageAnalyzed: false });
   const direction = getCameraDirection(candidate.camera);
   const alignment = getSunAlignmentScore(direction.viewAzimuth, candidate.solarAzimuth);
-  if (alignment.difference !== undefined && alignment.difference > 120) return { ranked: null, imageChecked: false, rejection: `camera points ${alignment.difference.toFixed(0)}° away from the sun` };
+  if (alignment.difference !== undefined && alignment.difference > 120) return rejected(`Rejected: camera points ${alignment.difference.toFixed(0)}° away from the sun`);
   const freshness = getImageFreshness(candidate.camera.lastKnownImageTimestamp ?? candidate.camera.imageUpdatedAt, now);
-  if (freshness.stale) return { ranked: null, imageChecked: false, rejection: `image is stale (${freshness.ageMinutes?.toFixed(0)} minutes old)` };
+  if (freshness.stale) return rejected(`Rejected: image is stale (${freshness.ageMinutes?.toFixed(0)} minutes old)`);
   const sunsetPhaseScore = getSunsetPhaseScore(candidate.solarElevation);
   const imageUrl = candidate.camera.lastKnownImageUrl ?? candidate.camera.imageUrl;
   const imageAnalysis = imageUrl && candidate.camera.source === "windy"
@@ -52,10 +52,9 @@ async function rankCandidate(candidate: SunsetCandidate, now: Date): Promise<Can
     : { viability: UNAVAILABLE_IMAGE_VIABILITY, visual: UNAVAILABLE_VISUAL_SUNSET_SCORE };
   const imageViability = imageAnalysis.viability;
   const imageChecked = Boolean(imageUrl && candidate.camera.source === "windy");
-  if (!imageViability.viable) return { ranked: null, imageChecked, rejection: imageViability.reason ?? "image viability check failed" };
   const sunsetOpportunityScore = getSunsetOpportunityScore({ sunsetPhaseScore, sunAlignmentScore: alignment.score, freshnessScore: freshness.score, imageViability, qualityWeight: candidate.camera.qualityWeight });
   const finalScore = candidate.camera.source === "windy" ? getFinalScore(imageAnalysis.visual.sunsetScore, sunsetOpportunityScore) : sunsetOpportunityScore;
-  return { ranked: {
+  const scored: RankedSunset = {
     ...candidate, sunsetOpportunityScore, sunsetPhaseScore, sunAlignmentScore: alignment.score,
     alignmentDifference: alignment.difference, directionConfidence: direction.confidence, cameraViewAzimuth: direction.viewAzimuth,
     imageAgeMinutes: freshness.ageMinutes, freshnessScore: freshness.score, imageViability,
@@ -65,12 +64,13 @@ async function rankCandidate(candidate: SunsetCandidate, now: Date): Promise<Can
     cameraTimeZone: getCameraTimeZone(candidate.camera.latitude, candidate.camera.longitude),
     scoreKind: candidate.camera.source === "windy" ? "visual" : "temporary-mock",
     temporaryMockScore: candidate.camera.source === "mock" ? sunsetOpportunityScore : undefined,
-  }, imageChecked };
+  };
+  return { ...candidate, scored, imageChecked, imageAnalyzed: imageAnalysis.visual.status === "analyzed", ...classifySunsetVisibility(scored) };
 }
 
 async function refreshAndRank(
   input: SunsetCandidate[], now: Date, provider: WindyWebcamProvider | undefined,
-): Promise<{ ranked: RankedSunset[]; refreshed: number; imagesChecked: number; rejections: Map<string, string> }> {
+): Promise<{ ranked: RankedSunset[]; refreshed: number; evaluations: CandidateDiagnostic[] }> {
   const windyIds = input.filter(({ camera }) => camera.source === "windy").map(({ camera }) => camera.id);
   const latest = provider && windyIds.length > 0 ? await provider.getCameras(windyIds) : [];
   const latestById = new Map(latest.map((camera) => [camera.id, camera]));
@@ -87,23 +87,27 @@ async function refreshAndRank(
     } };
   });
   const settled = await Promise.allSettled(refreshedCandidates.map((candidate) => rankCandidate(candidate, now)));
-  const evaluations = settled.map((result) => result.status === "fulfilled" ? result.value : { ranked: null, imageChecked: false, rejection: result.reason instanceof Error ? result.reason.message : "candidate check failed" });
-  const ranked = evaluations.flatMap((evaluation) => evaluation.ranked ? [evaluation.ranked] : []);
-  const rejections = new Map(evaluations.flatMap((evaluation, index) => evaluation.rejection ? [[refreshedCandidates[index].camera.id, evaluation.rejection] as const] : []));
-  return { ranked, refreshed: latest.length, imagesChecked: evaluations.filter((evaluation) => evaluation.imageChecked).length, rejections };
+  const evaluations: CandidateDiagnostic[] = settled.map((result, index) => result.status === "fulfilled" ? result.value : {
+    ...refreshedCandidates[index], visibility: "rejected-other", imageChecked: false, imageAnalyzed: false,
+    reason: `Rejected: ${result.reason instanceof Error ? result.reason.message : "candidate check failed"}`,
+  });
+  const ranked = evaluations.flatMap((evaluation) => evaluation.scored && (evaluation.visibility === "visible" || evaluation.visibility === "featured") ? [evaluation.scored] : []);
+  return { ranked, refreshed: latest.length, evaluations };
 }
 
-function buildDebug(date: Date, selectedIds: Set<string>, rejections: Map<string, string>): CameraDebugEntry[] {
+function buildDebug(date: Date, selectedIds: Set<string>, evaluations: CandidateDiagnostic[]): CameraDebugEntry[] {
+  const byId = new Map(evaluations.map((evaluation) => [evaluation.camera.id, evaluation]));
   return cameras.map((camera) => {
     const position = getSolarPosition(date, camera.latitude, camera.longitude);
-    const descending = isSunDescending(date, camera.latitude, camera.longitude);
+    const trend = getSolarTrend(date, camera.latitude, camera.longitude);
     const selected = selectedIds.has(camera.id);
-    let reason = selected ? "selected after opportunity checks" : "outside extended sunset window";
+    const inWindow = position.elevation >= SUNSET_WINDOWS.extended.minimumElevation && position.elevation <= SUNSET_WINDOWS.extended.maximumElevation;
+    let reason = inWindow ? "Astronomical candidate; extended window not needed" : "outside extended sunset window";
     if (!camera.enabled) reason = "camera disabled";
     else if (!Number.isFinite(position.elevation)) reason = "invalid camera coordinates";
-    else if (!descending && position.elevation >= SUNSET_WINDOWS.extended.minimumElevation && position.elevation <= SUNSET_WINDOWS.extended.maximumElevation) reason = "sun rising, not setting";
-    else if (rejections.has(camera.id)) reason = rejections.get(camera.id)!;
-    return { cameraId: camera.id, name: camera.name, solarElevation: position.elevation, solarAzimuth: position.azimuth, selected, reason };
+    else if (!trend.isSunSetting && inWindow) reason = trend.solarElevationTrend === "ascending" ? "sun rising, not setting" : "sun is not descending";
+    else if (byId.has(camera.id)) reason = byId.get(camera.id)!.reason;
+    return { cameraId: camera.id, name: camera.name, solarElevation: position.elevation, solarAzimuth: position.azimuth, ...trend, selected, reason };
   });
 }
 
@@ -118,8 +122,7 @@ export async function createRanking(date = new Date()): Promise<RankingResponse>
   const strict = await refreshAndRank(strictCandidates, date, provider);
   let results = strict.ranked;
   let refreshed = strict.refreshed;
-  let imagesChecked = strict.imagesChecked;
-  const rejections = new Map(strict.rejections);
+  const candidateDiagnostics = [...strict.evaluations];
   let selectionStage: CandidateStage = "strict";
   if (results.length < MINIMUM_DESIRED_CANDIDATES) {
     selectionStage = "extended";
@@ -128,16 +131,26 @@ export async function createRanking(date = new Date()): Promise<RankingResponse>
     const extended = await refreshAndRank(extendedOnly.map((candidate) => ({ ...candidate, stage: "extended" })), date, provider);
     results = [...results, ...extended.ranked];
     refreshed += extended.refreshed;
-    imagesChecked += extended.imagesChecked;
-    extended.rejections.forEach((reason, id) => rejections.set(id, reason));
+    candidateDiagnostics.push(...extended.evaluations);
   }
   results.sort((a, b) => b.finalScore - a.finalScore || b.sunsetOpportunityScore - a.sunsetOpportunityScore);
   const selectedIds = new Set(results.map(({ camera }) => camera.id));
-  console.info(`[ranking] registry=${cameras.length} strict=${strictCandidates.length} selected=${results.length} metadataRefreshed=${refreshed} imagesChecked=${imagesChecked}`);
+  const featuredIds = new Set(candidateDiagnostics.filter((item) => item.visibility === "featured").map((item) => item.camera.id));
+  const featuredCameraId = results.find((item) => featuredIds.has(item.camera.id))?.camera.id ?? null;
+  const imagesChecked = candidateDiagnostics.filter((item) => item.imageChecked).length;
+  const diagnostics = {
+    astronomical: candidateDiagnostics.length,
+    imagesAnalyzed: candidateDiagnostics.filter((item) => item.imageAnalyzed).length,
+    visibleSunsets: results.length,
+    rejectedEvidence: candidateDiagnostics.filter((item) => item.visibility === "rejected-evidence").length,
+    rejectedOther: candidateDiagnostics.filter((item) => item.visibility === "rejected-other").length,
+    featured: featuredIds.size,
+  };
+  console.info(`[ranking] registry=${cameras.length} ${Object.entries(diagnostics).map(([key, value]) => `${key}=${value}`).join(" ")} metadataRefreshed=${refreshed} imagesChecked=${imagesChecked}`);
   return {
-    generatedAt: date.toISOString(), candidatesEvaluated: results.length, totalCameras: cameras.length,
+    generatedAt: date.toISOString(), candidatesEvaluated: candidateDiagnostics.length, totalCameras: cameras.length,
     sunsetWindows: SUNSET_WINDOWS, selectionStage, minimumDesiredCandidates: MINIMUM_DESIRED_CANDIDATES,
-    results, debug: buildDebug(date, selectedIds, rejections),
+    results, featuredCameraId, candidateDiagnostics, diagnostics, debug: buildDebug(date, selectedIds, candidateDiagnostics),
     provider: { mode: registryIsWindy ? "windy" : "mock", refreshed, imagesChecked, error: providerError },
   };
 }

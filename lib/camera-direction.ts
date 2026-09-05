@@ -34,13 +34,14 @@ export function getAngularDifference(first: number, second: number): number {
 export function getSunAlignmentScore(viewAzimuth: number | undefined, solarAzimuth: number): { score: number; difference?: number } {
   if (viewAzimuth === undefined || !Number.isFinite(solarAzimuth)) return { score: 65 };
   const difference = getAngularDifference(viewAzimuth, solarAzimuth);
-  const points: Array<[number, number]> = [[0, 100], [20, 95], [45, 82], [70, 60], [100, 25], [130, 5], [180, 0]];
+  const points: Array<[number, number]> = [[0, 100], [20, 90], [40, 70], [60, 40], [80, 12], [100, 3], [120, 1], [180, 0]];
   const upperIndex = points.findIndex(([angle]) => difference <= angle);
   if (upperIndex === 0) return { score: points[0][1], difference };
   const [lowerAngle, lowerScore] = points[upperIndex - 1];
   const [upperAngle, upperScore] = points[upperIndex];
   const progress = (difference - lowerAngle) / (upperAngle - lowerAngle);
-  return { score: Math.round((lowerScore + (upperScore - lowerScore) * progress) * 10) / 10, difference };
+  const easedProgress = progress * progress * (3 - 2 * progress);
+  return { score: Math.round((lowerScore + (upperScore - lowerScore) * easedProgress) * 10) / 10, difference };
 }
 
 export function formatDirection(azimuth: number | undefined): string {

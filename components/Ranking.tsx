@@ -1,6 +1,7 @@
 import { HeroSunset } from "@/components/HeroSunset";
 import { ZonedTime } from "@/components/LocalTime";
 import { formatDirection } from "@/lib/camera-direction";
+import { SUNSET_EMPTY_STATE } from "@/lib/config";
 import type { RankedSunset, RankingResponse } from "@/types/ranking";
 
 function Metric({ label, children }: { label: string; children: React.ReactNode }) {
@@ -55,15 +56,15 @@ function CandidateCard({ item, index }: { item: RankedSunset; index: number }) {
 }
 
 export function Ranking({ ranking }: { ranking: RankingResponse }) {
+  const featured = ranking.results.find((item) => item.camera.id === ranking.featuredCameraId);
   return (
     <section className="py-14" aria-labelledby="ranking-title">
-      {ranking.results[0] && <HeroSunset item={ranking.results[0]} />}
+      {featured && <HeroSunset item={featured} />}
       <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-        <div><p className="mb-2 text-[0.65rem] uppercase tracking-[0.35em] text-orange-200/60">Right now</p><h2 id="ranking-title" className="text-2xl font-light tracking-tight sm:text-3xl">Sunset candidates</h2></div>
-        <p className="text-sm text-stone-500">Known cameras: {ranking.totalCameras} · Sunset candidates: {ranking.candidatesEvaluated} · {ranking.selectionStage} window</p>
+        <div><p className="mb-2 text-[0.65rem] uppercase tracking-[0.35em] text-orange-200/60">Right now</p><h2 id="ranking-title" className="text-2xl font-light tracking-tight sm:text-3xl">Visible sunsets right now</h2></div>
+        <p className="text-sm text-stone-500">{ranking.results.length} visible sunsets</p>
       </div>
-      {ranking.results.length === 0 ? <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 text-stone-400">No viable sunset camera is available right now. Dark, stale, and badly aligned images are not used merely to fill the list.</div> : <ol className="grid gap-4 md:grid-cols-2">{ranking.results.map((item, index) => <CandidateCard key={item.camera.id} item={item} index={index} />)}</ol>}
-      {ranking.results.length < ranking.minimumDesiredCandidates && <p className="mt-5 rounded-xl border border-amber-200/10 bg-amber-200/[0.03] p-4 text-sm text-amber-100/60">Only {ranking.results.length} viable candidates are available. The list is intentionally not padded with obvious night or stale images.</p>}
+      {ranking.results.length === 0 ? <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 text-stone-400"><p className="text-xl text-stone-200">{SUNSET_EMPTY_STATE.title}</p><p className="mt-3">{SUNSET_EMPTY_STATE.description}</p></div> : <ol className="grid gap-4 md:grid-cols-2">{ranking.results.map((item, index) => <CandidateCard key={item.camera.id} item={item} index={index} />)}</ol>}
       <p className="mt-5 text-xs leading-relaxed text-stone-600">Sunset evidence determines whether sunset colors are actually present in the sky and horizon. Beauty can enhance credible evidence but cannot rescue an ordinary scene.</p>
       <p className="mt-2 text-xs text-stone-600">Provider: {ranking.provider.mode}; refreshed {ranking.provider.refreshed} candidate records and checked {ranking.provider.imagesChecked} candidate images only.{ranking.provider.error && ` ${ranking.provider.error}`}</p>
     </section>

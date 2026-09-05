@@ -17,6 +17,8 @@ async function main() {
   console.log(JSON.stringify({
     generatedAt: ranking.generatedAt,
     candidateCount: ranking.results.length,
+    diagnostics: ranking.diagnostics,
+    featuredCameraId: ranking.featuredCameraId,
     distribution: {
       minimum: scores[0] ?? 0,
       median: Math.round(median(scores) * 10) / 10,
@@ -31,6 +33,13 @@ async function main() {
       cameraId: result.camera.id, cameraName: result.camera.name,
       sunsetEvidenceScore: result.sunsetEvidenceScore, sunsetBeautyScore: result.sunsetBeautyScore,
       sunsetScore: result.sunsetScore, finalScore: result.finalScore,
+    })),
+    rejectedCandidates: ranking.candidateDiagnostics.filter((item) => item.visibility.startsWith("rejected")).map((item) => ({
+      cameraId: item.camera.id, cameraName: item.camera.name, reason: item.reason,
+      solarElevation: item.solarElevation, solarElevationTrend: item.solarElevationTrend,
+      solarTrendDegreesPerMinute: item.solarTrendDegreesPerMinute,
+      sunsetEvidenceScore: item.scored?.sunsetEvidenceScore ?? null,
+      sunsetScore: item.scored?.sunsetScore ?? null, finalScore: item.scored?.finalScore ?? null,
     })),
     requests: ranking.provider,
   }, null, 2));
