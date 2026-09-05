@@ -2,6 +2,7 @@ import { HeroSunset } from "@/components/HeroSunset";
 import { ZonedTime } from "@/components/LocalTime";
 import { formatDirection } from "@/lib/camera-direction";
 import { SUNSET_EMPTY_STATE } from "@/lib/config";
+import { getSunsetStrength } from "@/lib/sunset-strength";
 import type { RankedSunset, RankingResponse } from "@/types/ranking";
 
 function Metric({ label, children }: { label: string; children: React.ReactNode }) {
@@ -42,6 +43,7 @@ function CandidateCard({ item, index }: { item: RankedSunset; index: number }) {
           <Metric label="Sunset evidence">{item.sunsetEvidenceScore.toFixed(1)}/100</Metric>
           <Metric label="Sunset beauty">{item.sunsetBeautyScore.toFixed(1)}/100</Metric>
           <Metric label="Visual sunset score">{item.sunsetScore.toFixed(1)}/100</Metric>
+          <Metric label="Sunset strength">{getSunsetStrength(item.sunsetScore)}</Metric>
           <Metric label="Final score">{item.finalScore.toFixed(1)}/100</Metric>
           <Metric label="Opportunity">{item.sunsetOpportunityScore}/100</Metric>
         </div>
@@ -56,7 +58,7 @@ function CandidateCard({ item, index }: { item: RankedSunset; index: number }) {
 }
 
 export function Ranking({ ranking }: { ranking: RankingResponse }) {
-  const featured = ranking.results.find((item) => item.camera.id === ranking.featuredCameraId);
+  const featured = ranking.featuredSunset;
   return (
     <section className="py-14" aria-labelledby="ranking-title">
       {featured && <HeroSunset item={featured} />}

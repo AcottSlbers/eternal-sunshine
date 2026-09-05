@@ -97,12 +97,27 @@ To print the current real candidate distribution and every score:
 npm run diagnose-sunset-scores
 ```
 
+## Public diversity and hero stability (Phase 3.2)
+
+All Phase 3.1 visual gates and scoring remain unchanged. Visible candidates are sorted by `finalScore`, then opportunity, then camera ID for deterministic ties. A greedy geographic pass keeps the strongest camera and suppresses lower-ranked cameras within 25 km of an already retained camera. It uses great-circle distance, not shared region or location names, and does not transitively merge chains of locations. The registry is never edited.
+
+`candidateDiagnostics` retains every evaluated camera, including suppressed scores and a separate `suppression` reason, distance, and winning camera ID. `visibleSunsets` counts passing cameras before dedupe; `publicRanked` counts public cards; `suppressedNearby` is their difference. `scoreGapToSecond` compares the first two public cards' final scores (null if fewer than two).
+
+The hero is selected independently from fresh featured candidates **before** card dedupe. A currently qualified hero stays until a challenger gains at least 3 final-score points. Every refresh revalidates it using the latest candidate data; disappearance, stale/unknown image freshness, invalid analysis, or failed featured thresholds trigger immediate reselection. The existing 12-hour freshness limit applies. No score is boosted. Only a camera ID and evaluation timestamp are retained in server-process memory; restarting the server resets the choice. Separate server processes do not share this state, and a standalone diagnostic command starts with no previous hero.
+
+`featuredSunset` supplies the hero independently of `results`. During hysteresis it can remain on screen even when a slightly stronger nearby camera takes the public card slot. The debug panel explains the hero decision. Public cards remain geographically deduplicated and score-sorted.
+
+Radius, hero switch gain, and presentation-only Sunset Strength thresholds are in `lib/config.ts`. Strength uses the unchanged visual `sunsetScore`: below 20 not visible, 20 subtle, 40 good, 60 strong, 80 spectacular.
+
+`npm run diagnose-sunset-scores` reports both rankings from the **same** image evaluation, the pre-dedupe visible score distribution, counts, hero decision, public top-two gap, and suppressed cameras. See `docs/phase-3.2-evaluation.md` for the real-data verification snapshot and its limitations.
+
 ## Validation
 
 ```bash
 npm test
 npm run lint
 npm run build
+git diff --check
 ```
 
 Tests cover window boundaries, phase scores, solar azimuth, sunrise exclusion, camera alignment and wraparound, coordinate-to-IANA timezone lookup, DST, image checks, explicit sunset/non-sunset fixtures, score ordering and gating, quality overrides, seasonal coverage, gap contribution, minimum quality, permanent rejection, deterministic optimization, and 192/250/300/400-camera prefixes.

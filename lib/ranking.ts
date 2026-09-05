@@ -7,6 +7,7 @@ import { WindyWebcamProvider } from "@/lib/providers/windy-webcam-provider";
 import { getSolarPosition, getSolarTrend, getSunsetCandidates, getSunsetPhaseScore } from "@/lib/solar";
 import { classifySunsetVisibility } from "@/lib/sunset-visibility";
 import { getCameraTimeZone } from "@/lib/time-zone";
+import { compareSunsets, deduplicatePublicRanking, selectRuntimeHero } from "@/lib/public-ranking";
 import type { Camera } from "@/types/camera";
 import type { CameraDebugEntry, CandidateDiagnostic, CandidateStage, ImageViability, RankedSunset, RankingResponse, SunsetCandidate } from "@/types/ranking";
 
@@ -106,12 +107,12 @@ function buildDebug(date: Date, selectedIds: Set<string>, evaluations: Candidate
     if (!camera.enabled) reason = "camera disabled";
     else if (!Number.isFinite(position.elevation)) reason = "invalid camera coordinates";
     else if (!trend.isSunSetting && inWindow) reason = trend.solarElevationTrend === "ascending" ? "sun rising, not setting" : "sun is not descending";
-    else if (byId.has(camera.id)) reason = byId.get(camera.id)!.reason;
+    else if (byId.has(camera.id)) reason = byId.get(camera.id)!.suppression?.reason ?? byId.get(camera.id)!.reason;
     return { cameraId: camera.id, name: camera.name, solarElevation: position.elevation, solarAzimuth: position.azimuth, ...trend, selected, reason };
   });
 }
 
-export async function createRanking(date = new Date()): Promise<RankingResponse> {
+export async function createRanking(date = new Date(), selectHero = selectRuntimeHero): Promise<RankingResponse> {
   const registryIsWindy = cameras.some((camera) => camera.source === "windy");
   let provider: WindyWebcamProvider | undefined;
   let providerError: string | undefined;
@@ -133,15 +134,25 @@ export async function createRanking(date = new Date()): Promise<RankingResponse>
     refreshed += extended.refreshed;
     candidateDiagnostics.push(...extended.evaluations);
   }
-  results.sort((a, b) => b.finalScore - a.finalScore || b.sunsetOpportunityScore - a.sunsetOpportunityScore);
+  results.sort(compareSunsets);
+  const visibleSunsets = results.length;
+  // Hero stability is independent of the score-sorted, geographically diverse card list.
+  const { featuredSunset, heroDecision } = selectHero(results, date);
+  const publicRanking = deduplicatePublicRanking(results);
+  results = publicRanking.results;
+  const suppressions = new Map(publicRanking.suppressed.map((item) => [item.cameraId, item]));
+  for (const diagnostic of candidateDiagnostics) diagnostic.suppression = suppressions.get(diagnostic.camera.id);
   const selectedIds = new Set(results.map(({ camera }) => camera.id));
   const featuredIds = new Set(candidateDiagnostics.filter((item) => item.visibility === "featured").map((item) => item.camera.id));
-  const featuredCameraId = results.find((item) => featuredIds.has(item.camera.id))?.camera.id ?? null;
+  const featuredCameraId = featuredSunset?.camera.id ?? null;
   const imagesChecked = candidateDiagnostics.filter((item) => item.imageChecked).length;
   const diagnostics = {
     astronomical: candidateDiagnostics.length,
     imagesAnalyzed: candidateDiagnostics.filter((item) => item.imageAnalyzed).length,
-    visibleSunsets: results.length,
+    visibleSunsets,
+    publicRanked: results.length,
+    suppressedNearby: publicRanking.suppressed.length,
+    scoreGapToSecond: results.length >= 2 ? Math.round((results[0].finalScore - results[1].finalScore) * 10) / 10 : null,
     rejectedEvidence: candidateDiagnostics.filter((item) => item.visibility === "rejected-evidence").length,
     rejectedOther: candidateDiagnostics.filter((item) => item.visibility === "rejected-other").length,
     featured: featuredIds.size,
@@ -150,7 +161,7 @@ export async function createRanking(date = new Date()): Promise<RankingResponse>
   return {
     generatedAt: date.toISOString(), candidatesEvaluated: candidateDiagnostics.length, totalCameras: cameras.length,
     sunsetWindows: SUNSET_WINDOWS, selectionStage, minimumDesiredCandidates: MINIMUM_DESIRED_CANDIDATES,
-    results, featuredCameraId, candidateDiagnostics, diagnostics, debug: buildDebug(date, selectedIds, candidateDiagnostics),
+    results, featuredCameraId, featuredSunset, heroDecision, candidateDiagnostics, diagnostics, debug: buildDebug(date, selectedIds, candidateDiagnostics),
     provider: { mode: registryIsWindy ? "windy" : "mock", refreshed, imagesChecked, error: providerError },
   };
 }

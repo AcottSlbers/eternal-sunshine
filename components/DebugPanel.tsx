@@ -1,10 +1,14 @@
 import type { RankingResponse } from "@/types/ranking";
+import { HERO_SWITCH_MIN_SCORE_GAIN, PUBLIC_RANKING_DEDUPE_RADIUS_KM } from "@/lib/config";
+import { getSunsetStrength } from "@/lib/sunset-strength";
 
 export function DebugPanel({ ranking }: { ranking: RankingResponse }) {
   return (
     <details className="rounded-2xl border border-white/10 bg-black/20 p-5 text-sm text-stone-400">
       <summary className="cursor-pointer select-none uppercase tracking-[0.25em] text-stone-500">Developer debug · all cameras</summary>
-      <dl className="mt-5 flex flex-wrap gap-5 text-xs">{Object.entries(ranking.diagnostics).map(([label, value]) => <div key={label}><dt>{label}</dt><dd className="text-lg text-stone-200">{value}</dd></div>)}</dl>
+      <dl className="mt-5 flex flex-wrap gap-5 text-xs">{Object.entries(ranking.diagnostics).map(([label, value]) => <div key={label}><dt>{label}</dt><dd className="text-lg text-stone-200">{value ?? "N/A"}</dd></div>)}</dl>
+      <p className="mt-3 text-xs">Dedupe radius: {PUBLIC_RANKING_DEDUPE_RADIUS_KM} km. Hero switch gain: {HERO_SWITCH_MIN_SCORE_GAIN}. Gap compares the first two public cards, independently of the stable hero.</p>
+      <p className="mt-2 text-xs">Hero: {ranking.featuredSunset?.camera.name ?? "none"} ({ranking.featuredCameraId ?? "none"}); previous: {ranking.heroDecision.previousCameraId ?? "none"}. {ranking.heroDecision.reason}</p>
       <section className="mt-6" aria-labelledby="visual-score-debug">
         <h3 id="visual-score-debug" className="text-xs uppercase tracking-[0.22em] text-orange-200/60">Current candidate score distribution</h3>
         <div className="mt-4 grid gap-3 lg:grid-cols-2">
@@ -20,6 +24,8 @@ export function DebugPanel({ ranking }: { ranking: RankingResponse }) {
                   <div><span className="block text-stone-600">Final</span><strong className="text-orange-100">{item?.finalScore.toFixed(1) ?? "—"}</strong></div>
                 </div>
               </div>
+              {diagnostic.suppression && <p className="mt-3 text-xs text-orange-200">{diagnostic.suppression.reason}: {diagnostic.suppression.keptCameraId}, {diagnostic.suppression.distanceKm.toFixed(2)} km away</p>}
+              {item && <p className="mt-2 text-xs">Sunset strength: {getSunsetStrength(item.sunsetScore)}</p>}
               {item && <dl className="mt-4 grid grid-cols-2 gap-x-5 gap-y-1 border-t border-white/[0.06] pt-3 text-xs">
                 {Object.entries(item.sunsetMetrics).map(([name, value]) => <div key={name} className="contents"><dt className="truncate text-stone-600">{name}</dt><dd className="text-right font-mono text-stone-400 sm:text-left">{value.toFixed(1)}</dd></div>)}
               </dl>}

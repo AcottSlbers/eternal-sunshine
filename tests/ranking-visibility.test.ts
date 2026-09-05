@@ -6,6 +6,8 @@ import { Ranking } from "../components/Ranking";
 import { DebugPanel } from "../components/DebugPanel";
 import { UNAVAILABLE_VISUAL_SUNSET_SCORE } from "../lib/image-score";
 import type { Camera } from "../types/camera";
+import cameras from "../data/cameras.json";
+import { createHeroSelector } from "../lib/public-ranking";
 
 const mocks = vi.hoisted(() => ({ analyze: vi.fn(), refresh: vi.fn() }));
 vi.mock("../data/cameras.json", () => ({ default: [
@@ -14,7 +16,7 @@ vi.mock("../data/cameras.json", () => ({ default: [
   { id: "sunset", name: "Visible sunset", latitude: 0, longitude: 0, source: "windy", enabled: true, qualityWeight: 1, imageUrl: "https://example.test/sunset" },
   { id: "extended", name: "Extended sunset", latitude: 0, longitude: 5, source: "windy", enabled: true, qualityWeight: 1, imageUrl: "https://example.test/extended" },
   { id: "sunrise", name: "Sunrise camera", latitude: 0, longitude: 180, source: "windy", enabled: true, qualityWeight: 1, imageUrl: "https://example.test/sunrise" },
-] }));
+].map((camera, index) => ({ ...camera, latitude: index * 0.5, imageUpdatedAt: "2026-03-20T18:00:00Z" })) }));
 vi.mock("../lib/providers/windy-webcam-provider", () => ({
   WindyWebcamProvider: class { getCameras = mocks.refresh; },
 }));
@@ -44,13 +46,45 @@ beforeEach(() => {
 afterEach(() => { vi.unstubAllGlobals(); });
 
 describe("runtime visible sunset selection", () => {
+  it("renders a retained hero independently of its nearby challenger winning the public card slot", async () => {
+    mocks.refresh.mockImplementation(async (ids: string[]) => cameras.filter((camera) => ids.includes(camera.id)).map((camera) => camera.id === "twilight" ? { ...camera, latitude: 1.01 } : camera));
+    const selectHero = createHeroSelector();
+    expect((await createRanking(date, selectHero)).featuredCameraId).toBe("sunset");
+    mocks.analyze.mockImplementation(async (url: string) => analysis(70, url.endsWith("twilight") ? 66 : url.endsWith("sunset") ? 65 : 10));
+    const ranking = await createRanking(date, selectHero);
+    expect(ranking.results.map((item) => item.camera.id)).toEqual(["twilight"]);
+    expect(ranking.featuredCameraId).toBe("sunset");
+    expect(ranking.featuredSunset?.sunsetScore).toBe(65);
+    const html = renderToStaticMarkup(React.createElement(Ranking, { ranking }));
+    expect(html).toContain("Best sunset right now");
+    expect(html).toContain("Visible sunset");
+    expect(html).toContain("Weak twilight");
+    expect(ranking.diagnostics.scoreGapToSecond).toBeNull();
+  });
+
+  it("retains geographically suppressed scores and reasons in debug, not public cards", async () => {
+    mocks.refresh.mockImplementation(async (ids: string[]) => cameras.filter((camera) => ids.includes(camera.id)).map((camera) => camera.id === "twilight" ? { ...camera, latitude: 1.01 } : camera));
+    const ranking = await createRanking(date, createHeroSelector());
+    expect(ranking.results.map((item) => item.camera.id)).toEqual(["sunset", "extended"]);
+    expect(ranking.diagnostics).toMatchObject({ visibleSunsets: 3, publicRanked: 2, suppressedNearby: 1 });
+    const suppressed = ranking.candidateDiagnostics.find((item) => item.camera.id === "twilight")!;
+    expect(suppressed.visibility).toBe("visible");
+    expect(suppressed.scored?.sunsetScore).toBe(25);
+    expect(suppressed.suppression).toMatchObject({ keptCameraId: "sunset", reason: "suppressed: nearby higher-ranked camera" });
+    expect(renderToStaticMarkup(React.createElement(Ranking, { ranking }))).not.toContain("Weak twilight");
+    const debugHtml = renderToStaticMarkup(React.createElement(DebugPanel, { ranking }));
+    expect(debugHtml).toContain("Weak twilight");
+    expect(debugHtml).toContain("suppressed: nearby higher-ranked camera");
+    expect(ranking.debug.find((item) => item.cameraId === "twilight")?.reason).toBe(suppressed.suppression?.reason);
+  });
+
   it("gates after analysis, expands for visible count, keeps debug scores, and excludes sunrise before requests", async () => {
-    const ranking = await createRanking(date);
+    const ranking = await createRanking(date, createHeroSelector());
     expect(ranking.results.map((item) => item.camera.id)).toEqual(["sunset", "extended", "twilight"]);
     expect(ranking.featuredCameraId).toBe("sunset");
     const scores = ranking.results.map((item) => item.finalScore);
     expect(scores).toEqual([...scores].sort((a, b) => b - a));
-    expect(ranking.diagnostics).toEqual({ astronomical: 4, imagesAnalyzed: 4, visibleSunsets: 3, rejectedEvidence: 1, rejectedOther: 0, featured: 2 });
+    expect(ranking.diagnostics).toEqual({ astronomical: 4, imagesAnalyzed: 4, visibleSunsets: 3, publicRanked: 3, suppressedNearby: 0, scoreGapToSecond: Math.round((scores[0] - scores[1]) * 10) / 10, rejectedEvidence: 1, rejectedOther: 0, featured: 2 });
     expect(mocks.refresh.mock.calls).toEqual([[["snow", "twilight", "sunset"]], [["extended"]]]);
     expect(mocks.analyze).toHaveBeenCalledTimes(4);
     const rejected = ranking.candidateDiagnostics.find((item) => item.camera.id === "snow")!;

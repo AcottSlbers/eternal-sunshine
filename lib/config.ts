@@ -9,6 +9,15 @@ export const MIN_VISIBLE_SUNSET_EVIDENCE = 20;
 export const MIN_VISIBLE_SUNSET_SCORE = 20;
 export const MIN_FEATURED_SUNSET_EVIDENCE = 30;
 export const MIN_FEATURED_SUNSET_SCORE = 30;
+export const PUBLIC_RANKING_DEDUPE_RADIUS_KM = 25;
+export const HERO_SWITCH_MIN_SCORE_GAIN = 3;
+export const SUNSET_STRENGTH_LEVELS = [
+  { minimum: 80, label: "spectacular" },
+  { minimum: 60, label: "strong" },
+  { minimum: 40, label: "good" },
+  { minimum: 20, label: "subtle" },
+  { minimum: 0, label: "not visible" },
+] as const;
 export const SOLAR_TREND_MINUTES = 10;
 export const SUNSET_EMPTY_STATE = {
   title: "Searching for the next great sunset…",

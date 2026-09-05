@@ -84,18 +84,35 @@ export interface RankedSunset extends SunsetCandidate {
 
 export type SunsetVisibility = "rejected-evidence" | "rejected-other" | "visible" | "featured";
 
+export interface NearbySuppression {
+  cameraId: string;
+  keptCameraId: string;
+  distanceKm: number;
+  reason: "suppressed: nearby higher-ranked camera";
+}
+
+export interface HeroDecision {
+  previousCameraId: string | null;
+  cameraId: string | null;
+  reason: string;
+}
+
 export interface CandidateDiagnostic extends SunsetCandidate {
   visibility: SunsetVisibility;
   reason: string;
   imageChecked: boolean;
   imageAnalyzed: boolean;
   scored?: RankedSunset;
+  suppression?: NearbySuppression;
 }
 
 export interface RankingDiagnostics {
   astronomical: number;
   imagesAnalyzed: number;
   visibleSunsets: number;
+  publicRanked: number;
+  suppressedNearby: number;
+  scoreGapToSecond: number | null;
   rejectedEvidence: number;
   rejectedOther: number;
   featured: number;
@@ -122,6 +139,8 @@ export interface RankingResponse {
   minimumDesiredCandidates: number;
   results: RankedSunset[];
   featuredCameraId: string | null;
+  featuredSunset: RankedSunset | null;
+  heroDecision: HeroDecision;
   candidateDiagnostics: CandidateDiagnostic[];
   diagnostics: RankingDiagnostics;
   debug: CameraDebugEntry[];
