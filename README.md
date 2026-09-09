@@ -154,6 +154,18 @@ Ranking cards select a large local view without changing backend order or Hero h
 
 The public response type lives in `types/public-ranking.ts`; `/api/public-ranking` omits final score, evidence, opportunity, image metrics, diagnostics, and provider request counters. `/api/ranking`, `/dev/cameras`, `/dev/coverage`, and `npm run diagnose-sunset-scores` retain their full debugging information.
 
-## Not implemented
+## Local calibration harness (Phase 3.4)
+
+Start `npm run dev` and open [http://localhost:3000/dev/calibration](http://localhost:3000/dev/calibration). In production this route invokes Next's not-found boundary before fetching data; it never renders the workbench. With the app's streamed loading boundary the HTTP status can still be 200, but the response is the not-found page, not calibration data. In development it runs the existing scorer once on page load with an isolated hero selector, so inspection does not update the public hero's remembered state. There is no polling: reload manually for a new snapshot using the existing candidate/provider pipeline.
+
+The page shows **all analyzed astronomical candidates**, including visual rejections and nearby-suppressed cameras, with uncropped previews, provider attribution, all scores, solar phase, visibility/rejection reasons and every image metric. Cameras rejected before analysis have no scored image to compare and are excluded. Provider counts include Windy and MeteoGalicia even when one has zero current candidates. Sort locally by FinalScore, SunsetScore, Evidence or provider, then choose two different cameras for side-by-side comparison. Neither selection nor feedback changes ranking.
+
+Feedback lives solely in this browser's `localStorage` under `eternal-sunshine.calibration.v1`. Format: `{ "version": 1, "comparisons": [...] }`; each comparison contains evaluation `timestamp`, `rankingTimestamp`, `a` and `b` snapshots and `choice` (`a`, `b`, `equal`, `neither`). Each snapshot contains camera ID, provider, location, image timestamp, Evidence/Beauty/SunsetScore/FinalScore, phase/elevation/stage, visibility/reason and all metrics. **No image bytes or image URLs are stored or exported.** Export local JSON to retain a portable backup. Clearing browser data deletes local evaluations; different browsers/origins have separate histories. Invalid storage disables saving rather than silently overwriting existing data. Storage quota failures are shown explicitly. No feedback endpoint, database, external submission or automated weight adjustment exists.
+
+Rejudging the same unordered pair within one ranking snapshot replaces its previous choice; later snapshots are separate comparisons. Agreement is the fraction of strict A/B preferences whose preferred image has the higher SunsetScore. Equal/neither judgments are excluded; score ties do not match a strict preference. No eligible preferences shows N/A. False positives count unique visible/featured camera frames explicitly labeled “neither is a sunset”, deduplicated by provider, ID and image timestamp (ranking timestamp if image time is unavailable). Preferring A does not assert B is a non-sunset. The separate neither count counts pair judgments, not images.
+
+The harness stores measurements, not reproducible image archives. Third-party preview URLs can update or expire after scoring, so verify the displayed image timestamp before judging and skip pairs with unavailable images. The existing scorer, thresholds, integrations, coverage optimizer, dedupe, live playback and normal `/` page are unchanged.
+
+## Not implemented yet
 
 There is no machine learning, weather enrichment, database, authentication, queue, or deployment. The visual scorer is deterministic and intentionally analyzes current astronomical candidates only.
