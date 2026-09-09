@@ -1,3 +1,12 @@
+export type CameraSource = "mock" | "windy" | "meteogalicia";
+
+export interface CameraAttribution {
+  name: string;
+  url: string;
+  license?: string;
+  licenseUrl?: string;
+}
+
 export interface Camera {
   id: string;
   name: string;
@@ -5,7 +14,10 @@ export interface Camera {
   longitude: number;
   country?: string;
   region?: string;
-  source: "mock" | "windy";
+  city?: string;
+  source: CameraSource;
+  attribution?: CameraAttribution;
+  previewImageUrl?: string;
   sourceUrl?: string;
   providerUrl?: string;
   hasLiveStream?: boolean;

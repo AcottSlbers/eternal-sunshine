@@ -1,6 +1,8 @@
 import { readFile } from "node:fs/promises";
 import path from "node:path";
 import type { Camera } from "@/types/camera";
+import meteogalicia from "@/data/meteogalicia-cameras.json";
+import { getCameraAttribution } from "@/lib/providers/attribution";
 
 export const dynamic = "force-dynamic";
 
@@ -9,9 +11,10 @@ const PAGE_SIZE = 100;
 
 async function getCameras(): Promise<Camera[]> {
   try {
-    return JSON.parse(await readFile(path.join(process.cwd(), "data", "cameras-reviewed.json"), "utf8")) as Camera[];
+    const reviewed = JSON.parse(await readFile(path.join(process.cwd(), "data", "cameras-reviewed.json"), "utf8")) as Camera[];
+    return [...reviewed, ...meteogalicia as Camera[]];
   } catch {
-    return [];
+    return meteogalicia as Camera[];
   }
 }
 
@@ -56,6 +59,7 @@ export default async function CamerasPage({ searchParams }: { searchParams: Prom
             </div>
             <dl className="mt-5 grid grid-cols-2 gap-y-2 border-t border-white/10 pt-4 text-sm">
               <dt className="text-stone-500">Live</dt><dd className="text-right">{camera.hasLiveStream ? "Yes" : "No"}</dd>
+              <dt className="text-stone-500">Source</dt><dd className="text-right">{getCameraAttribution(camera).name}</dd>
               <dt className="text-stone-500">Provider URL</dt><dd className="text-right">{camera.providerUrl ? "Yes" : "No"}</dd>
               <dt className="text-stone-500">Player type</dt><dd className="text-right">{camera.livePlayer?.type ?? "—"}</dd>
               <dt className="text-stone-500">Quality</dt><dd className="text-right">{camera.review?.quality.score ?? "—"}</dd>
@@ -63,7 +67,7 @@ export default async function CamerasPage({ searchParams }: { searchParams: Prom
             <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2 text-xs uppercase tracking-wider">
               {camera.livePlayer?.url && <a className="text-red-200/70 hover:text-red-100" href={camera.livePlayer.url} target="_blank" rel="noopener noreferrer">Test player ↗</a>}
               {camera.providerUrl && <a className="text-orange-200/70 hover:text-orange-100" href={camera.providerUrl} target="_blank" rel="noopener noreferrer">Provider ↗</a>}
-              {camera.sourceUrl && <a className="text-stone-500 hover:text-stone-300" href={camera.sourceUrl} target="_blank" rel="noopener noreferrer">Windy ↗</a>}
+              {camera.sourceUrl && <a className="text-stone-500 hover:text-stone-300" href={camera.sourceUrl} target="_blank" rel="noopener noreferrer">{getCameraAttribution(camera).name} ↗</a>}
             </div>
           </article>
         ))}

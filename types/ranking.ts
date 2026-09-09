@@ -14,6 +14,16 @@ export interface ImageViability {
 }
 
 export interface SunsetScoreMetrics {
+  estimatedHorizonY: number;
+  horizonConfidence: number;
+  skyConfidence: number;
+  skySunsetColorRatio: number;
+  horizonSunsetColorRatio: number;
+  foregroundSunsetColorRatio: number;
+  foregroundSunsetLeakageRatio: number;
+  sunsetColorGeometryScore: number;
+  horizonGlowScore: number;
+  intenseHorizonGlow: number;
   upperSkyWarmShare: number;
   horizonWarmShare: number;
   upperSkyPinkPurpleShare: number;
@@ -144,5 +154,9 @@ export interface RankingResponse {
   candidateDiagnostics: CandidateDiagnostic[];
   diagnostics: RankingDiagnostics;
   debug: CameraDebugEntry[];
-  provider: { mode: "mock" | "windy"; refreshed: number; imagesChecked: number; error?: string };
+  providerDiagnostics: Record<string, {
+    registry: number; freshKnownImages: number; astronomical: number; evaluated: number;
+    imagesAnalyzed: number; visible: number; featured: number; publicRanked: number; error?: string;
+  }>;
+  provider: { mode: "mock" | "windy" | "meteogalicia" | "mixed"; refreshed: number; imagesChecked: number; error?: string };
 }

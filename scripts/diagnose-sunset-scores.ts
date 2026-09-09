@@ -19,6 +19,7 @@ async function main() {
   const scores = visible.map((result) => result.sunsetScore).sort((first, second) => first - second);
   const summarize = (result: RankedSunset) => ({
     cameraId: result.camera.id, cameraName: result.camera.name,
+    source: result.camera.source,
     latitude: result.camera.latitude, longitude: result.camera.longitude,
     sunsetEvidenceScore: result.sunsetEvidenceScore, sunsetBeautyScore: result.sunsetBeautyScore,
     sunsetScore: result.sunsetScore, finalScore: result.finalScore,
@@ -28,6 +29,7 @@ async function main() {
     generatedAt: ranking.generatedAt,
     candidateCount: ranking.results.length,
     diagnostics: ranking.diagnostics,
+    providerDistribution: ranking.providerDiagnostics,
     featuredCameraId: ranking.featuredCameraId,
     hero: ranking.featuredSunset ? summarize(ranking.featuredSunset) : null,
     heroDecision: ranking.heroDecision,
@@ -52,14 +54,17 @@ async function main() {
     } : null,
     candidates: ranking.results.map((result) => ({
       cameraId: result.camera.id, cameraName: result.camera.name,
+      source: result.camera.source, metrics: result.sunsetMetrics,
       sunsetEvidenceScore: result.sunsetEvidenceScore, sunsetBeautyScore: result.sunsetBeautyScore,
       sunsetScore: result.sunsetScore, finalScore: result.finalScore,
     })),
     rejectedCandidates: ranking.candidateDiagnostics.filter((item) => item.visibility.startsWith("rejected")).map((item) => ({
       cameraId: item.camera.id, cameraName: item.camera.name, reason: item.reason,
+      source: item.camera.source, metrics: item.scored?.sunsetMetrics ?? null,
       solarElevation: item.solarElevation, solarElevationTrend: item.solarElevationTrend,
       solarTrendDegreesPerMinute: item.solarTrendDegreesPerMinute,
       sunsetEvidenceScore: item.scored?.sunsetEvidenceScore ?? null,
+      sunsetBeautyScore: item.scored?.sunsetBeautyScore ?? null,
       sunsetScore: item.scored?.sunsetScore ?? null, finalScore: item.scored?.finalScore ?? null,
     })),
     requests: ranking.provider,

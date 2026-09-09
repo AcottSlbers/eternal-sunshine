@@ -5,6 +5,7 @@
     "start": "next start",
     "lint": "eslint app components lib types scripts tests next.config.ts tailwind.config.ts vitest.config.mjs",
     "discover-cameras": "tsx scripts/discover-cameras.ts",
+    "discover-meteogalicia": "tsx scripts/discover-meteogalicia.ts",
     "diagnose-sunset-scores": "tsx scripts/diagnose-sunset-scores.ts",
     "test": "vitest run",
     "build-camera-registry": "tsx scripts/build-camera-registry.ts",

@@ -1,6 +1,7 @@
 import sharp from "sharp";
 import { analyzeImageBuffer, UNAVAILABLE_IMAGE_VIABILITY } from "@/lib/image-viability";
 import type { ImageViability, SunsetScoreMetrics, VisualSunsetScore } from "@/types/ranking";
+import { estimateSkyGeometry, sunsetGeometryScore } from "@/lib/sky-geometry";
 
 const WIDTH = 256;
 const HEIGHT = 144;
@@ -10,6 +11,7 @@ interface RegionAccumulator {
   warm: number;
   pinkPurple: number;
   sunset: number;
+  intenseWarm: number;
   twilightBlue: number;
   luminanceSum: number;
   redSum: number;
@@ -38,7 +40,7 @@ const smoothstep = (value: number) => {
 };
 
 function createRegion(): RegionAccumulator {
-  return { pixels: 0, warm: 0, pinkPurple: 0, sunset: 0, twilightBlue: 0, luminanceSum: 0, redSum: 0, greenSum: 0, blueSum: 0, saturationSum: 0, sunsetSaturationSum: 0, hueBins: [0, 0, 0, 0, 0], edges: 0, comparisons: 0 };
+  return { pixels: 0, warm: 0, pinkPurple: 0, sunset: 0, intenseWarm: 0, twilightBlue: 0, luminanceSum: 0, redSum: 0, greenSum: 0, blueSum: 0, saturationSum: 0, sunsetSaturationSum: 0, hueBins: [0, 0, 0, 0, 0], edges: 0, comparisons: 0 };
 }
 
 function toHsv(red: number, green: number, blue: number): HsvColor {
@@ -84,6 +86,7 @@ function addPixel(region: RegionAccumulator, red: number, green: number, blue: n
     region.sunsetSaturationSum += color.saturation;
     if (classification.bin !== undefined) region.hueBins[classification.bin] += 1;
   }
+  if (color.value > .9 && color.saturation > .1 && color.hue < 65 && luminance > 180) region.intenseWarm++;
   if (previousLuminance !== undefined) {
     region.comparisons += 1;
     if (Math.abs(luminance - previousLuminance) > 24) region.edges += 1;
@@ -96,6 +99,9 @@ function regionMean(region: RegionAccumulator, field: "luminanceSum" | "redSum" 
 
 function unavailableVisualScore(reason: string): VisualSunsetScore {
   const metrics: SunsetScoreMetrics = {
+    estimatedHorizonY: 0, horizonConfidence: 0, skyConfidence: 0,
+    skySunsetColorRatio: 0, horizonSunsetColorRatio: 0, foregroundSunsetColorRatio: 0,
+    foregroundSunsetLeakageRatio: 0, sunsetColorGeometryScore: 0, horizonGlowScore: 0, intenseHorizonGlow: 0,
     upperSkyWarmShare: 0, horizonWarmShare: 0, upperSkyPinkPurpleShare: 0, horizonPinkPurpleShare: 0,
     foregroundSunsetColorShare: 0, sunsetColorConcentration: 0, localizedSunsetPresence: 0, sunsetColorDiversity: 0, sunsetColorStrength: 0,
     horizonGlow: 0, chromaticDifference: 0, chromaticHorizonCoherence: 0, luminanceContrast: 0, dynamicRange: 0, textureEnhancement: 0,
@@ -110,6 +116,8 @@ export const UNAVAILABLE_VISUAL_SUNSET_SCORE = unavailableVisualScore("Image cou
 export async function analyzeSunsetImage(buffer: Buffer, sunsetPhaseScore: number): Promise<VisualSunsetScore> {
   const { data, info } = await sharp(buffer).resize(WIDTH, HEIGHT, { fit: "inside", withoutEnlargement: true }).removeAlpha().raw().toBuffer({ resolveWithObject: true });
   if (info.channels < 3 || info.width < 2 || info.height < 2) return unavailableVisualScore("Invalid image pixels.");
+  const geometry = estimateSkyGeometry(data, info.width, info.height, info.channels);
+  const sunsetMask = new Uint8Array(info.width * info.height);
 
   const upperSky = createRegion(); const horizon = createRegion(); const foreground = createRegion();
   const localUpperSky = Array.from({ length: 8 }, createRegion); const localHorizon = Array.from({ length: 8 }, createRegion);
@@ -122,12 +130,15 @@ export async function analyzeSunsetImage(buffer: Buffer, sunsetPhaseScore: numbe
       const red = data[offset]; const green = data[offset + 1]; const blue = data[offset + 2];
       const luminance = 0.2126 * red + 0.7152 * green + 0.0722 * blue;
       const color = toHsv(red, green, blue);
-      const yRatio = y / info.height;
-      const region = yRatio < 0.42 ? upperSky : yRatio < 0.7 ? horizon : foreground;
+      const skyBottom = geometry.boundary[x];
+      const inSky = y < skyBottom;
+      const inUpperSky = y < skyBottom * .6;
+      const region = inUpperSky ? upperSky : inSky ? horizon : foreground;
+      if (inSky && classifyHue(color).sunset) sunsetMask[y * info.width + x] = 1;
       addPixel(region, red, green, blue, luminance, color, previousLuminance);
       const column = Math.min(7, Math.floor(x / info.width * 8));
-      if (yRatio < 0.42) addPixel(localUpperSky[column], red, green, blue, luminance, color);
-      else if (yRatio < 0.7) addPixel(localHorizon[column], red, green, blue, luminance, color);
+      if (inUpperSky) addPixel(localUpperSky[column], red, green, blue, luminance, color);
+      else if (inSky) addPixel(localHorizon[column], red, green, blue, luminance, color);
       previousLuminance = luminance;
       const roundedLuminance = Math.max(0, Math.min(255, Math.round(luminance)));
       luminanceHistogram[roundedLuminance] += 1;
@@ -148,13 +159,14 @@ export async function analyzeSunsetImage(buffer: Buffer, sunsetPhaseScore: numbe
   const weightedPinkPresence = 0.32 * upperPinkPurple + 0.68 * horizonPinkPurple;
   const skyHorizonSunsetPixels = upperSky.sunset + horizon.sunset;
   const allSunsetPixels = skyHorizonSunsetPixels + foreground.sunset;
+  const colorGeometry = sunsetGeometryScore(sunsetMask, info.width, info.height, geometry.boundary);
   const concentration = allSunsetPixels === 0 ? 0 : skyHorizonSunsetPixels / allSunsetPixels;
   const sunsetSaturation = skyHorizonSunsetPixels === 0 ? 0 : (upperSky.sunsetSaturationSum + horizon.sunsetSaturationSum) / skyHorizonSunsetPixels;
   const sunsetColorStrength = clamp((sunsetSaturation - 0.16) / 0.56 * 100);
   const presenceScore = 100 * (1 - Math.exp(-3.4 * weightedSunsetPresence)) * (0.62 + 0.38 * sunsetColorStrength / 100);
   const concentratedPresence = presenceScore * (0.42 + 0.58 * concentration);
 
-  let strongestLocalPresence = 0; let strongestLocalGlow = 0;
+  let strongestLocalPresence = 0; let strongestLocalGlow = 0; let intenseHorizonGlow = 0;
   for (let column = 0; column < localUpperSky.length; column += 1) {
     const localUpper = localUpperSky[column]; const localBand = localHorizon[column];
     const localUpperSunset = share(localUpper.sunset, localUpper.pixels); const localHorizonSunset = share(localBand.sunset, localBand.pixels);
@@ -167,14 +179,22 @@ export async function analyzeSunsetImage(buffer: Buffer, sunsetPhaseScore: numbe
     const localBrightness = clamp((regionMean(localBand, "luminanceSum") - regionMean(localUpper, "luminanceSum") + 4) / 72 * 100);
     const localColorPresence = 100 * (1 - Math.exp(-6 * localHorizonSunset));
     strongestLocalGlow = Math.max(strongestLocalGlow, Math.sqrt(localBrightness * localColorPresence));
+    const intensePresence = 1 - Math.exp(-localBand.intenseWarm / Math.max(4, localBand.pixels * .025));
+    intenseHorizonGlow = Math.max(intenseHorizonGlow, 100 * intensePresence * Math.sqrt(localBrightness * localColorPresence) / 100);
   }
-  const localizedSunsetPresence = strongestLocalPresence * (0.35 + 0.65 * concentration ** 1.5);
+  // A verified sky glow remains valid above warm roofs or reflected water. Foreground
+  // leakage is a negative only when sky evidence is missing, not a veto on real sunsets.
+  const verifiedSkyGlow = geometry.skyConfidence * Math.sqrt(colorGeometry / 100) * Math.min(1, strongestLocalGlow / 65);
+  const supportedConcentration = Math.max(concentration, verifiedSkyGlow);
+  const localizedSunsetPresence = strongestLocalPresence * (0.35 + 0.65 * supportedConcentration ** 1.5);
   const spatialPresence = Math.max(concentratedPresence, localizedSunsetPresence);
 
   const upperLuminance = regionMean(upperSky, "luminanceSum"); const horizonLuminance = regionMean(horizon, "luminanceSum");
   const glowBrightness = clamp((horizonLuminance - upperLuminance + 4) / 72 * 100);
   const glowColorPresence = 100 * (1 - Math.exp(-6 * horizonSunset));
-  const horizonGlow = Math.max(Math.sqrt(glowBrightness * glowColorPresence), strongestLocalGlow);
+  const horizonGlow = Math.max(Math.sqrt(glowBrightness * glowColorPresence), strongestLocalGlow)
+    * Math.sqrt(geometry.skyConfidence * colorGeometry / 100);
+  intenseHorizonGlow *= Math.sqrt(geometry.skyConfidence * colorGeometry / 100);
 
   const colorDistance = Math.sqrt(
     (regionMean(horizon, "redSum") - regionMean(upperSky, "redSum")) ** 2
@@ -193,14 +213,20 @@ export async function analyzeSunsetImage(buffer: Buffer, sunsetPhaseScore: numbe
   const sunsetColorDiversity = clamp((diversityByBins + (activeSunsetBins > 0 && twilightBlueShare > 0.03 ? 8 : 0)) * diversityPresenceFactor);
 
   const foregroundExcess = Math.max(0, foregroundSunset - (upperSunset + horizonSunset) * 0.65);
-  const foregroundWarmPenalty = clamp(foregroundExcess * 190 + (weightedSunsetPresence < 0.015 ? foregroundSunset * 180 : 0), 0, 45);
+  const foregroundWarmPenalty = clamp(foregroundExcess * 190 + (weightedSunsetPresence < 0.015 ? foregroundSunset * 180 : 0), 0, 45) * (1 - verifiedSkyGlow);
   const astronomicalPlausibility = clamp(sunsetPhaseScore);
   const grayscaleShare = share(grayscalePixels, pixelCount); const darkPixelShare = share(darkPixels, pixelCount); const overexposedShare = share(overexposedPixels, pixelCount);
   const grayscaleEvidencePenalty = clamp((grayscaleShare - 0.72) / 0.28 * 28);
   const astronomicalFactor = 0.65 + 0.35 * astronomicalPlausibility / 100;
   const pinkEvidence = 100 * (1 - Math.exp(-5 * weightedPinkPresence));
-  const rawEvidence = 0.52 * spatialPresence + 0.16 * horizonGlow + 0.14 * chromaticDifference + 0.1 * sunsetColorDiversity + 0.08 * pinkEvidence + 0.2 * chromaticHorizonCoherence;
-  const sunsetEvidenceScore = clamp(rawEvidence * astronomicalFactor - foregroundWarmPenalty - grayscaleEvidencePenalty);
+  const rawEvidence = 0.52 * spatialPresence + 0.16 * horizonGlow + 0.14 * chromaticDifference + 0.1 * sunsetColorDiversity + 0.08 * pinkEvidence + 0.2 * chromaticHorizonCoherence + .18 * intenseHorizonGlow;
+  const leakage = allSunsetPixels === 0 ? 0 : foreground.sunset / allSunsetPixels;
+  const skySupport = .2 + .8 * geometry.skyConfidence;
+  const horizonSupport = .15 + .85 * Math.sqrt(colorGeometry / 100);
+  // Foreground hue/texture cannot substitute for a connected sunset region in sky.
+  // A localized sun/glow still qualifies through coherent local presence and gradient.
+  const leakageGate = 1 - .9 * leakage ** 2 * (1 - Math.max(verifiedSkyGlow, Math.min(1, weightedSunsetPresence * 8)));
+  const sunsetEvidenceScore = clamp(rawEvidence * astronomicalFactor * skySupport * horizonSupport * leakageGate - foregroundWarmPenalty - grayscaleEvidencePenalty);
 
   const averageLuminance = luminanceSum / pixelCount;
   const luminanceDeviation = Math.sqrt(Math.max(0, luminanceSquareSum / pixelCount - averageLuminance ** 2));
@@ -225,6 +251,13 @@ export async function analyzeSunsetImage(buffer: Buffer, sunsetPhaseScore: numbe
   return {
     sunsetEvidenceScore: round(sunsetEvidenceScore), sunsetBeautyScore: round(sunsetBeautyScore), sunsetScore: round(sunsetScore), status: "analyzed",
     metrics: {
+      estimatedHorizonY: Math.round(geometry.horizonY * 1000) / 1000,
+      horizonConfidence: round(geometry.confidence * 100), skyConfidence: round(geometry.skyConfidence * 100),
+      skySunsetColorRatio: Math.round(upperSunset * 1000) / 1000,
+      horizonSunsetColorRatio: Math.round(horizonSunset * 1000) / 1000,
+      foregroundSunsetColorRatio: Math.round(foregroundSunset * 1000) / 1000,
+      foregroundSunsetLeakageRatio: Math.round(leakage * 1000) / 1000,
+      sunsetColorGeometryScore: round(colorGeometry), horizonGlowScore: round(horizonGlow), intenseHorizonGlow: round(intenseHorizonGlow),
       upperSkyWarmShare: round(upperWarm * 100), horizonWarmShare: round(horizonWarm * 100),
       upperSkyPinkPurpleShare: round(upperPinkPurple * 100), horizonPinkPurpleShare: round(horizonPinkPurple * 100),
       foregroundSunsetColorShare: round(foregroundSunset * 100), sunsetColorConcentration: round(concentration * 100), localizedSunsetPresence: round(localizedSunsetPresence),

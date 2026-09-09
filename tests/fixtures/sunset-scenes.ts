@@ -6,6 +6,45 @@ function svgScene(body: string): Promise<Buffer> {
 }
 
 export const sunsetScenes = {
+  highHorizonTerrain: () => svgScene(`
+    <rect width="256" height="144" fill="#b5c4df"/>
+    <path d="M0 29 L28 18 L55 28 L87 23 L123 30 L153 21 L189 30 L222 22 L256 29 L256 144 L0 144Z" fill="#7b8597"/>
+    <rect y="31" width="256" height="113" fill="#99916d"/>
+    <path d="M58 31 L61 31 L80 44 L124 144 L0 144Z M151 31 L157 31 L256 113 L256 144 L208 144Z" fill="#454f61"/>
+    <path d="M0 34 L54 34 L48 43 L0 45Z" fill="#7898ac"/>
+  `),
+  sunsetAboveWarmRoofs: () => svgScene(`
+    <defs><linearGradient id="s" x2="0" y2="1"><stop stop-color="#48607d"/><stop offset=".75" stop-color="#758092"/><stop offset="1" stop-color="#ffcc77"/></linearGradient></defs>
+    <rect width="256" height="60" fill="url(#s)"/><circle cx="146" cy="56" r="4" fill="#fff2ad"/>
+    <rect y="60" width="256" height="25" fill="#303b43"/>
+    <rect y="85" width="256" height="59" fill="#b16b49"/>
+    <path d="M0 85 L20 73 L49 85 M87 85 L120 70 L141 85 M177 85 L219 67 L256 85" fill="#c58554"/>
+  `),
+  selfossLike: () => svgScene(`
+    <rect width="256" height="144" fill="#bbcedd"/>
+    <path d="M0 66 L35 49 L61 65 L89 44 L129 62 L169 47 L202 67 L233 55 L256 69 L256 144 L0 144Z" fill="#77818b"/>
+    <path d="M0 77 Q65 63 127 80 T256 75 L256 144 L0 144Z" fill="#b6a04f"/>
+    <path d="M139 77 L147 77 L192 144 L83 144Z" fill="#727474"/>
+    <path d="M143 90 L146 90 L154 144 L143 144Z" fill="#c1bd97"/>
+  `),
+  intenseHorizonSunset: () => svgScene(`
+    <defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#344761"/><stop offset=".64" stop-color="#667491"/><stop offset=".87" stop-color="#bd8692"/><stop offset="1" stop-color="#f4b667"/></linearGradient>
+    <radialGradient id="glow"><stop stop-color="#fffbd8"/><stop offset=".4" stop-color="#ffca77"/><stop offset="1" stop-color="#db943f" stop-opacity="0"/></radialGradient></defs>
+    <rect width="256" height="100" fill="url(#sky)"/>
+    <ellipse cx="165" cy="91" rx="27" ry="15" fill="url(#glow)"/>
+    <circle cx="165" cy="92" r="4" fill="#fff3bb"/>
+    <rect y="100" width="256" height="44" fill="#273347"/>
+  `),
+  subtleHorizonTwilight: () => svgScene(`
+    <defs><linearGradient id="twilight" x2="0" y2="1"><stop stop-color="#45618b"/><stop offset=".65" stop-color="#72849d"/><stop offset=".86" stop-color="#ac7999"/><stop offset="1" stop-color="#d5ad76"/></linearGradient></defs>
+    <rect width="256" height="99" fill="url(#twilight)"/>
+    <rect y="99" width="256" height="45" fill="#253042"/>
+  `),
+  isolatedOrangePixels: () => svgScene(`
+    <rect width="256" height="95" fill="#afb8c5"/>
+    <rect y="95" width="256" height="49" fill="#383e38"/>
+    <circle cx="31" cy="55" r="1" fill="#ed8147"/><circle cx="142" cy="79" r="1" fill="#ee7654"/>
+  `),
   dramaticSunset: () => svgScene(`
     <rect width="256" height="60" fill="#35265f"/>
     <rect y="60" width="256" height="15" fill="#a83f86"/>

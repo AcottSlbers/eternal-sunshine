@@ -22,6 +22,7 @@ export function getCameraDirection(camera: Camera): { viewAzimuth?: number; conf
     const confidence = camera.manualDirectionConfidence ?? camera.directionConfidence ?? (camera.viewAzimuthSource === "name-inferred" ? "inferred" : "manual");
     return { viewAzimuth: normalizeViewAzimuth(curated), confidence };
   }
+  if (camera.source === "meteogalicia") return { confidence: "unknown" };
   const inferred = inferViewAzimuth(camera.name);
   return inferred === undefined ? { confidence: "unknown" } : { viewAzimuth: inferred, confidence: "inferred" };
 }

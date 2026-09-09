@@ -11,6 +11,8 @@ export const MIN_FEATURED_SUNSET_EVIDENCE = 30;
 export const MIN_FEATURED_SUNSET_SCORE = 30;
 export const PUBLIC_RANKING_DEDUPE_RADIUS_KM = 25;
 export const HERO_SWITCH_MIN_SCORE_GAIN = 3;
+export const PUBLIC_RANKING_REFRESH_MINUTES = 10;
+export const METEOGALICIA_CACHE_MS = 5 * 60_000;
 export const SUNSET_STRENGTH_LEVELS = [
   { minimum: 80, label: "spectacular" },
   { minimum: 60, label: "strong" },

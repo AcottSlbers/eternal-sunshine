@@ -1,0 +1,1498 @@
+[
+  {
+    "id": "meteogalicia:10900",
+    "name": "Ribadeo",
+    "latitude": 43.5412,
+    "longitude": -7.03614,
+    "country": "Spain",
+    "region": "Lugo",
+    "city": "Ribadeo",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Ribadeoporto/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Ribadeoporto/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:17:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:17:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10901",
+    "name": "Burela",
+    "latitude": 43.656,
+    "longitude": -7.34435,
+    "country": "Spain",
+    "region": "Lugo",
+    "city": "Burela",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Burela/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Burela/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:17:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:17:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10104",
+    "name": "Penedo do Galo",
+    "latitude": 43.66078,
+    "longitude": -7.56288,
+    "country": "Spain",
+    "region": "Lugo",
+    "city": "Viveiro",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Penedodogalo/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Penedodogalo/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:18:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:18:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10911",
+    "name": "Cariño",
+    "latitude": 43.734,
+    "longitude": -7.86335,
+    "country": "Spain",
+    "region": "A Coruña",
+    "city": "Cariño",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Carinho/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Carinho/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:18:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:18:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10092",
+    "name": "Punta Candieira",
+    "latitude": 43.7043,
+    "longitude": -8.05246,
+    "country": "Spain",
+    "region": "A Coruña",
+    "city": "Cedeira",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/PuntaCandieira/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/PuntaCandieira/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:17:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:17:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10141",
+    "name": "Aldea Nova",
+    "latitude": 43.5625,
+    "longitude": -8.13282,
+    "country": "Spain",
+    "region": "A Coruña",
+    "city": "Narón",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/AldeaNova/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/AldeaNova/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:16:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:16:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:14000",
+    "name": "Coruña-Dique",
+    "latitude": 43.3651,
+    "longitude": -8.37471,
+    "country": "Spain",
+    "region": "A Coruña",
+    "city": "A Coruña",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Corunha/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Corunha/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:17:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:17:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:14003",
+    "name": "Coruña-Langosteira",
+    "latitude": 43.3472,
+    "longitude": -8.53118,
+    "country": "Spain",
+    "region": "A Coruña",
+    "city": "Arteixo",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Langosteira/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Langosteira/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:17:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:17:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10800",
+    "name": "Camariñas",
+    "latitude": 43.1245,
+    "longitude": -9.17831,
+    "country": "Spain",
+    "region": "A Coruña",
+    "city": "Camariñas",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Camarinhas/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Camarinhas/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:18:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:18:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:75000",
+    "name": "Muros",
+    "latitude": 42.80925,
+    "longitude": -9.077076,
+    "country": "Spain",
+    "region": "A Coruña",
+    "city": "Muros",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MedioRural/Muros/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MedioRural/Muros/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:16:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:16:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10902",
+    "name": "Portosín",
+    "latitude": 42.7656,
+    "longitude": -8.94848,
+    "country": "Spain",
+    "region": "A Coruña",
+    "city": "Porto do Son",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Portosin/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Portosin/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T07:40:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T07:40:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10049",
+    "name": "Corrubedo",
+    "latitude": 42.5552,
+    "longitude": -9.0286,
+    "country": "Spain",
+    "region": "A Coruña",
+    "city": "Ribeira",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Corrubedo/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Corrubedo/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T19:20:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T19:20:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10134",
+    "name": "Sálvora",
+    "latitude": 42.47135,
+    "longitude": -9.005851,
+    "country": "Spain",
+    "region": "A Coruña",
+    "city": "Ribeira",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Salvora/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Salvora/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T19:16:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T19:16:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10085",
+    "name": "Corón",
+    "latitude": 42.5801,
+    "longitude": -8.80471,
+    "country": "Spain",
+    "region": "Pontevedra",
+    "city": "Vilanova de Arousa",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Coron/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Coron/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:21:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:21:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10133",
+    "name": "Xesteiras",
+    "latitude": 42.6756,
+    "longitude": -8.58618,
+    "country": "Spain",
+    "region": "Pontevedra",
+    "city": "Cuntis",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Radar/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Radar/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T19:37:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T19:37:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10903",
+    "name": "Aguete",
+    "latitude": 42.375942,
+    "longitude": -8.728966,
+    "country": "Spain",
+    "region": "Pontevedra",
+    "city": "Marín",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Aguete2/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Aguete2/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:18:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:18:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10904",
+    "name": "Ons Praia",
+    "latitude": 42.376904,
+    "longitude": -8.932206,
+    "country": "Spain",
+    "region": "Pontevedra",
+    "city": "Bueu",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Onsplaya/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Onsplaya/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:17:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:17:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10904",
+    "name": "Ons Porto",
+    "latitude": 42.37694,
+    "longitude": -8.932135,
+    "country": "Spain",
+    "region": "Pontevedra",
+    "city": "Bueu",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Onspuerto/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Onspuerto/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:17:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:17:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10908",
+    "name": "Cíes-Rodas",
+    "latitude": 42.2189,
+    "longitude": -8.90402,
+    "country": "Spain",
+    "region": "Pontevedra",
+    "city": "Vigo",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Ciesrodas/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Ciesrodas/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:17:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:17:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10907",
+    "name": "Cíes-Faro-Sur",
+    "latitude": 42.21409,
+    "longitude": -8.914742,
+    "country": "Spain",
+    "region": "Pontevedra",
+    "city": "Vigo",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/CiesFaroSur/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/CiesFaroSur/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:18:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:18:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10907",
+    "name": "Cíes-Faro-Norte",
+    "latitude": 42.214195,
+    "longitude": -8.914727,
+    "country": "Spain",
+    "region": "Pontevedra",
+    "city": "Vigo",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/CiesFaroNorte/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/CiesFaroNorte/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:12:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:12:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10067",
+    "name": "Castrove",
+    "latitude": 42.45841,
+    "longitude": -8.722065,
+    "country": "Spain",
+    "region": "Pontevedra",
+    "city": "Poio",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Castrove/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Castrove/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:16:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:16:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10906",
+    "name": "Cangas",
+    "latitude": 42.26044,
+    "longitude": -8.782591,
+    "country": "Spain",
+    "region": "Pontevedra",
+    "city": "Cangas",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Cangas/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Cangas/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:17:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:17:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10169",
+    "name": "Baiona",
+    "latitude": 42.1155,
+    "longitude": -8.83718,
+    "country": "Spain",
+    "region": "Pontevedra",
+    "city": "Baiona",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Baiona/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Baiona/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:17:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:17:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10062",
+    "name": "Ancares",
+    "latitude": 42.8208,
+    "longitude": -6.9229,
+    "country": "Spain",
+    "region": "Lugo",
+    "city": "Cervantes",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Ancares/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Ancares/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:17:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:17:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10132",
+    "name": "O Cebreiro",
+    "latitude": 42.707184,
+    "longitude": -7.047038,
+    "country": "Spain",
+    "region": "Lugo",
+    "city": "Pedrafita do Cebreiro",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Cebreiro/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Cebreiro/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:17:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:17:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:50500",
+    "name": "San Lázaro",
+    "latitude": 42.8866,
+    "longitude": -8.52099,
+    "country": "Spain",
+    "region": "A Coruña",
+    "city": "Santiago de Compostela",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Santiago/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Santiago/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:17:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:17:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10130",
+    "name": "Lardeira",
+    "latitude": 42.3752,
+    "longitude": -6.78346,
+    "country": "Spain",
+    "region": "Ourense",
+    "city": "Carballeda de Valdeorras",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Lardeira/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Lardeira/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:19:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:19:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10164",
+    "name": "Ríotorto",
+    "latitude": 43.351746,
+    "longitude": -7.265624,
+    "country": "Spain",
+    "region": "Lugo",
+    "city": "Riotorto",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Riotorto/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Riotorto/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:18:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:18:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10168",
+    "name": "Cospeito",
+    "latitude": 43.24025,
+    "longitude": -7.555114,
+    "country": "Spain",
+    "region": "Lugo",
+    "city": "Cospeito",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Cospeito/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Cospeito/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:17:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:17:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10910",
+    "name": "Monforte",
+    "latitude": 42.52398,
+    "longitude": -7.511221,
+    "country": "Spain",
+    "region": "Lugo",
+    "city": "Monforte de Lemos",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Monforte/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Monforte/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:18:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:18:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10912",
+    "name": "Cristosende",
+    "latitude": 42.386322,
+    "longitude": -7.488853,
+    "country": "Spain",
+    "region": "Ourense",
+    "city": "A Teixeira",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Cristosende/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Cristosende/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:17:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:17:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10913",
+    "name": "Cabo do Mundo",
+    "latitude": 42.565315,
+    "longitude": -7.670684,
+    "country": "Spain",
+    "region": "Lugo",
+    "city": "O Saviñao",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Cabodomundo/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Cabodomundo/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:17:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:17:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  },
+  {
+    "id": "meteogalicia:10914",
+    "name": "Alto do Rodicio",
+    "latitude": 42.29801,
+    "longitude": -7.595267,
+    "country": "Spain",
+    "region": "Ourense",
+    "city": "Maceda",
+    "source": "meteogalicia",
+    "sourceUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "providerUrl": "https://www.meteogalicia.gal/web/observacion/camaras",
+    "attribution": {
+      "name": "MeteoGalicia / Xunta de Galicia",
+      "url": "https://www.meteogalicia.gal/web/observacion/camaras",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    "imageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Rodicio/ultima.jpg",
+    "previewImageUrl": "https://www.meteogalicia.gal/datosred/camaras/MeteoGalicia/Rodicio/miniUltima.jpg",
+    "imageUpdatedAt": "2026-09-09T20:07:00.000Z",
+    "hasLiveStream": false,
+    "enabled": true,
+    "qualityWeight": 1,
+    "directionConfidence": "unknown",
+    "review": {
+      "quality": {
+        "score": 55,
+        "metadataScore": 55,
+        "scenicScore": 0,
+        "freshnessReliability": 4,
+        "directionScore": 4,
+        "resolutionScore": 2,
+        "categoryPenalty": 0,
+        "liveCapabilityBonus": 0,
+        "imageTimestamp": "2026-09-09T20:07:00.000Z",
+        "analyzedAt": "2026-09-09T20:21:54.741Z"
+      },
+      "coverage": {
+        "strictSlotCount": 0,
+        "extendedSlotCount": 0,
+        "representativeDates": 0
+      }
+    }
+  }
+]

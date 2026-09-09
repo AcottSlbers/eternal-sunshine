@@ -1,6 +1,6 @@
 # Eternal Sunshine
 
-Eternal Sunshine keeps a worldwide webcam registry, calculates sunset opportunity locally, and requests fresh Windy metadata and thumbnails only for current astronomical candidates.
+Eternal Sunshine keeps a worldwide webcam registry, calculates sunset opportunity locally, and requests fresh Windy / MeteoGalicia metadata and thumbnails only for current astronomical candidates.
 
 ## Setup
 
@@ -111,7 +111,29 @@ Radius, hero switch gain, and presentation-only Sunset Strength thresholds are i
 
 `npm run diagnose-sunset-scores` reports both rankings from the **same** image evaluation, the pre-dedupe visible score distribution, counts, hero decision, public top-two gap, and suppressed cameras. See `docs/phase-3.2-evaluation.md` for the real-data verification snapshot and its limitations.
 
-## Validation
+## Multi-provider registry and sky geometry (Phase 3.3)
+
+```bash
+npm run discover-meteogalicia
+```
+
+This imports the official MeteoGalicia JSON service into `data/meteogalicia-cameras.json` without Windy requests or image downloads. `lib/camera-registry.ts` combines it with the existing Windy Gold registry at runtime. Reimport preserves manual direction, quality, enabled/rejected flags and notes; independent Windy registry builds do not overwrite the regional file. No MeteoGalicia key is required. `/dev/cameras` includes both sources; `/dev/coverage` continues to describe the existing Windy optimizer output, not a newly simulated combined pool.
+
+MeteoGalicia IDs use `meteogalicia:<identificador>`. Its adapter normalizes municipality, province, full image, mini preview, UTC `imageUpdatedAt` and source/license attribution. Direction stays unknown unless curated. The mini is used for analysis (still resized to at most 256×144); the normal image is used for display. No images are stored permanently. Imported camera quality uses the existing metadata-based evaluator, with no provider bonus; missing resolution/framing measurements remain unknown.
+
+Only locally relevant astronomical candidates trigger a metadata refresh. One shared in-memory promise and five-minute cache serve all MeteoGalicia cameras in that server process, including concurrent requests. Expired-cache refresh failures and missing/invalid timestamps reject affected cameras without breaking Windy. The existing 12-hour image freshness limit remains unchanged. Separate processes have separate caches.
+
+The live JSON returns timestamps without offsets. They are explicitly interpreted as `Europe/Madrid` wall time through `Intl`, including DST, then normalized to UTC. This is a regional interpretation supported by the observed response, **not a timezone guarantee in the field documentation**. Explicit offsets/Z are honored, nonexistent spring times are rejected, and ambiguous autumn times use the older instant conservatively. Metadata can lag the image; HTTP download time never replaces capture time. See the [observed service response and evaluation](docs/phase-3.3-evaluation.md).
+
+Provider-specific attribution accompanies the Hero and cards, including MeteoGalicia / Xunta de Galicia and its CC BY-SA 4.0 license link. Windy cameras retain Windy attribution and live playback.
+
+Scoring now estimates a broad sky/terrain boundary from row luminance, color and texture transitions, with local ridgeline adjustments. Low confidence falls back to the previous 70% sky boundary. Sky continuity, connected sunset-color components, horizontal extent, validated glow and foreground leakage multiply the existing color evidence. A localized intense warm glow can support a real sunset even when roofs occupy much of the foreground. Generic contrast/texture remain beauty enhancements; visibility thresholds, final-score formula, dedupe and hero hysteresis are unchanged.
+
+`/dev/ranking`, `/api/ranking` and `npm run diagnose-sunset-scores` expose source counts and all metrics. `estimatedHorizonY` and the four `*Ratio` metrics use 0–1; confidence, geometry and glow scores use 0–100. `skySunsetColorRatio` describes upper sky; `horizonSunsetColorRatio` describes lower sky above the estimated boundary. Leakage is foreground sunset-colored pixel count divided by all sunset-colored pixels, not a ratio of regional percentages.
+
+This is not semantic segmentation: layered clouds, reflections, roofs at a skyline and horizons outside the searched 20–87% image-height range remain difficult. Confidence/fallback metrics make these errors inspectable rather than hiding them with higher visibility thresholds.
+
+## Validation commands
 
 ```bash
 npm test
@@ -121,6 +143,16 @@ git diff --check
 ```
 
 Tests cover window boundaries, phase scores, solar azimuth, sunrise exclusion, camera alignment and wraparound, coordinate-to-IANA timezone lookup, DST, image checks, explicit sunset/non-sunset fixtures, score ordering and gating, quality overrides, seasonal coverage, gap contribution, minimum quality, permanent rejection, deterministic optimization, and 192/250/300/400-camera prefixes.
+
+## Public experience (Phase 4)
+
+The `/` route is an image-first product view: a cinematic current sunset, a geographically deduplicated visual ranking, calm empty/error/loading states, and a small About/attribution footer. Technical scoring remains available through `/api/ranking` and the existing development routes, but it is neither rendered nor serialized into the public page payload.
+
+The browser refreshes `/api/public-ranking` every ten minutes only while the tab is visible. A manual Refresh button uses that same endpoint. The endpoint invokes the unchanged safe ranking pipeline, so local solar filtering still happens before bounded Windy metadata and image requests. Refresh requests cannot overlap. There is no direct browser-to-Windy API request and the API key remains server-only.
+
+Ranking cards select a large local view without changing backend order or Hero hysteresis. Live Windy iframes are created only after an explicit Watch live click; otherwise the current snapshot stays in place. Provider and Windy fallback links retain external-link safety attributes. Native `<img>` elements intentionally load short-lived Windy preview URLs directly rather than routing them through the Next image optimization cache.
+
+The public response type lives in `types/public-ranking.ts`; `/api/public-ranking` omits final score, evidence, opportunity, image metrics, diagnostics, and provider request counters. `/api/ranking`, `/dev/cameras`, `/dev/coverage`, and `npm run diagnose-sunset-scores` retain their full debugging information.
 
 ## Not implemented
 

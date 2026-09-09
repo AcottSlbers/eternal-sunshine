@@ -1,74 +1,44 @@
-import { HeroSunset } from "@/components/HeroSunset";
+"use client";
+
 import { ZonedTime } from "@/components/LocalTime";
-import { formatDirection } from "@/lib/camera-direction";
-import { SUNSET_EMPTY_STATE } from "@/lib/config";
-import { getSunsetStrength } from "@/lib/sunset-strength";
-import type { RankedSunset, RankingResponse } from "@/types/ranking";
+import type { PublicSunset } from "@/types/public-ranking";
+import { getCameraAttribution } from "@/lib/providers/attribution";
 
-function Metric({ label, children }: { label: string; children: React.ReactNode }) {
-  return <><span className="text-stone-500">{label}</span><span className="text-right text-stone-300">{children}</span></>;
+function freshnessLabel(age: number | undefined): string {
+  if (age === undefined) return "Freshness unknown";
+  if (age < 1) return "Updated now";
+  if (age < 60) return `Updated ${Math.round(age)} min ago`;
+  return `Updated ${Math.round(age / 60)}h ago`;
 }
 
-function CandidateCard({ item, index }: { item: RankedSunset; index: number }) {
-  const camera = item.camera;
-  const imageTimestamp = camera.lastKnownImageTimestamp ?? camera.imageUpdatedAt;
-  const previewUrl = camera.lastKnownImageUrl ?? camera.imageUrl;
+export function Ranking({ results, selectedCameraId, generatedAt, onSelect }: { results: PublicSunset[]; selectedCameraId?: string; generatedAt: string; onSelect: (cameraId: string) => void }) {
+  if (results.length === 0) return null;
   return (
-    <li className="group overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] transition hover:border-orange-300/30 hover:bg-white/[0.055]">
-      {previewUrl && (camera.sourceUrl
-        ? <a href={camera.sourceUrl} target="_blank" rel="noopener noreferrer" className="block h-48 bg-cover bg-center" style={{ backgroundImage: `url(${JSON.stringify(previewUrl)})` }} aria-label={`Open ${camera.name} on Windy`} />
-        : <div className="h-48 bg-cover bg-center" style={{ backgroundImage: `url(${JSON.stringify(previewUrl)})` }} />)}
-      <div className="p-6">
-        <div className="flex items-start justify-between gap-4">
-          <div>
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-xs text-orange-200/50">{String(index + 1).padStart(2, "0")} · {item.stage}</span>
-              {camera.hasLiveStream && <span className="rounded-full border border-red-300/30 px-2 py-0.5 text-[0.55rem] font-semibold uppercase tracking-[0.16em] text-red-200">Live</span>}
+    <section className="mx-auto mt-28 max-w-[96rem] px-5 sm:px-10 lg:px-14" aria-labelledby="ranking-title">
+      <div className="mb-9 flex items-end justify-between gap-6 border-b border-white/10 pb-6">
+        <div><p className="text-[0.62rem] uppercase tracking-[0.3em] text-stone-500">Around the world</p><h2 id="ranking-title" className="mt-3 font-serif text-3xl text-stone-100 sm:text-4xl">Best sunsets right now</h2></div>
+        <p className="hidden text-sm text-stone-500 sm:block">Choose a view</p>
+      </div>
+      <ol className="grid gap-x-5 gap-y-10 sm:grid-cols-2 lg:grid-cols-3">
+        {results.map((item, index) => {
+          const camera = item.camera;
+          const selected = camera.id === selectedCameraId;
+          return <li key={camera.id}><button type="button" aria-pressed={selected} onClick={() => onSelect(camera.id)} className="focus-ring group block w-full text-left">
+            <div className={`relative aspect-[4/3] overflow-hidden rounded-2xl bg-[#171512] transition duration-300 ${selected ? "ring-1 ring-stone-200/70" : "group-hover:opacity-90"}`}>
+              {camera.previewUrl ? <>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={camera.previewUrl} alt={`Current webcam view from ${camera.name}`} className="h-full w-full object-cover transition duration-500 motion-reduce:transition-none group-hover:scale-[1.015]" />
+              </> : <div className="flex h-full items-center justify-center text-xs text-stone-600">Snapshot unavailable</div>}
+              {camera.hasLiveStream && <span className="absolute left-4 top-4 rounded-full bg-black/70 px-2.5 py-1 text-[0.58rem] font-medium uppercase tracking-[0.18em] text-white">Live</span>}
+              <span className="absolute bottom-4 left-4 text-xs font-medium tracking-[0.16em] text-white drop-shadow">#{index + 1}</span>
             </div>
-            <h3 className="mt-2 text-xl font-medium">{camera.name}</h3>
-            <p className="mt-1 text-sm text-stone-500">{camera.region ? `${camera.region}, ` : ""}{camera.country}</p>
-          </div>
-          <div className="text-right"><span className="text-3xl font-light text-orange-200">{item.scoreKind === "visual" ? item.finalScore : item.temporaryMockScore}</span><p className="text-[0.6rem] uppercase tracking-widest text-stone-600">{item.scoreKind === "visual" ? "Final score" : "Mock score"}</p></div>
-        </div>
-        <div className="mt-7 grid grid-cols-2 gap-x-4 gap-y-2 border-t border-white/10 pt-4 text-sm">
-          <Metric label="Solar elevation"><span className="font-mono">{item.solarElevation.toFixed(2)}°</span></Metric>
-          <Metric label="Sun direction"><span className="font-mono">{item.solarAzimuth.toFixed(0)}°</span></Metric>
-          <Metric label="Camera direction">{formatDirection(item.cameraViewAzimuth)}{item.cameraViewAzimuth !== undefined && ` / ${item.cameraViewAzimuth.toFixed(0)}°`}</Metric>
-          <Metric label="Alignment">{item.alignmentDifference === undefined ? `Neutral (${item.directionConfidence})` : `${item.alignmentDifference.toFixed(0)}° · ${item.sunAlignmentScore.toFixed(0)}/100`}</Metric>
-          <Metric label="Sunset phase">{item.sunsetPhaseScore.toFixed(0)}/100</Metric>
-          <Metric label="Camera local time"><ZonedTime dateTime={new Date().toISOString()} timeZone={item.cameraTimeZone} /></Metric>
-          <Metric label="Image age">{item.imageAgeMinutes === undefined ? "Unknown" : `${item.imageAgeMinutes.toFixed(0)} min`}</Metric>
-          <Metric label="Image viability">{item.imageViability.status === "unavailable" ? "Unchecked / neutral" : `${item.imageViability.viable ? "Viable" : "Rejected"} · ${item.imageViability.brightness.toFixed(0)}% light`}</Metric>
-          {imageTimestamp && <Metric label="Image updated"><ZonedTime dateTime={imageTimestamp} timeZone={item.cameraTimeZone} /></Metric>}
-          <Metric label="Sunset evidence">{item.sunsetEvidenceScore.toFixed(1)}/100</Metric>
-          <Metric label="Sunset beauty">{item.sunsetBeautyScore.toFixed(1)}/100</Metric>
-          <Metric label="Visual sunset score">{item.sunsetScore.toFixed(1)}/100</Metric>
-          <Metric label="Sunset strength">{getSunsetStrength(item.sunsetScore)}</Metric>
-          <Metric label="Final score">{item.finalScore.toFixed(1)}/100</Metric>
-          <Metric label="Opportunity">{item.sunsetOpportunityScore}/100</Metric>
-        </div>
-        <div className="mt-5 flex flex-wrap gap-x-5 gap-y-2">
-          {camera.livePlayer?.url && <a className="text-xs uppercase tracking-wider text-red-200/70 hover:text-red-100" href={camera.livePlayer.url} target="_blank" rel="noopener noreferrer">Open live webcam ↗</a>}
-          {camera.providerUrl && <a className="text-xs uppercase tracking-wider text-orange-200/70 hover:text-orange-200" href={camera.providerUrl} target="_blank" rel="noopener noreferrer">Original webcam ↗</a>}
-          {camera.sourceUrl && <a className="text-xs uppercase tracking-wider text-stone-500 hover:text-stone-300" href={camera.sourceUrl} target="_blank" rel="noopener noreferrer">View on Windy ↗</a>}
-        </div>
-      </div>
-    </li>
-  );
-}
-
-export function Ranking({ ranking }: { ranking: RankingResponse }) {
-  const featured = ranking.featuredSunset;
-  return (
-    <section className="py-14" aria-labelledby="ranking-title">
-      {featured && <HeroSunset item={featured} />}
-      <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-        <div><p className="mb-2 text-[0.65rem] uppercase tracking-[0.35em] text-orange-200/60">Right now</p><h2 id="ranking-title" className="text-2xl font-light tracking-tight sm:text-3xl">Visible sunsets right now</h2></div>
-        <p className="text-sm text-stone-500">{ranking.results.length} visible sunsets</p>
-      </div>
-      {ranking.results.length === 0 ? <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-8 text-stone-400"><p className="text-xl text-stone-200">{SUNSET_EMPTY_STATE.title}</p><p className="mt-3">{SUNSET_EMPTY_STATE.description}</p></div> : <ol className="grid gap-4 md:grid-cols-2">{ranking.results.map((item, index) => <CandidateCard key={item.camera.id} item={item} index={index} />)}</ol>}
-      <p className="mt-5 text-xs leading-relaxed text-stone-600">Sunset evidence determines whether sunset colors are actually present in the sky and horizon. Beauty can enhance credible evidence but cannot rescue an ordinary scene.</p>
-      <p className="mt-2 text-xs text-stone-600">Provider: {ranking.provider.mode}; refreshed {ranking.provider.refreshed} candidate records and checked {ranking.provider.imagesChecked} candidate images only.{ranking.provider.error && ` ${ranking.provider.error}`}</p>
+            <div className="mt-4 flex items-start justify-between gap-4">
+              <div className="min-w-0"><h3 className="break-words text-lg leading-tight text-stone-100">{camera.name}</h3><p className="mt-1 text-sm text-stone-500">{camera.country ?? camera.region ?? "Location unavailable"}</p><p className="mt-3 text-xs text-stone-600"><ZonedTime dateTime={generatedAt} timeZone={item.cameraTimeZone} /> local · {freshnessLabel(item.imageAgeMinutes)}</p></div>
+              <div className="shrink-0 text-right"><p className="font-serif text-3xl leading-none text-stone-100">{Math.floor(item.sunsetScore)}</p><p className="mt-1 text-[0.55rem] uppercase tracking-[0.16em] text-stone-600">Sunset score</p><p className="mt-1 text-[0.65rem] capitalize text-stone-500">{item.sunsetStrength}</p></div>
+            </div>
+          </button><p className="mt-3 text-xs text-stone-400">Source: <a className="focus-ring underline underline-offset-4" href={getCameraAttribution(camera).url} target="_blank" rel="noopener noreferrer">{getCameraAttribution(camera).name}</a>{camera.attribution?.licenseUrl && <> · <a className="focus-ring underline" href={camera.attribution.licenseUrl} target="_blank" rel="noopener noreferrer">{camera.attribution.license}</a></>}</p></li>;
+        })}
+      </ol>
     </section>
   );
 }

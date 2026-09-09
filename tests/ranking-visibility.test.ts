@@ -2,12 +2,13 @@ import React from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { createRanking } from "../lib/ranking";
-import { Ranking } from "../components/Ranking";
+import { SunsetExperience } from "../components/SunsetExperience";
 import { DebugPanel } from "../components/DebugPanel";
 import { UNAVAILABLE_VISUAL_SUNSET_SCORE } from "../lib/image-score";
 import type { Camera } from "../types/camera";
 import cameras from "../data/cameras.json";
 import { createHeroSelector } from "../lib/public-ranking";
+import { toPublicRanking } from "../lib/public-response";
 
 const mocks = vi.hoisted(() => ({ analyze: vi.fn(), refresh: vi.fn() }));
 vi.mock("../data/cameras.json", () => ({ default: [
@@ -55,7 +56,7 @@ describe("runtime visible sunset selection", () => {
     expect(ranking.results.map((item) => item.camera.id)).toEqual(["twilight"]);
     expect(ranking.featuredCameraId).toBe("sunset");
     expect(ranking.featuredSunset?.sunsetScore).toBe(65);
-    const html = renderToStaticMarkup(React.createElement(Ranking, { ranking }));
+    const html = renderToStaticMarkup(React.createElement(SunsetExperience, { initialRanking: toPublicRanking(ranking) }));
     expect(html).toContain("Best sunset right now");
     expect(html).toContain("Visible sunset");
     expect(html).toContain("Weak twilight");
@@ -71,7 +72,7 @@ describe("runtime visible sunset selection", () => {
     expect(suppressed.visibility).toBe("visible");
     expect(suppressed.scored?.sunsetScore).toBe(25);
     expect(suppressed.suppression).toMatchObject({ keptCameraId: "sunset", reason: "suppressed: nearby higher-ranked camera" });
-    expect(renderToStaticMarkup(React.createElement(Ranking, { ranking }))).not.toContain("Weak twilight");
+    expect(renderToStaticMarkup(React.createElement(SunsetExperience, { initialRanking: toPublicRanking(ranking) }))).not.toContain("Weak twilight");
     const debugHtml = renderToStaticMarkup(React.createElement(DebugPanel, { ranking }));
     expect(debugHtml).toContain("Weak twilight");
     expect(debugHtml).toContain("suppressed: nearby higher-ranked camera");
@@ -90,7 +91,7 @@ describe("runtime visible sunset selection", () => {
     const rejected = ranking.candidateDiagnostics.find((item) => item.camera.id === "snow")!;
     expect(rejected.scored?.sunsetEvidenceScore).toBe(9.2);
     expect(rejected.reason).toBe("Rejected: insufficient sunset evidence");
-    const publicHtml = renderToStaticMarkup(React.createElement(Ranking, { ranking }));
+    const publicHtml = renderToStaticMarkup(React.createElement(SunsetExperience, { initialRanking: toPublicRanking(ranking) }));
     expect(publicHtml).not.toContain("Snowy station");
     expect(publicHtml).toContain("Best sunset right now");
     const debugHtml = renderToStaticMarkup(React.createElement(DebugPanel, { ranking }));
@@ -105,7 +106,7 @@ describe("runtime visible sunset selection", () => {
     expect(ranking.results).toEqual([]);
     expect(ranking.featuredCameraId).toBeNull();
     expect(ranking.diagnostics.rejectedEvidence).toBe(4);
-    const html = renderToStaticMarkup(React.createElement(Ranking, { ranking }));
+    const html = renderToStaticMarkup(React.createElement(SunsetExperience, { initialRanking: toPublicRanking(ranking) }));
     expect(html).toContain("Searching for the next great sunset");
     expect(html).not.toContain("Snowy station");
     expect(html).not.toContain("Best sunset right now");
@@ -116,7 +117,7 @@ describe("runtime visible sunset selection", () => {
     const ranking = await createRanking(date);
     expect(ranking.results).toHaveLength(4);
     expect(ranking.featuredCameraId).toBeNull();
-    expect(renderToStaticMarkup(React.createElement(Ranking, { ranking }))).not.toContain("Best sunset right now");
+    expect(renderToStaticMarkup(React.createElement(SunsetExperience, { initialRanking: toPublicRanking(ranking) }))).not.toContain("Best sunset right now");
   });
 
   it("isolates failed analysis and accounts for it separately from low evidence", async () => {
@@ -129,5 +130,18 @@ describe("runtime visible sunset selection", () => {
     expect(ranking.diagnostics.rejectedOther).toBe(1);
     expect(ranking.diagnostics.rejectedEvidence).toBe(0);
     expect(ranking.diagnostics.imagesAnalyzed).toBe(3);
+  });
+
+  it("keeps technical scoring and debug fields out of the public response", async () => {
+    const ranking = await createRanking(date, createHeroSelector());
+    const publicResponse = toPublicRanking(ranking);
+    expect(publicResponse.results).toHaveLength(3);
+    expect(publicResponse.rankedHero?.camera.id).toBe("sunset");
+    const serialized = JSON.stringify(publicResponse);
+    expect(serialized).not.toContain("finalScore");
+    expect(serialized).not.toContain("sunsetEvidenceScore");
+    expect(serialized).not.toContain("sunsetOpportunityScore");
+    expect(serialized).not.toContain("candidateDiagnostics");
+    expect(serialized).not.toContain("heroDecision");
   });
 });

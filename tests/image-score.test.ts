@@ -7,6 +7,44 @@ async function score(scene: () => Promise<Buffer>, phase = 95) {
 }
 
 describe("visual sunset scoring calibration", () => {
+  it("separates a bright horizon sunset, subtle twilight and Selfoss-like terrain", async () => {
+    const clear = await score(sunsetScenes.intenseHorizonSunset);
+    const subtle = await score(sunsetScenes.subtleHorizonTwilight);
+    const landscape = await score(sunsetScenes.selfossLike);
+    expect(clear.sunsetScore - subtle.sunsetScore).toBeGreaterThan(8);
+    expect(subtle.sunsetScore - landscape.sunsetScore).toBeGreaterThan(20);
+    expect(subtle.sunsetScore).toBeGreaterThanOrEqual(20);
+    expect(landscape.sunsetEvidenceScore).toBeLessThan(20);
+    expect(landscape.metrics.foregroundSunsetLeakageRatio).toBeGreaterThan(.8);
+    expect(landscape.metrics.horizonGlowScore).toBeLessThan(15);
+    expect(clear.metrics.horizonGlowScore).toBeGreaterThan(landscape.metrics.horizonGlowScore + 20);
+    expect(landscape.metrics.estimatedHorizonY).toBeLessThan(.65);
+    expect(landscape.metrics.horizonConfidence).toBeGreaterThan(25);
+  });
+
+  it("requires connected sky color rather than isolated orange pixels", async () => {
+    const isolated = await score(sunsetScenes.isolatedOrangePixels);
+    expect(isolated.metrics.sunsetColorGeometryScore).toBeLessThan(15);
+    expect(isolated.sunsetScore).toBeLessThan(10);
+  });
+  it("does not mistake a high-horizon road landscape for warm sky", async () => {
+    const landscape = await score(sunsetScenes.highHorizonTerrain);
+    expect(landscape.sunsetEvidenceScore).toBeLessThan(20);
+    expect(landscape.metrics.foregroundSunsetLeakageRatio).toBeGreaterThan(.8);
+  });
+  it("retains a genuine bright horizon above warm roofs", async () => {
+    const sunset = await score(sunsetScenes.sunsetAboveWarmRoofs);
+    expect(sunset.metrics.foregroundSunsetLeakageRatio).toBeGreaterThan(.6);
+    expect(sunset.metrics.horizonGlowScore).toBeGreaterThan(40);
+    expect(sunset.sunsetScore).toBeGreaterThan(30);
+  });
+
+  it("falls back transparently for a featureless image", async () => {
+    const placeholder = await score(sunsetScenes.monochromePlaceholder);
+    expect(placeholder.metrics.horizonConfidence).toBeLessThan(25);
+    expect(placeholder.metrics.estimatedHorizonY).toBeCloseTo(.7, 1);
+    expect(placeholder.sunsetScore).toBe(0);
+  });
   it("keeps explicit non-sunset examples clearly low", async () => {
     const negatives = await Promise.all([
       score(sunsetScenes.grayCloudyLandscape), score(sunsetScenes.snowyBlueScene),

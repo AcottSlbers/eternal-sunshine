@@ -1,17 +1,19 @@
-import camerasData from "@/data/cameras.json";
+import { cameraRegistry as cameras } from "@/lib/camera-registry";
 import { MINIMUM_DESIRED_CANDIDATES, STALE_IMAGE_MINUTES, SUNSET_WINDOWS } from "@/lib/config";
 import { getCameraDirection, getSunAlignmentScore } from "@/lib/camera-direction";
 import { UNAVAILABLE_IMAGE_VIABILITY } from "@/lib/image-viability";
 import { fetchCandidateImageAnalysis, UNAVAILABLE_VISUAL_SUNSET_SCORE } from "@/lib/image-score";
 import { WindyWebcamProvider } from "@/lib/providers/windy-webcam-provider";
+import { MeteoGaliciaWebcamProvider } from "@/lib/providers/meteogalicia-webcam-provider";
+import type { WebcamProvider } from "@/lib/providers/webcam-provider";
 import { getSolarPosition, getSolarTrend, getSunsetCandidates, getSunsetPhaseScore } from "@/lib/solar";
 import { classifySunsetVisibility } from "@/lib/sunset-visibility";
 import { getCameraTimeZone } from "@/lib/time-zone";
 import { compareSunsets, deduplicatePublicRanking, selectRuntimeHero } from "@/lib/public-ranking";
-import type { Camera } from "@/types/camera";
+import type { Camera, CameraSource } from "@/types/camera";
 import type { CameraDebugEntry, CandidateDiagnostic, CandidateStage, ImageViability, RankedSunset, RankingResponse, SunsetCandidate } from "@/types/ranking";
 
-const cameras = camerasData as Camera[];
+type Providers = Partial<Record<CameraSource, WebcamProvider>>;
 
 export function getImageFreshness(timestamp: string | undefined, now: Date): { ageMinutes?: number; score: number; stale: boolean } {
   if (!timestamp) return { score: 55, stale: false };
@@ -45,16 +47,17 @@ async function rankCandidate(candidate: SunsetCandidate, now: Date): Promise<Can
   const alignment = getSunAlignmentScore(direction.viewAzimuth, candidate.solarAzimuth);
   if (alignment.difference !== undefined && alignment.difference > 120) return rejected(`Rejected: camera points ${alignment.difference.toFixed(0)}° away from the sun`);
   const freshness = getImageFreshness(candidate.camera.lastKnownImageTimestamp ?? candidate.camera.imageUpdatedAt, now);
+  if (candidate.camera.source === "meteogalicia" && freshness.ageMinutes === undefined) return rejected("Rejected: image timestamp unavailable or invalid");
   if (freshness.stale) return rejected(`Rejected: image is stale (${freshness.ageMinutes?.toFixed(0)} minutes old)`);
   const sunsetPhaseScore = getSunsetPhaseScore(candidate.solarElevation);
-  const imageUrl = candidate.camera.lastKnownImageUrl ?? candidate.camera.imageUrl;
-  const imageAnalysis = imageUrl && candidate.camera.source === "windy"
+  const imageUrl = candidate.camera.previewImageUrl ?? candidate.camera.lastKnownImageUrl ?? candidate.camera.imageUrl;
+  const imageAnalysis = imageUrl && candidate.camera.source !== "mock"
     ? await fetchCandidateImageAnalysis(imageUrl, sunsetPhaseScore)
     : { viability: UNAVAILABLE_IMAGE_VIABILITY, visual: UNAVAILABLE_VISUAL_SUNSET_SCORE };
   const imageViability = imageAnalysis.viability;
-  const imageChecked = Boolean(imageUrl && candidate.camera.source === "windy");
+  const imageChecked = Boolean(imageUrl && candidate.camera.source !== "mock");
   const sunsetOpportunityScore = getSunsetOpportunityScore({ sunsetPhaseScore, sunAlignmentScore: alignment.score, freshnessScore: freshness.score, imageViability, qualityWeight: candidate.camera.qualityWeight });
-  const finalScore = candidate.camera.source === "windy" ? getFinalScore(imageAnalysis.visual.sunsetScore, sunsetOpportunityScore) : sunsetOpportunityScore;
+  const finalScore = candidate.camera.source !== "mock" ? getFinalScore(imageAnalysis.visual.sunsetScore, sunsetOpportunityScore) : sunsetOpportunityScore;
   const scored: RankedSunset = {
     ...candidate, sunsetOpportunityScore, sunsetPhaseScore, sunAlignmentScore: alignment.score,
     alignmentDifference: alignment.difference, directionConfidence: direction.confidence, cameraViewAzimuth: direction.viewAzimuth,
@@ -63,17 +66,22 @@ async function rankCandidate(candidate: SunsetCandidate, now: Date): Promise<Can
     sunsetScore: imageAnalysis.visual.sunsetScore, finalScore, sunsetMetrics: imageAnalysis.visual.metrics,
     visualScoreStatus: imageAnalysis.visual.status,
     cameraTimeZone: getCameraTimeZone(candidate.camera.latitude, candidate.camera.longitude),
-    scoreKind: candidate.camera.source === "windy" ? "visual" : "temporary-mock",
+    scoreKind: candidate.camera.source !== "mock" ? "visual" : "temporary-mock",
     temporaryMockScore: candidate.camera.source === "mock" ? sunsetOpportunityScore : undefined,
   };
   return { ...candidate, scored, imageChecked, imageAnalyzed: imageAnalysis.visual.status === "analyzed", ...classifySunsetVisibility(scored) };
 }
 
 async function refreshAndRank(
-  input: SunsetCandidate[], now: Date, provider: WindyWebcamProvider | undefined,
+  input: SunsetCandidate[], now: Date, providers: Providers, errors: Partial<Record<CameraSource, string>>,
 ): Promise<{ ranked: RankedSunset[]; refreshed: number; evaluations: CandidateDiagnostic[] }> {
-  const windyIds = input.filter(({ camera }) => camera.source === "windy").map(({ camera }) => camera.id);
-  const latest = provider && windyIds.length > 0 ? await provider.getCameras(windyIds) : [];
+  const sources = [...new Set(input.map(({ camera }) => camera.source))];
+  const refreshed = await Promise.all(sources.map(async (source): Promise<Camera[]> => {
+    const ids = input.filter(({ camera }) => camera.source === source).map(({ camera }) => camera.id);
+    try { return await providers[source]?.getCameras(ids) ?? []; }
+    catch (error) { errors[source] = error instanceof Error ? error.message : "Provider refresh failed"; return []; }
+  }));
+  const latest = refreshed.flat();
   const latestById = new Map(latest.map((camera) => [camera.id, camera]));
   const refreshedCandidates = input.map((candidate) => {
     const fresh = latestById.get(candidate.camera.id);
@@ -87,7 +95,12 @@ async function refreshAndRank(
       discovery: candidate.camera.discovery,
     } };
   });
-  const settled = await Promise.allSettled(refreshedCandidates.map((candidate) => rankCandidate(candidate, now)));
+  const settled = await Promise.allSettled(refreshedCandidates.map((candidate): Promise<CandidateDiagnostic> => {
+    if (candidate.camera.source === "meteogalicia" && !latestById.has(candidate.camera.id)) {
+      return Promise.resolve({ ...candidate, visibility: "rejected-other", reason: "Rejected: provider metadata unavailable for camera", imageChecked: false, imageAnalyzed: false });
+    }
+    return rankCandidate(candidate, now);
+  }));
   const evaluations: CandidateDiagnostic[] = settled.map((result, index) => result.status === "fulfilled" ? result.value : {
     ...refreshedCandidates[index], visibility: "rejected-other", imageChecked: false, imageAnalyzed: false,
     reason: `Rejected: ${result.reason instanceof Error ? result.reason.message : "candidate check failed"}`,
@@ -114,13 +127,15 @@ function buildDebug(date: Date, selectedIds: Set<string>, evaluations: Candidate
 
 export async function createRanking(date = new Date(), selectHero = selectRuntimeHero): Promise<RankingResponse> {
   const registryIsWindy = cameras.some((camera) => camera.source === "windy");
-  let provider: WindyWebcamProvider | undefined;
+  const registryIsMeteoGalicia = cameras.some((camera) => camera.source === "meteogalicia");
+  const providers: Providers = { meteogalicia: new MeteoGaliciaWebcamProvider() };
+  const providerErrors: Partial<Record<CameraSource, string>> = {};
   let providerError: string | undefined;
   if (registryIsWindy) {
-    try { provider = new WindyWebcamProvider(); } catch (error) { providerError = error instanceof Error ? error.message : "Windy configuration failed."; }
+    try { providers.windy = new WindyWebcamProvider(); } catch (error) { providerError = error instanceof Error ? error.message : "Windy configuration failed."; providerErrors.windy = providerError; }
   }
   const strictCandidates = getSunsetCandidates(cameras, date, "strict");
-  const strict = await refreshAndRank(strictCandidates, date, provider);
+  const strict = await refreshAndRank(strictCandidates, date, providers, providerErrors);
   let results = strict.ranked;
   let refreshed = strict.refreshed;
   const candidateDiagnostics = [...strict.evaluations];
@@ -129,7 +144,7 @@ export async function createRanking(date = new Date(), selectHero = selectRuntim
     selectionStage = "extended";
     const strictIds = new Set(strictCandidates.map(({ camera }) => camera.id));
     const extendedOnly = getSunsetCandidates(cameras, date, "extended").filter(({ camera }) => !strictIds.has(camera.id));
-    const extended = await refreshAndRank(extendedOnly.map((candidate) => ({ ...candidate, stage: "extended" })), date, provider);
+    const extended = await refreshAndRank(extendedOnly.map((candidate) => ({ ...candidate, stage: "extended" })), date, providers, providerErrors);
     results = [...results, ...extended.ranked];
     refreshed += extended.refreshed;
     candidateDiagnostics.push(...extended.evaluations);
@@ -157,11 +172,31 @@ export async function createRanking(date = new Date(), selectHero = selectRuntim
     rejectedOther: candidateDiagnostics.filter((item) => item.visibility === "rejected-other").length,
     featured: featuredIds.size,
   };
+  const astronomical = getSunsetCandidates(cameras, date, "extended");
+  const providerDiagnostics = Object.fromEntries((["windy", "meteogalicia", "mock"] as const).map((source) => {
+    const pool = cameras.filter((camera) => camera.source === source);
+    const evaluated = candidateDiagnostics.filter((item) => item.camera.source === source);
+    const refreshedById = new Map(evaluated.map((item) => [item.camera.id, item.camera]));
+    return [source, {
+      registry: pool.length, freshKnownImages: pool.filter((camera) => {
+        const current = refreshedById.get(camera.id) ?? camera;
+        const freshness = getImageFreshness(current.lastKnownImageTimestamp ?? current.imageUpdatedAt, date);
+        return freshness.ageMinutes !== undefined && !freshness.stale;
+      }).length,
+      astronomical: astronomical.filter((item) => item.camera.source === source).length,
+      evaluated: evaluated.length, imagesAnalyzed: evaluated.filter((item) => item.imageAnalyzed).length,
+      visible: evaluated.filter((item) => item.visibility === "visible" || item.visibility === "featured").length,
+      featured: evaluated.filter((item) => item.visibility === "featured").length,
+      publicRanked: results.filter((item) => item.camera.source === source).length,
+      error: providerErrors[source],
+    }];
+  }));
   console.info(`[ranking] registry=${cameras.length} ${Object.entries(diagnostics).map(([key, value]) => `${key}=${value}`).join(" ")} metadataRefreshed=${refreshed} imagesChecked=${imagesChecked}`);
   return {
     generatedAt: date.toISOString(), candidatesEvaluated: candidateDiagnostics.length, totalCameras: cameras.length,
     sunsetWindows: SUNSET_WINDOWS, selectionStage, minimumDesiredCandidates: MINIMUM_DESIRED_CANDIDATES,
     results, featuredCameraId, featuredSunset, heroDecision, candidateDiagnostics, diagnostics, debug: buildDebug(date, selectedIds, candidateDiagnostics),
-    provider: { mode: registryIsWindy ? "windy" : "mock", refreshed, imagesChecked, error: providerError },
+    providerDiagnostics,
+    provider: { mode: registryIsWindy && registryIsMeteoGalicia ? "mixed" : registryIsWindy ? "windy" : registryIsMeteoGalicia ? "meteogalicia" : "mock", refreshed, imagesChecked, error: providerError },
   };
 }
