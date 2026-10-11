@@ -7,7 +7,7 @@ import { WindyWebcamProvider } from "@/lib/providers/windy-webcam-provider";
 import { MeteoGaliciaWebcamProvider } from "@/lib/providers/meteogalicia-webcam-provider";
 import type { WebcamProvider } from "@/lib/providers/webcam-provider";
 import { getSolarPosition, getSolarTrend, getSunsetCandidates, getSunsetPhaseScore } from "@/lib/solar";
-import { classifySunsetVisibility } from "@/lib/sunset-visibility";
+import { classifySunsetVisibility, isCredibleSunset, type CredibleSunsetDecision } from "@/lib/sunset-visibility";
 import { getCameraTimeZone } from "@/lib/time-zone";
 import { compareSunsets, deduplicatePublicRanking, selectRuntimeHero } from "@/lib/public-ranking";
 import type { Camera, CameraSource } from "@/types/camera";
@@ -47,18 +47,21 @@ async function rankCandidate(candidate: SunsetCandidate, now: Date): Promise<Can
   const alignment = getSunAlignmentScore(direction.viewAzimuth, candidate.solarAzimuth);
   if (alignment.difference !== undefined && alignment.difference > 120) return rejected(`Rejected: camera points ${alignment.difference.toFixed(0)}° away from the sun`);
   const freshness = getImageFreshness(candidate.camera.lastKnownImageTimestamp ?? candidate.camera.imageUpdatedAt, now);
-  if (candidate.camera.source === "meteogalicia" && freshness.ageMinutes === undefined) return rejected("Rejected: image timestamp unavailable or invalid");
+  if (candidate.camera.source !== "mock" && freshness.ageMinutes === undefined) return rejected("Rejected: image timestamp unavailable or invalid");
   if (freshness.stale) return rejected(`Rejected: image is stale (${freshness.ageMinutes?.toFixed(0)} minutes old)`);
   const sunsetPhaseScore = getSunsetPhaseScore(candidate.solarElevation);
   const imageUrl = candidate.camera.previewImageUrl ?? candidate.camera.lastKnownImageUrl ?? candidate.camera.imageUrl;
   const imageAnalysis = imageUrl && candidate.camera.source !== "mock"
-    ? await fetchCandidateImageAnalysis(imageUrl, sunsetPhaseScore)
+    ? await fetchCandidateImageAnalysis(imageUrl, sunsetPhaseScore, 8_000, {
+      isSunSetting: candidate.isSunSetting, solarElevation: candidate.solarElevation,
+      solarAzimuth: candidate.solarAzimuth, cameraAzimuth: direction.viewAzimuth,
+    })
     : { viability: UNAVAILABLE_IMAGE_VIABILITY, visual: UNAVAILABLE_VISUAL_SUNSET_SCORE };
   const imageViability = imageAnalysis.viability;
   const imageChecked = Boolean(imageUrl && candidate.camera.source !== "mock");
   const sunsetOpportunityScore = getSunsetOpportunityScore({ sunsetPhaseScore, sunAlignmentScore: alignment.score, freshnessScore: freshness.score, imageViability, qualityWeight: candidate.camera.qualityWeight });
   const finalScore = candidate.camera.source !== "mock" ? getFinalScore(imageAnalysis.visual.sunsetScore, sunsetOpportunityScore) : sunsetOpportunityScore;
-  const scored: RankedSunset = {
+  const analysis: Omit<RankedSunset, keyof CredibleSunsetDecision> = {
     ...candidate, sunsetOpportunityScore, sunsetPhaseScore, sunAlignmentScore: alignment.score,
     alignmentDifference: alignment.difference, directionConfidence: direction.confidence, cameraViewAzimuth: direction.viewAzimuth,
     imageAgeMinutes: freshness.ageMinutes, freshnessScore: freshness.score, imageViability,
@@ -69,6 +72,7 @@ async function rankCandidate(candidate: SunsetCandidate, now: Date): Promise<Can
     scoreKind: candidate.camera.source !== "mock" ? "visual" : "temporary-mock",
     temporaryMockScore: candidate.camera.source === "mock" ? sunsetOpportunityScore : undefined,
   };
+  const scored: RankedSunset = { ...analysis, ...isCredibleSunset(analysis) };
   return { ...candidate, scored, imageChecked, imageAnalyzed: imageAnalysis.visual.status === "analyzed", ...classifySunsetVisibility(scored) };
 }
 
@@ -105,7 +109,7 @@ async function refreshAndRank(
     ...refreshedCandidates[index], visibility: "rejected-other", imageChecked: false, imageAnalyzed: false,
     reason: `Rejected: ${result.reason instanceof Error ? result.reason.message : "candidate check failed"}`,
   });
-  const ranked = evaluations.flatMap((evaluation) => evaluation.scored && (evaluation.visibility === "visible" || evaluation.visibility === "featured") ? [evaluation.scored] : []);
+  const ranked = evaluations.flatMap((evaluation) => evaluation.scored?.isCredibleSunset ? [evaluation.scored] : []);
   return { ranked, refreshed: latest.length, evaluations };
 }
 

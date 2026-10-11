@@ -1,3 +1,4 @@
+import { PROVIDERS } from "@/lib/providers/catalogue";
 import type { Camera, CameraAttribution } from "@/types/camera";
 
 export const METEOGALICIA_ATTRIBUTION: CameraAttribution = {
@@ -9,6 +10,5 @@ export const METEOGALICIA_ATTRIBUTION: CameraAttribution = {
 
 export function getCameraAttribution(camera: Pick<Camera, "source" | "sourceUrl" | "attribution">): CameraAttribution {
   if (camera.attribution) return camera.attribution;
-  if (camera.source === "meteogalicia") return METEOGALICIA_ATTRIBUTION;
-  return { name: camera.source === "windy" ? "Windy Webcams" : "Development fixture", url: camera.sourceUrl ?? "https://www.windy.com/webcams" };
+  return PROVIDERS[camera.source].attribution;
 }

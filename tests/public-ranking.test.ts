@@ -7,6 +7,7 @@ import type { RankedSunset } from "../types/ranking";
 const now = new Date("2026-09-05T12:00:00Z");
 function candidate(id: string, finalScore: number, distanceKm = 0): RankedSunset {
   return {
+    isCredibleSunset: true, primaryEvidencePath: "chromatic", credibleSunsetReason: "test",
     camera: { id, name: "Same location name", region: "Same region", source: "windy", latitude: 0,
       longitude: distanceKm / 6371 * 180 / Math.PI, enabled: true, qualityWeight: 1, imageUpdatedAt: now.toISOString() },
     solarElevation: -1, solarAzimuth: 270, solarElevationLater: -2, solarElevationTrend: "descending",
@@ -76,11 +77,23 @@ describe("hero hysteresis", () => {
     const input = failure === "missing" ? [] : [current];
     expect(select([...input, candidate("replacement", 60)], now).featuredSunset?.camera.id).toBe("replacement");
   });
-  it("clears state when no fresh featured candidate remains", () => {
+  it("falls back to a visible sunset, then clears state when no credible candidate remains", () => {
     const select = createHeroSelector();
     select([candidate("current", 70)], now);
-    expect(select([candidate("weak", 25)], now).featuredSunset).toBeNull();
+    expect(select([candidate("weak", 25)], now).featuredSunset?.camera.id).toBe("weak");
+    expect(select([], now).featuredSunset).toBeNull();
     expect(select([], now).heroDecision.previousCameraId).toBeNull();
+  });
+  it("prefers Featured over a higher-scoring merely visible candidate", () => {
+    const visible = { ...candidate("visible", 70), sunsetEvidenceScore: 25 };
+    expect(createHeroSelector()([visible, candidate("featured", 40)], now).featuredSunset?.camera.id).toBe("featured");
+  });
+  it("keeps the same hysteresis gain for visible fallback candidates", () => {
+    const select = createHeroSelector();
+    const a = { ...candidate("a", 25), sunsetEvidenceScore: 25 };
+    select([a], now);
+    expect(select([a, { ...candidate("b", 27), sunsetEvidenceScore: 25 }], now).featuredSunset?.camera.id).toBe("a");
+    expect(select([a, { ...candidate("b", 28), sunsetEvidenceScore: 25 }], now).featuredSunset?.camera.id).toBe("b");
   });
   it("compares refreshed scores, not historical scores", () => {
     const select = createHeroSelector();

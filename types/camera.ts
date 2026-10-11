@@ -1,10 +1,12 @@
-export type CameraSource = "mock" | "windy" | "meteogalicia";
+export type CameraSource = "mock" | "windy" | "meteogalicia" | "vegagerdin" | "digitraffic" | "nsw" | "nzta" | "ontario511" | "quebec511" | "usgs" | "dgt" | "vegvesen" | "igepn";
+export type UsagePolicy = "open-commercial" | "open-attribution" | "official-api-restricted" | "noncommercial-restricted" | "requires-registration" | "research-only";
 
 export interface CameraAttribution {
   name: string;
   url: string;
   license?: string;
   licenseUrl?: string;
+  text?: string;
 }
 
 export interface Camera {
@@ -17,6 +19,16 @@ export interface Camera {
   city?: string;
   source: CameraSource;
   attribution?: CameraAttribution;
+  usagePolicy?: UsagePolicy;
+  supportsVisualScoring?: boolean;
+  preserveImageFraming?: boolean;
+  providerCameraId?: string;
+  originalProvider?: string;
+  canonicalProvider?: CameraSource;
+  duplicateOf?: string;
+  duplicateReason?: string;
+  timestampSource?: "metadata" | "http-last-modified";
+  viewDescription?: string;
   previewImageUrl?: string;
   sourceUrl?: string;
   providerUrl?: string;

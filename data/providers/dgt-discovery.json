@@ -1,0 +1,7 @@
+{
+  "provider": "dgt",
+  "attemptedAt": "2026-09-11T20:00:15.285Z",
+  "status": "blocked",
+  "error": "DGT v3.7 current XML resource unavailable; official catalogue access required",
+  "discovered": null
+}

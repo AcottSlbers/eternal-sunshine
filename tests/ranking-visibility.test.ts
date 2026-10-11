@@ -9,6 +9,7 @@ import type { Camera } from "../types/camera";
 import cameras from "../data/cameras.json";
 import { createHeroSelector } from "../lib/public-ranking";
 import { toPublicRanking } from "../lib/public-response";
+import { getPipelineDiagnostics } from "../lib/pipeline-diagnostics";
 
 const mocks = vi.hoisted(() => ({ analyze: vi.fn(), refresh: vi.fn() }));
 vi.mock("../data/cameras.json", () => ({ default: [
@@ -82,6 +83,11 @@ describe("runtime visible sunset selection", () => {
   it("gates after analysis, expands for visible count, keeps debug scores, and excludes sunrise before requests", async () => {
     const ranking = await createRanking(date, createHeroSelector());
     expect(ranking.results.map((item) => item.camera.id)).toEqual(["sunset", "extended", "twilight"]);
+    expect(ranking.results.every(item => item.isCredibleSunset)).toBe(true);
+    const pipeline = getPipelineDiagnostics(ranking);
+    expect(pipeline.counts).toMatchObject({ evaluated: 4, metadataFresh: 4, imagesAnalyzed: 4, imageViable: 4,
+      evidencePassed: 3, sunsetScorePassed: 3, credibleSunsets: 3, featuredSunsets: 2, publicRanked: 3 });
+    expect(pipeline.topRejected[0]).toMatchObject({ cameraId: "snow", evidence: 9.2, imageAgeMinutes: 8, isCredibleSunset: false });
     expect(ranking.featuredCameraId).toBe("sunset");
     const scores = ranking.results.map((item) => item.finalScore);
     expect(scores).toEqual([...scores].sort((a, b) => b - a));
@@ -112,12 +118,17 @@ describe("runtime visible sunset selection", () => {
     expect(html).not.toContain("Best sunset right now");
   });
 
-  it("allows marginal visible twilight in cards but never promotes it to hero", async () => {
+  it("shows a credible subtle sunset as hero when none is Featured", async () => {
     mocks.analyze.mockResolvedValue(analysis(25, 25));
-    const ranking = await createRanking(date);
+    const ranking = await createRanking(date, createHeroSelector());
     expect(ranking.results).toHaveLength(4);
-    expect(ranking.featuredCameraId).toBeNull();
-    expect(renderToStaticMarkup(React.createElement(SunsetExperience, { initialRanking: toPublicRanking(ranking) }))).not.toContain("Best sunset right now");
+    expect(ranking.diagnostics.featured).toBe(0);
+    expect(ranking.featuredCameraId).toBe(ranking.results[0].camera.id);
+    expect(ranking.featuredSunset?.isCredibleSunset).toBe(true);
+    const html = renderToStaticMarkup(React.createElement(SunsetExperience, { initialRanking: toPublicRanking(ranking) }));
+    expect(html).toContain("Best sunset right now");
+    expect(html).toContain("subtle");
+    expect(html).not.toContain("Searching for the next great sunset");
   });
 
   it("isolates failed analysis and accounts for it separately from low evidence", async () => {
@@ -143,5 +154,22 @@ describe("runtime visible sunset selection", () => {
     expect(serialized).not.toContain("sunsetOpportunityScore");
     expect(serialized).not.toContain("candidateDiagnostics");
     expect(serialized).not.toContain("heroDecision");
+    expect(serialized).not.toContain("EvidencePath");
+    expect(serialized).not.toContain("credibleSunsetReason");
+  });
+  it("does not serialize an accidentally supplied non-credible camera into public cards or hero", async () => {
+    const ranking = await createRanking(date, createHeroSelector());
+    const rejected = ranking.candidateDiagnostics.find(item => item.camera.id === "snow")!.scored!;
+    const response = toPublicRanking({ ...ranking, results: [...ranking.results, rejected], featuredSunset: rejected });
+    expect(response.results.some(item => item.camera.id === "snow")).toBe(false);
+    expect(response.rankedHero).toBeNull();
+  });
+  it("rejects unknown capture time before analysis so visible cameras are eligible for a fresh hero", async () => {
+    mocks.refresh.mockImplementation(async (ids: string[]) => cameras.filter(camera => ids.includes(camera.id)).map(camera => ({ ...camera, imageUpdatedAt: undefined })));
+    const ranking = await createRanking(date, createHeroSelector());
+    expect(ranking.results).toHaveLength(0);
+    expect(mocks.analyze).not.toHaveBeenCalled();
+    expect(getPipelineDiagnostics(ranking).counts.metadataUnknownOrStale).toBe(4);
+    expect(ranking.candidateDiagnostics.every(item => item.reason.includes("timestamp"))).toBe(true);
   });
 });

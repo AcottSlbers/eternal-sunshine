@@ -9,7 +9,10 @@
     "diagnose-sunset-scores": "tsx scripts/diagnose-sunset-scores.ts",
     "test": "vitest run",
     "build-camera-registry": "tsx scripts/build-camera-registry.ts",
-    "build-camera-registry:offline": "tsx scripts/build-camera-registry.ts --skip-images"
+    "build-camera-registry:offline": "tsx scripts/build-camera-registry.ts --skip-images",
+    "discover-providers": "tsx scripts/discover-providers.ts",
+    "discover-provider": "tsx scripts/discover-providers.ts",
+    "benchmark-providers": "tsx scripts/benchmark-providers.ts"
   },
   "dependencies": {
     "dotenv": "^17.4.2",

@@ -2,6 +2,9 @@ import sharp from "sharp";
 import { analyzeImageBuffer, UNAVAILABLE_IMAGE_VIABILITY } from "@/lib/image-viability";
 import type { ImageViability, SunsetScoreMetrics, VisualSunsetScore } from "@/types/ranking";
 import { estimateSkyGeometry, sunsetGeometryScore } from "@/lib/sky-geometry";
+import { MIN_VISIBLE_SUNSET_EVIDENCE } from "@/lib/config";
+import { measureSunsetBeauty } from "@/lib/sunset-beauty";
+import { hasHighConfidenceLuminousEvidence, measureEvidencePaths, type SolarImageContext } from "@/lib/sunset-evidence";
 
 const WIDTH = 256;
 const HEIGHT = 144;
@@ -99,6 +102,10 @@ function regionMean(region: RegionAccumulator, field: "luminanceSum" | "redSum" 
 
 function unavailableVisualScore(reason: string): VisualSunsetScore {
   const metrics: SunsetScoreMetrics = {
+    chromaticColorEvidence: 0, naturalSkySupport: 0, validatedHorizonLuminanceScore: 0,
+    chromaticEvidencePath: 0, pastelEvidencePath: 0, luminousHorizonEvidencePath: 0, twilightEvidencePath: 0, solarGlowEvidencePath: 0,
+    evidenceSkyGeometry: 0, evidenceForegroundLeakageRatio: 0, evidenceHorizonWidth: 0,
+    pastelSunsetScore: 0, horizonIlluminationWidthScore: 0, illuminatedCloudScore: 0, verticalSunsetGradientScore: 0,
     estimatedHorizonY: 0, horizonConfidence: 0, skyConfidence: 0,
     skySunsetColorRatio: 0, horizonSunsetColorRatio: 0, foregroundSunsetColorRatio: 0,
     foregroundSunsetLeakageRatio: 0, sunsetColorGeometryScore: 0, horizonGlowScore: 0, intenseHorizonGlow: 0,
@@ -113,7 +120,7 @@ function unavailableVisualScore(reason: string): VisualSunsetScore {
 
 export const UNAVAILABLE_VISUAL_SUNSET_SCORE = unavailableVisualScore("Image could not be scored.");
 
-export async function analyzeSunsetImage(buffer: Buffer, sunsetPhaseScore: number): Promise<VisualSunsetScore> {
+export async function analyzeSunsetImage(buffer: Buffer, sunsetPhaseScore: number, context?: SolarImageContext): Promise<VisualSunsetScore> {
   const { data, info } = await sharp(buffer).resize(WIDTH, HEIGHT, { fit: "inside", withoutEnlargement: true }).removeAlpha().raw().toBuffer({ resolveWithObject: true });
   if (info.channels < 3 || info.width < 2 || info.height < 2) return unavailableVisualScore("Invalid image pixels.");
   const geometry = estimateSkyGeometry(data, info.width, info.height, info.channels);
@@ -226,7 +233,9 @@ export async function analyzeSunsetImage(buffer: Buffer, sunsetPhaseScore: numbe
   // Foreground hue/texture cannot substitute for a connected sunset region in sky.
   // A localized sun/glow still qualifies through coherent local presence and gradient.
   const leakageGate = 1 - .9 * leakage ** 2 * (1 - Math.max(verifiedSkyGlow, Math.min(1, weightedSunsetPresence * 8)));
-  const sunsetEvidenceScore = clamp(rawEvidence * astronomicalFactor * skySupport * horizonSupport * leakageGate - foregroundWarmPenalty - grayscaleEvidencePenalty);
+  const chromaticEvidence = clamp(rawEvidence * astronomicalFactor * skySupport * horizonSupport * leakageGate - foregroundWarmPenalty - grayscaleEvidencePenalty);
+  const evidence = measureEvidencePaths(data, info.width, info.height, info.channels, geometry, chromaticEvidence, sunsetPhaseScore, context);
+  const sunsetEvidenceScore = evidence.evidence;
 
   const averageLuminance = luminanceSum / pixelCount;
   const luminanceDeviation = Math.sqrt(Math.max(0, luminanceSquareSum / pixelCount - averageLuminance ** 2));
@@ -243,14 +252,47 @@ export async function analyzeSunsetImage(buffer: Buffer, sunsetPhaseScore: numbe
   const beautyActivation = smoothstep((sunsetEvidenceScore - 8) / 52);
   const exposurePenalty = clamp((overexposedShare - 0.18) / 0.5 * 35);
   const darknessPenalty = clamp((darkPixelShare - 0.72) / 0.28 * 35);
-  const sunsetBeautyScore = clamp(rawBeauty * beautyActivation - exposurePenalty - darknessPenalty);
-  const evidenceGateCeiling = 100 * Math.sin(sunsetEvidenceScore / 100 * Math.PI / 2) ** 1.18;
-  const ungatedScore = 0.7 * sunsetEvidenceScore + 0.3 * sunsetBeautyScore;
+  const beautyMetrics = measureSunsetBeauty(data, info.width, info.height, info.channels, geometry);
+  const visibleEvidence = sunsetEvidenceScore >= MIN_VISIBLE_SUNSET_EVIDENCE
+    || hasHighConfidenceLuminousEvidence({ ...evidence, ...evidence.paths, skyConfidence: geometry.skyConfidence * 100 });
+  // Pastel and saturated color are alternative strengths, not two cumulative bonuses.
+  const colorQuality = Math.max(sunsetColorStrength, .6 * beautyMetrics.pastelSunsetScore);
+  // When the old color detector missed a now-verified luminous sunset, its old
+  // glow/width measurements may also be empty. Use the validated sky measurements
+  // in the same Beauty slots; established chromatic/pastel Beauty stays unchanged.
+  const luminousRecovery = chromaticEvidence < MIN_VISIBLE_SUNSET_EVIDENCE && visibleEvidence
+    && evidence.paths.luminousHorizonEvidencePath >= Math.max(evidence.paths.pastelEvidencePath, evidence.paths.twilightEvidencePath);
+  const qualityGlow = luminousRecovery ? Math.max(horizonGlow, evidence.validatedHorizonLuminanceScore) : horizonGlow;
+  const qualityWidth = luminousRecovery ? Math.max(beautyMetrics.horizonIlluminationWidthScore,
+    evidence.evidenceHorizonWidth * Math.sqrt(geometry.skyConfidence * evidence.evidenceSkyGeometry / 100)) : beautyMetrics.horizonIlluminationWidthScore;
+  const quality = .12 * sunsetColorDiversity + .18 * colorQuality + .16 * qualityGlow
+    + .12 * qualityWidth + .12 * beautyMetrics.illuminatedCloudScore
+    + .12 * beautyMetrics.verticalSunsetGradientScore + .10 * luminanceContrast
+    + .05 * dynamicRange + .03 * textureEnhancement;
+  // Detection remains conservative. Once it passes, quality uses its own scale;
+  // weak Evidence no longer caps a verified sunset's Beauty at roughly 20–30.
+  const sunsetBeautyScore = clamp((visibleEvidence ? quality : rawBeauty * beautyActivation) - exposurePenalty - darknessPenalty);
+  const evidenceGateCeiling = visibleEvidence ? 100 : Math.min(19, 100 * Math.sin(sunsetEvidenceScore / 100 * Math.PI / 2) ** 1.18);
+  const ungatedScore = visibleEvidence ? .15 * sunsetEvidenceScore + .85 * sunsetBeautyScore : .7 * sunsetEvidenceScore + .3 * sunsetBeautyScore;
   const sunsetScore = Math.min(ungatedScore, evidenceGateCeiling);
 
   return {
     sunsetEvidenceScore: round(sunsetEvidenceScore), sunsetBeautyScore: round(sunsetBeautyScore), sunsetScore: round(sunsetScore), status: "analyzed",
     metrics: {
+      chromaticColorEvidence: round(chromaticEvidence), naturalSkySupport: round(evidence.naturalSkySupport),
+      validatedHorizonLuminanceScore: round(evidence.validatedHorizonLuminanceScore),
+      chromaticEvidencePath: round(evidence.paths.chromaticEvidencePath),
+      pastelEvidencePath: round(evidence.paths.pastelEvidencePath),
+      luminousHorizonEvidencePath: round(evidence.paths.luminousHorizonEvidencePath),
+      twilightEvidencePath: round(evidence.paths.twilightEvidencePath),
+      solarGlowEvidencePath: round(evidence.paths.solarGlowEvidencePath),
+      evidenceSkyGeometry: round(evidence.evidenceSkyGeometry),
+      evidenceForegroundLeakageRatio: Math.round(evidence.evidenceForegroundLeakageRatio * 1000) / 1000,
+      evidenceHorizonWidth: round(evidence.evidenceHorizonWidth),
+      pastelSunsetScore: round(beautyMetrics.pastelSunsetScore),
+      horizonIlluminationWidthScore: round(beautyMetrics.horizonIlluminationWidthScore),
+      illuminatedCloudScore: round(beautyMetrics.illuminatedCloudScore),
+      verticalSunsetGradientScore: round(beautyMetrics.verticalSunsetGradientScore),
       estimatedHorizonY: Math.round(geometry.horizonY * 1000) / 1000,
       horizonConfidence: round(geometry.confidence * 100), skyConfidence: round(geometry.skyConfidence * 100),
       skySunsetColorRatio: Math.round(upperSunset * 1000) / 1000,
@@ -270,7 +312,7 @@ export async function analyzeSunsetImage(buffer: Buffer, sunsetPhaseScore: numbe
   };
 }
 
-export async function fetchCandidateImageAnalysis(imageUrl: string, sunsetPhaseScore: number, timeoutMs = 8_000): Promise<CandidateImageAnalysis> {
+export async function fetchCandidateImageAnalysis(imageUrl: string, sunsetPhaseScore: number, timeoutMs = 8_000, context?: SolarImageContext): Promise<CandidateImageAnalysis> {
   const controller = new AbortController();
   const timeout = setTimeout(() => controller.abort(), timeoutMs);
   try {
@@ -280,7 +322,7 @@ export async function fetchCandidateImageAnalysis(imageUrl: string, sunsetPhaseS
       return { viability: { ...UNAVAILABLE_IMAGE_VIABILITY, reason }, visual: unavailableVisualScore(reason) };
     }
     const buffer = Buffer.from(await response.arrayBuffer());
-    const [viabilityResult, visualResult] = await Promise.allSettled([analyzeImageBuffer(buffer), analyzeSunsetImage(buffer, sunsetPhaseScore)]);
+    const [viabilityResult, visualResult] = await Promise.allSettled([analyzeImageBuffer(buffer), analyzeSunsetImage(buffer, sunsetPhaseScore, context)]);
     const viability = viabilityResult.status === "fulfilled" ? viabilityResult.value : { ...UNAVAILABLE_IMAGE_VIABILITY, reason: "Image viability analysis failed." };
     const visual = visualResult.status === "fulfilled" ? visualResult.value : unavailableVisualScore("Sunset image analysis failed.");
     return { viability, visual };

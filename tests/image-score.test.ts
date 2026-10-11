@@ -1,12 +1,84 @@
 import { describe, expect, it } from "vitest";
 import { analyzeSunsetImage } from "../lib/image-score";
 import { sunsetScenes } from "./fixtures/sunset-scenes";
+import { MIN_VISIBLE_SUNSET_EVIDENCE } from "../lib/config";
 
 async function score(scene: () => Promise<Buffer>, phase = 95) {
   return analyzeSunsetImage(await scene(), phase);
 }
 
 describe("visual sunset scoring calibration", () => {
+  it("rewards a narrow continuous horizon without requiring a large warm area", async () => {
+    const sunset = await score(sunsetScenes.narrowHorizonSunset);
+    expect(sunset.metrics.skySunsetColorRatio).toBeLessThan(.1);
+    const skyColorFrameShare = sunset.metrics.estimatedHorizonY
+      * (.6 * sunset.metrics.skySunsetColorRatio + .4 * sunset.metrics.horizonSunsetColorRatio);
+    expect(skyColorFrameShare).toBeLessThan(.2);
+    expect(sunset.metrics.horizonIlluminationWidthScore).toBeGreaterThan(70);
+    expect(sunset.sunsetEvidenceScore).toBeGreaterThanOrEqual(MIN_VISIBLE_SUNSET_EVIDENCE);
+    expect(sunset.sunsetScore).toBeGreaterThan(40);
+  });
+
+  it("separates pastel, broad golden clouds and saturated cloud illumination", async () => {
+    const pastel = await score(sunsetScenes.pastelSunset);
+    const golden = await score(sunsetScenes.broadGoldenCloudSunset);
+    const dramatic = await score(sunsetScenes.saturatedCloudSunset);
+    expect(pastel.sunsetEvidenceScore).toBeGreaterThanOrEqual(MIN_VISIBLE_SUNSET_EVIDENCE);
+    expect(pastel.sunsetScore).toBeGreaterThanOrEqual(35);
+    expect(pastel.sunsetScore).toBeLessThan(60);
+    expect(golden.sunsetScore - pastel.sunsetScore).toBeGreaterThan(10);
+    expect(golden.sunsetScore).toBeGreaterThanOrEqual(60);
+    expect(dramatic.sunsetScore).toBeGreaterThan(golden.sunsetScore);
+    expect(dramatic.sunsetScore).toBeGreaterThanOrEqual(80);
+    expect(pastel.metrics.pastelSunsetScore).toBeGreaterThan(50);
+    expect(golden.metrics.horizonIlluminationWidthScore).toBeGreaterThan(70);
+    expect(golden.metrics.illuminatedCloudScore).toBeGreaterThan(pastel.metrics.illuminatedCloudScore + 20);
+    expect(golden.metrics.verticalSunsetGradientScore).toBeGreaterThan(60);
+  });
+
+  it("keeps terrain, isolated objects, snow, roads and gray scenes below the gate", async () => {
+    for (const scene of [sunsetScenes.blueSkyYellowField, sunsetScenes.tinyOrangeObject,
+      sunsetScenes.selfossLike, sunsetScenes.snowyBlueScene, sunsetScenes.grayHarbor,
+      sunsetScenes.overcastRoad, sunsetScenes.grayCloudyLandscape]) {
+      const result = await score(scene);
+      expect(result.sunsetEvidenceScore).toBeLessThan(MIN_VISIBLE_SUNSET_EVIDENCE);
+      expect(result.sunsetBeautyScore).toBeLessThan(1);
+      expect(result.sunsetScore).toBeLessThan(5);
+      expect(result.metrics.illuminatedCloudScore).toBeLessThan(5);
+    }
+    const object = await score(sunsetScenes.tinyOrangeObject);
+    expect(object.metrics.horizonIlluminationWidthScore).toBeLessThan(10);
+  });
+
+  it("does not let pastel measurements bypass conservative detection", async () => {
+    const gray = await score(sunsetScenes.grayCloudyLandscape);
+    // Even a coherent beige band can register in the quality mask. It cannot create Evidence.
+    expect(gray.metrics.pastelSunsetScore).toBeGreaterThan(30);
+    expect(gray.sunsetEvidenceScore).toBe(0);
+    expect(gray.sunsetBeautyScore).toBe(0);
+    expect(gray.sunsetScore).toBe(0);
+  });
+
+  it("preserves the original chromatic calculation before the artificial-light guard", async () => {
+    const baseline = {
+      highHorizonTerrain: 0, sunsetAboveWarmRoofs: 54.6, selfossLike: 0,
+      intenseHorizonSunset: 82.9, subtleHorizonTwilight: 62.1, isolatedOrangePixels: .1,
+      dramaticSunset: 100, twilightAfterglow: 80.8, weakSunsetSignal: 45.5,
+      ordinaryColorfulLandscape: 5.7, grayCloudyLandscape: 0, snowyBlueScene: 0,
+      overcastRoad: 0, grayHarbor: 0, monochromePlaceholder: 0, night: 0,
+    };
+    for (const [name, evidence] of Object.entries(baseline)) {
+      const result = await score(sunsetScenes[name as keyof typeof baseline]);
+      expect(result.metrics.chromaticColorEvidence, name).toBeCloseTo(evidence, 1);
+      expect(result.metrics.chromaticEvidencePath).toBeLessThanOrEqual(result.metrics.chromaticColorEvidence);
+      for (const value of Object.values(result.metrics)) {
+        expect(Number.isFinite(value)).toBe(true);
+        expect(value).toBeGreaterThanOrEqual(0);
+        expect(value).toBeLessThanOrEqual(100);
+      }
+    }
+  });
+
   it("separates a bright horizon sunset, subtle twilight and Selfoss-like terrain", async () => {
     const clear = await score(sunsetScenes.intenseHorizonSunset);
     const subtle = await score(sunsetScenes.subtleHorizonTwilight);

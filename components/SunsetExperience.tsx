@@ -52,7 +52,7 @@ export function SunsetExperience({ initialRanking, initialError = false }: {
   const selected = selectedCameraId
     ? [ranking?.rankedHero, ...(ranking?.results ?? [])].find((item) => item?.camera.id === selectedCameraId) ?? null
     : null;
-  const viewed = selected ?? ranking?.rankedHero ?? null;
+  const viewed = selected ?? ranking?.rankedHero ?? ranking?.results[0] ?? null;
   const isUserSelected = Boolean(selected && selected.camera.id !== ranking?.rankedHero?.camera.id);
 
   function selectCamera(cameraId: string) {

@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import { compareSunsets } from "../lib/public-ranking";
 import { HERO_SWITCH_MIN_SCORE_GAIN, PUBLIC_RANKING_DEDUPE_RADIUS_KM } from "../lib/config";
 import type { RankedSunset } from "../types/ranking";
+import { getPipelineDiagnostics } from "../lib/pipeline-diagnostics";
 
 dotenv.config({ path: path.join(process.cwd(), ".env.local"), quiet: true });
 
@@ -15,6 +16,7 @@ function median(values: number[]): number {
 async function main() {
   const { createRanking } = await import("../lib/ranking");
   const ranking = await createRanking();
+  const pipeline = getPipelineDiagnostics(ranking);
   const visible = ranking.candidateDiagnostics.flatMap((item) => item.scored && (item.visibility === "visible" || item.visibility === "featured") ? [item.scored] : []).sort(compareSunsets);
   const scores = visible.map((result) => result.sunsetScore).sort((first, second) => first - second);
   const summarize = (result: RankedSunset) => ({
@@ -23,10 +25,21 @@ async function main() {
     latitude: result.camera.latitude, longitude: result.camera.longitude,
     sunsetEvidenceScore: result.sunsetEvidenceScore, sunsetBeautyScore: result.sunsetBeautyScore,
     sunsetScore: result.sunsetScore, finalScore: result.finalScore,
+    primaryEvidencePath: result.primaryEvidencePath, isCredibleSunset: result.isCredibleSunset, credibleSunsetReason: result.credibleSunsetReason,
+    chromaticEvidencePath: result.sunsetMetrics.chromaticEvidencePath,
+    pastelEvidencePath: result.sunsetMetrics.pastelEvidencePath,
+    luminousHorizonEvidencePath: result.sunsetMetrics.luminousHorizonEvidencePath,
+    twilightEvidencePath: result.sunsetMetrics.twilightEvidencePath,
+    solarGlowEvidencePath: result.sunsetMetrics.solarGlowEvidencePath,
+    pastelSunsetScore: result.sunsetMetrics.pastelSunsetScore,
+    horizonIlluminationWidthScore: result.sunsetMetrics.horizonIlluminationWidthScore,
+    illuminatedCloudScore: result.sunsetMetrics.illuminatedCloudScore,
+    verticalSunsetGradientScore: result.sunsetMetrics.verticalSunsetGradientScore,
   });
   const top = ranking.results[0];
   console.log(JSON.stringify({
     generatedAt: ranking.generatedAt,
+    pipeline,
     candidateCount: ranking.results.length,
     diagnostics: ranking.diagnostics,
     providerDistribution: ranking.providerDiagnostics,

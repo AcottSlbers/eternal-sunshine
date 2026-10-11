@@ -84,13 +84,13 @@ describe("cinematic public UI", () => {
     expect(html).not.toContain("Best sunset right now");
   });
 
-  it("keeps visible non-featured sunsets in the cards while the ranked hero stays empty", () => {
+  it("uses the best credible card if a public response has no ranked hero", () => {
     const weak = sunset({ id: "twilight", name: "Visible twilight", hasLiveStream: false, livePlayer: undefined });
     weak.sunsetScore = 25;
     weak.sunsetStrength = "subtle";
     const html = renderToStaticMarkup(React.createElement(SunsetExperience, { initialRanking: ranking(null, [weak]) }));
-    expect(html).toContain("Searching for the next great sunset");
+    expect(html).not.toContain("Searching for the next great sunset");
     expect(html).toContain("Visible twilight");
-    expect(html).not.toContain("Best sunset right now");
+    expect(html).toContain("Best sunset right now");
   });
 });

@@ -16,6 +16,7 @@ function diagnostic(id: string, visibility: CandidateDiagnostic["visibility"] = 
     solarTrendDegreesPerMinute: -.2, solarElevationTrend: "descending" as const, isSunSetting: true };
   return { ...candidate, visibility, reason: visibility, imageChecked: true, imageAnalyzed: true,
     scored: { ...candidate, sunsetEvidenceScore: 40, sunsetBeautyScore: 35, sunsetScore: 38, finalScore: 37,
+      isCredibleSunset: visibility === "visible" || visibility === "featured", primaryEvidencePath: "chromatic", credibleSunsetReason: visibility,
       sunsetOpportunityScore: 90, sunsetPhaseScore: 95, sunAlignmentScore: 65, directionConfidence: "unknown",
       freshnessScore: 100, imageViability: { brightness: 50, saturation: 50, darkPixelRatio: 0, blueGrayRatio: 0, viable: true, status: "viable" },
       sunsetMetrics: { ...UNAVAILABLE_VISUAL_SUNSET_SCORE.metrics, skyConfidence: 75 }, visualScoreStatus: "analyzed", scoreKind: "visual" } };

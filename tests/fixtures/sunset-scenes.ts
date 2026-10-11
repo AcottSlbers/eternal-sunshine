@@ -6,6 +6,56 @@ function svgScene(body: string): Promise<Buffer> {
 }
 
 export const sunsetScenes = {
+  hazyLuminousSunset: () => svgScene(`
+    <defs><linearGradient id="haze" x2="0" y2="1"><stop stop-color="#7d99ac"/><stop offset=".6" stop-color="#b8bdc1"/><stop offset="1" stop-color="#f0e4cc"/></linearGradient></defs>
+    <rect width="256" height="95" fill="url(#haze)"/><rect y="95" width="256" height="49" fill="#4a5861"/>
+  `),
+  softLavenderAfterglow: () => svgScene(`
+    <defs><linearGradient id="lavender" x2="0" y2="1"><stop stop-color="#53698d"/><stop offset=".55" stop-color="#969db7"/><stop offset="1" stop-color="#c4a8c0"/></linearGradient></defs>
+    <rect width="256" height="97" fill="url(#lavender)"/><rect y="97" width="256" height="47" fill="#353d50"/>
+  `),
+  artificialStreetlight: () => svgScene(`
+    <defs><radialGradient id="lamp"><stop stop-color="#fffbc2"/><stop offset=".2" stop-color="#ffbf66"/><stop offset="1" stop-color="#f1b759" stop-opacity="0"/></radialGradient></defs>
+    <rect width="256" height="144" fill="#101824"/><rect y="90" width="256" height="54" fill="#292b30"/>
+    <rect x="128" y="53" width="3" height="91" fill="#090c10"/><ellipse cx="129" cy="56" rx="20" ry="17" fill="url(#lamp)"/>
+  `),
+  paleForeground: () => svgScene(`
+    <rect width="256" height="67" fill="#8eacc6"/><rect y="67" width="256" height="77" fill="#ded2b6"/>
+    <path d="M0 72 L256 80 M0 92 L256 105 M0 121 L256 131" stroke="#b3a990" stroke-width="3"/>
+  `),
+  narrowHorizonSunset: () => svgScene(`
+    <defs><linearGradient id="narrow" x2="0" y2="1"><stop stop-color="#536b91"/><stop offset=".78" stop-color="#9c9eaf"/><stop offset=".87" stop-color="#d9949f"/><stop offset="1" stop-color="#f1c28a"/></linearGradient></defs>
+    <rect width="256" height="85" fill="url(#narrow)"/>
+    <rect y="85" width="256" height="59" fill="#354451"/>
+  `),
+  pastelSunset: () => svgScene(`
+    <defs><linearGradient id="pastel" x2="0" y2="1"><stop stop-color="#7993b2"/><stop offset=".65" stop-color="#aeb1c2"/><stop offset=".84" stop-color="#dfb3bc"/><stop offset="1" stop-color="#f0c7a3"/></linearGradient></defs>
+    <rect width="256" height="92" fill="url(#pastel)"/>
+    <rect y="92" width="256" height="52" fill="#68777f"/>
+  `),
+  broadGoldenCloudSunset: () => svgScene(`
+    <defs><linearGradient id="gold" x2="0" y2="1"><stop stop-color="#3d587c"/><stop offset=".35" stop-color="#878b9c"/><stop offset=".6" stop-color="#ddbb85"/><stop offset="1" stop-color="#ffcf79"/></linearGradient></defs>
+    <rect width="256" height="102" fill="url(#gold)"/>
+    <path d="M0 64 Q70 61 128 66 T256 63 L256 70 Q188 74 128 71 T0 72Z" fill="#73717b"/>
+    <rect y="102" width="256" height="42" fill="#202a36"/>
+    <path d="M0 105 L34 94 L63 101 L100 88 L127 103 L178 96 L206 103 L256 97 L256 144 L0 144Z" fill="#202a36"/>
+  `),
+  saturatedCloudSunset: () => svgScene(`
+    <defs><linearGradient id="drama" x2="0" y2="1"><stop stop-color="#572d84"/><stop offset=".4" stop-color="#d85baf"/><stop offset=".7" stop-color="#fa683d"/><stop offset="1" stop-color="#ffc765"/></linearGradient></defs>
+    <rect width="256" height="104" fill="url(#drama)"/>
+    <path d="M0 58 Q64 61 130 57 T256 58 L256 67 Q176 70 110 66 T0 68Z" fill="#743f64"/>
+    <rect y="104" width="256" height="40" fill="#201a2b"/>
+  `),
+  blueSkyYellowField: () => svgScene(`
+    <rect width="256" height="75" fill="#76abdc"/>
+    <rect y="75" width="256" height="69" fill="#c5ab47"/>
+    <path d="M0 77 L256 88 M0 100 L256 117 M0 122 L256 141" stroke="#8a7739" stroke-width="3"/>
+  `),
+  tinyOrangeObject: () => svgScene(`
+    <rect width="256" height="92" fill="#a3bdd7"/>
+    <rect y="92" width="256" height="52" fill="#50694b"/>
+    <rect x="130" y="85" width="4" height="9" fill="#f98b36"/>
+  `),
   highHorizonTerrain: () => svgScene(`
     <rect width="256" height="144" fill="#b5c4df"/>
     <path d="M0 29 L28 18 L55 28 L87 23 L123 30 L153 21 L189 30 L222 22 L256 29 L256 144 L0 144Z" fill="#7b8597"/>

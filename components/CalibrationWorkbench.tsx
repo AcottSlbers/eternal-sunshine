@@ -37,6 +37,7 @@ function CandidateView({ candidate, label }: { candidate: CalibrationCandidate; 
     <dl className="my-4 grid grid-cols-4 gap-2">{[["Evidence", s.evidence], ["Beauty", s.beauty], ["SunsetScore", s.sunsetScore], ["FinalScore", s.finalScore]].map(([name, value]) => <div key={name}><dt className="text-xs text-stone-400">{name}</dt><dd className="text-xl">{Number(value).toFixed(1)}</dd></div>)}</dl>
     <p className="text-sm">Sunset phase: {s.phase.toFixed(1)} / 100 · {s.stage} · elevation {s.solarElevation.toFixed(2)}°</p>
     <p className="mt-2 text-sm text-orange-100">{s.visibility}: {s.reason}</p>
+    {candidate.decision && <p className="mt-2 text-sm">primaryEvidencePath: {candidate.decision.primaryEvidencePath} · isCredibleSunset: {String(candidate.decision.isCredibleSunset)} · credibleSunsetReason: {candidate.decision.credibleSunsetReason}</p>}
     <dl className="mt-4 grid grid-cols-[1fr_auto] gap-x-4 gap-y-1 text-sm">{Object.entries(s.metrics).map(([name, value]) => <div key={name} className="contents"><dt className="break-all text-stone-400">{name}</dt><dd className="font-mono">{value.toFixed(name.endsWith("Ratio") || name === "estimatedHorizonY" ? 3 : 1)}</dd></div>)}</dl>
   </article>;
 }

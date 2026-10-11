@@ -1,6 +1,7 @@
 import type { CameraAttribution, CameraSource } from "@/types/camera";
 import type { RankingResponse, SunsetVisibility } from "@/types/ranking";
 import { getCameraAttribution } from "@/lib/providers/attribution";
+import type { CredibleSunsetDecision } from "@/lib/sunset-visibility";
 
 export const CALIBRATION_STORAGE_KEY = "eternal-sunshine.calibration.v1";
 export type HumanChoice = "a" | "b" | "equal" | "neither";
@@ -22,6 +23,7 @@ export interface CalibrationSnapshot {
   metrics: Record<string, number>;
 }
 export interface CalibrationCandidate {
+  decision?: CredibleSunsetDecision;
   snapshot: CalibrationSnapshot;
   previewUrl?: string;
   attribution: CameraAttribution;
@@ -41,7 +43,8 @@ export function calibrationCandidates(ranking: RankingResponse): CalibrationCand
     const score = diagnostic.scored;
     if (!diagnostic.imageAnalyzed || !score || score.visualScoreStatus !== "analyzed") return [];
     const camera = diagnostic.camera;
-    return [{ previewUrl: camera.previewImageUrl ?? camera.lastKnownImageUrl ?? camera.imageUrl,
+    return [{ decision: { isCredibleSunset: score.isCredibleSunset, primaryEvidencePath: score.primaryEvidencePath, credibleSunsetReason: score.credibleSunsetReason },
+      previewUrl: camera.previewImageUrl ?? camera.lastKnownImageUrl ?? camera.imageUrl,
       attribution: getCameraAttribution(camera), snapshot: {
         cameraId: camera.id, provider: camera.source, location: camera.name,
         imageTimestamp: camera.lastKnownImageTimestamp ?? camera.imageUpdatedAt ?? null,

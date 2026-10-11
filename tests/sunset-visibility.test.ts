@@ -1,11 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { classifySunsetVisibility } from "../lib/sunset-visibility";
-import { analyzeSunsetImage } from "../lib/image-score";
+import { analyzeSunsetImage, UNAVAILABLE_VISUAL_SUNSET_SCORE } from "../lib/image-score";
 import { analyzeImageBuffer } from "../lib/image-viability";
 import { sunsetScenes } from "./fixtures/sunset-scenes";
 
 const viable = { viable: true, status: "viable" as const, brightness: 50, saturation: 50, darkPixelRatio: 0, blueGrayRatio: 0 };
-const input = (evidence: number, score: number) => ({ sunsetEvidenceScore: evidence, sunsetScore: score, visualScoreStatus: "analyzed" as const, imageViability: viable, isSunSetting: true });
+const input = (evidence: number, score: number) => ({ sunsetEvidenceScore: evidence, sunsetBeautyScore: score,
+  sunsetMetrics: UNAVAILABLE_VISUAL_SUNSET_SCORE.metrics, sunsetScore: score, visualScoreStatus: "analyzed" as const, imageViability: viable, isSunSetting: true });
 
 describe("visible sunset gate", () => {
   it("rejects the reported low-evidence case regardless of astronomical opportunity", () => {
@@ -16,13 +17,13 @@ describe("visible sunset gate", () => {
     const buffer = await sunsetScenes.snowyBlueScene();
     const visual = await analyzeSunsetImage(buffer, 100);
     const imageViability = await analyzeImageBuffer(buffer);
-    expect(classifySunsetVisibility({ ...visual, visualScoreStatus: visual.status, imageViability, isSunSetting: true }).visibility).toBe("rejected-evidence");
+    expect(classifySunsetVisibility({ ...visual, sunsetMetrics: visual.metrics, visualScoreStatus: visual.status, imageViability, isSunSetting: true }).visibility).toBe("rejected-evidence");
   });
 
   it("features an analyzed orange/pink sunset", async () => {
     const buffer = await sunsetScenes.dramaticSunset();
     const visual = await analyzeSunsetImage(buffer, 95);
-    expect(classifySunsetVisibility({ ...visual, visualScoreStatus: visual.status, imageViability: await analyzeImageBuffer(buffer), isSunSetting: true }).visibility).toBe("featured");
+    expect(classifySunsetVisibility({ ...visual, sunsetMetrics: visual.metrics, visualScoreStatus: visual.status, imageViability: await analyzeImageBuffer(buffer), isSunSetting: true }).visibility).toBe("featured");
   });
 
   it("separates marginal visible twilight from featured sunsets with inclusive boundaries", () => {

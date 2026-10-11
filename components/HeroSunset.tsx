@@ -46,7 +46,7 @@ export function HeroSunset({ item, isUserSelected, generatedAt, onRestoreRanked 
 
   return (
     <article id="current-sunset" className="hero-enter overflow-hidden rounded-[1.5rem] bg-[#12110f] shadow-[0_30px_100px_rgba(0,0,0,.42)] sm:rounded-[2rem]">
-      <div className="relative aspect-[4/5] min-h-[31rem] overflow-hidden bg-[#171512] sm:aspect-[16/10] lg:aspect-[16/9] lg:max-h-[78vh] lg:min-h-[38rem]">
+      <div className="relative aspect-[4/5] min-h-[31rem] w-full overflow-hidden bg-[#171512] sm:aspect-[16/10] lg:aspect-[16/9] lg:max-h-[78vh] lg:min-h-[38rem]">
         {showLive && embedUrl ? (
           <iframe className="absolute inset-0 h-full w-full border-0 bg-black" src={embedUrl} title={`Live webcam from ${camera.name}`} allow="autoplay; fullscreen; picture-in-picture" allowFullScreen referrerPolicy="strict-origin-when-cross-origin" sandbox="allow-scripts allow-same-origin allow-presentation allow-popups" onError={() => { setShowLive(false); setLiveFailed(true); }} />
         ) : camera.previewUrl && !imageFailed ? (

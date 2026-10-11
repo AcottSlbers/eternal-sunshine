@@ -1,0 +1,7 @@
+{
+  "provider": "vegvesen",
+  "attemptedAt": "2026-09-11T20:00:15.286Z",
+  "status": "blocked",
+  "error": "Vegvesen requires DATEX access and a verified site/status sample; see docs/providers.md",
+  "discovered": null
+}

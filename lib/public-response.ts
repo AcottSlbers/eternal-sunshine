@@ -2,6 +2,7 @@ import { getSunsetStrength } from "@/lib/sunset-strength";
 import { getCameraAttribution } from "@/lib/providers/attribution";
 import type { PublicRankingResponse, PublicSunset } from "@/types/public-ranking";
 import type { RankedSunset, RankingResponse } from "@/types/ranking";
+import { isCredibleSunset } from "@/lib/sunset-visibility";
 
 function toPublicSunset(item: RankedSunset): PublicSunset {
   const camera = item.camera;
@@ -27,11 +28,12 @@ function toPublicSunset(item: RankedSunset): PublicSunset {
 }
 
 export function toPublicRanking(ranking: RankingResponse): PublicRankingResponse {
+  const credible = (item: RankedSunset) => item.isCredibleSunset && isCredibleSunset(item).isCredibleSunset;
   return {
     generatedAt: ranking.generatedAt,
     totalCameras: ranking.totalCameras,
     visibleCount: ranking.diagnostics.visibleSunsets,
-    rankedHero: ranking.featuredSunset ? toPublicSunset(ranking.featuredSunset) : null,
-    results: ranking.results.map(toPublicSunset),
+    rankedHero: ranking.featuredSunset && credible(ranking.featuredSunset) ? toPublicSunset(ranking.featuredSunset) : null,
+    results: ranking.results.filter(credible).map(toPublicSunset),
   };
 }

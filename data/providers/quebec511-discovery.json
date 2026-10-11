@@ -1,0 +1,7 @@
+{
+  "provider": "quebec511",
+  "attemptedAt": "2026-09-11T20:00:12.767Z",
+  "status": "blocked",
+  "error": "Québec response available; media mapping needs a verified snapshot schema before import",
+  "discovered": null
+}

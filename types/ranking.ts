@@ -1,4 +1,6 @@
 import type { Camera } from "@/types/camera";
+import type { EvidencePaths } from "@/lib/sunset-evidence";
+import type { CredibleSunsetDecision } from "@/lib/sunset-visibility";
 
 export type CandidateStage = "strict" | "extended";
 export type DirectionConfidence = "manual" | "metadata" | "inferred" | "unknown";
@@ -13,7 +15,17 @@ export interface ImageViability {
   reason?: string;
 }
 
-export interface SunsetScoreMetrics {
+export interface SunsetScoreMetrics extends EvidencePaths {
+  chromaticColorEvidence: number;
+  naturalSkySupport: number;
+  validatedHorizonLuminanceScore: number;
+  evidenceSkyGeometry: number;
+  evidenceForegroundLeakageRatio: number;
+  evidenceHorizonWidth: number;
+  pastelSunsetScore: number;
+  horizonIlluminationWidthScore: number;
+  illuminatedCloudScore: number;
+  verticalSunsetGradientScore: number;
   estimatedHorizonY: number;
   horizonConfidence: number;
   skyConfidence: number;
@@ -71,7 +83,7 @@ export interface SunsetCandidate extends SolarTrend {
   stage: CandidateStage;
 }
 
-export interface RankedSunset extends SunsetCandidate {
+export interface RankedSunset extends SunsetCandidate, CredibleSunsetDecision {
   sunsetOpportunityScore: number;
   sunsetPhaseScore: number;
   sunAlignmentScore: number;

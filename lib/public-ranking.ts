@@ -31,10 +31,11 @@ export function deduplicatePublicRanking(visible: RankedSunset[], radiusKm = PUB
   return { results, suppressed };
 }
 
-function isFreshFeatured(item: RankedSunset, now: Date): boolean {
+function isFreshVisible(item: RankedSunset, now: Date): boolean {
   const timestamp = item.camera.lastKnownImageTimestamp ?? item.camera.imageUpdatedAt;
   const age = timestamp ? (now.getTime() - Date.parse(timestamp)) / 60_000 : item.imageAgeMinutes;
-  return classifySunsetVisibility(item).visibility === "featured" && Number.isFinite(item.finalScore)
+  const visibility = classifySunsetVisibility(item).visibility;
+  return item.isCredibleSunset && (visibility === "visible" || visibility === "featured") && Number.isFinite(item.finalScore)
     && age !== undefined && Number.isFinite(age) && age <= STALE_IMAGE_MINUTES;
 }
 
@@ -43,13 +44,15 @@ export function createHeroSelector(minScoreGain = HERO_SWITCH_MIN_SCORE_GAIN) {
   let lastEvaluatedAt = -Infinity;
   return (visible: RankedSunset[], now: Date): { featuredSunset: RankedSunset | null; heroDecision: HeroDecision } => {
     // Revalidate using this refresh's images and scores, never a retained camera snapshot.
-    const eligible = visible.filter((item) => isFreshFeatured(item, now)).sort(compareSunsets);
+    const credible = visible.filter((item) => isFreshVisible(item, now)).sort(compareSunsets);
+    const featured = credible.filter((item) => classifySunsetVisibility(item).visibility === "featured");
+    const eligible = featured.length ? featured : credible;
     const best = eligible[0] ?? null;
     const current = eligible.find((item) => item.camera.id === previousCameraId);
     const gain = best && current ? Math.round((best.finalScore - current.finalScore) * 10) / 10 : Infinity;
     const featuredSunset = current && best && (current.camera.id === best.camera.id || gain < minScoreGain) ? current : best;
-    const reason = !best ? "No fresh featured candidate"
-      : !current ? "Selected best fresh featured candidate; previous hero absent or ineligible"
+    const reason = !best ? "No fresh credible sunset"
+      : !current ? `Selected best ${featured.length ? "featured" : "visible fallback"} candidate; previous hero absent or ineligible`
       : featuredSunset?.camera.id === current.camera.id ? "Retained valid hero; no challenger reaches minimum score gain"
       : "Challenger reaches minimum score gain";
     const heroDecision = { previousCameraId, cameraId: featuredSunset?.camera.id ?? null, reason };
@@ -63,5 +66,13 @@ export function createHeroSelector(minScoreGain = HERO_SWITCH_MIN_SCORE_GAIN) {
 }
 
 // Share lightweight state across server route modules. Restarts reset it; no images are retained.
-const runtime = globalThis as typeof globalThis & { eternalSunshineHeroSelector?: ReturnType<typeof createHeroSelector> };
+const runtime = globalThis as typeof globalThis & {
+  eternalSunshineHeroSelector?: ReturnType<typeof createHeroSelector>;
+  eternalSunshineHeroVersion?: number;
+};
+// Replace the old Featured-only closure on development hot reload as well as restart.
+if (runtime.eternalSunshineHeroVersion !== 2) {
+  runtime.eternalSunshineHeroSelector = createHeroSelector();
+  runtime.eternalSunshineHeroVersion = 2;
+}
 export const selectRuntimeHero = runtime.eternalSunshineHeroSelector ??= createHeroSelector();

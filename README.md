@@ -166,6 +166,20 @@ Rejudging the same unordered pair within one ranking snapshot replaces its previ
 
 The harness stores measurements, not reproducible image archives. Third-party preview URLs can update or expire after scoring, so verify the displayed image timestamp before judging and skip pairs with unavailable images. The existing scorer, thresholds, integrations, coverage optimizer, dedupe, live playback and normal `/` page are unchanged.
 
+## Sunset quality recalibration (Phase 3.5)
+
+The existing Evidence gate still decides whether a sunset is visible. Once it passes, Beauty now uses an independent quality scale with pastel sky color, coherent horizon illumination width, illuminated cloud bands, and an eight-band vertical color/luminance gradient. Contrast and texture cannot admit an image through the gate. The new component metrics appear in `/dev/calibration`, `/dev/ranking`, `/api/ranking`, and `npm run diagnose-sunset-scores`.
+
+See [Phase 3.5 evaluation](docs/phase-3.5-evaluation.md) for formulas, same-frame real comparisons, current ranking and regression results. Marathia improves on identical real image bytes; the original Cape Town/Greece pair is still unavailable for verification, and an existing North Cape false negative remains behind the unchanged Evidence gate.
+
+## Credible sunsets and Hero fallback (Phase 3.6)
+
+Detection now takes the strongest of chromatic, pastel, luminous-horizon, twilight and calibrated solar-glow Evidence paths. The global visible thresholds are unchanged; a separately tested luminous alternative requires strong sky geometry, low enough foreground leakage, valid astronomy and sufficient Beauty. Known artificial city-light and warm-ground controls remain rejected. Credibility reasons and all paths appear in `/dev/ranking`, `/dev/calibration` and `npm run diagnose-sunset-scores`, along with stage counts and top rejected images.
+
+When no Featured camera exists, the best credible visible sunset becomes the Hero with its real strength label. The existing hysteresis gain remains. The media wrapper now has an explicit full width to prevent a right-side black gap on wide displays. Calibration records remain version 1 and are not rewritten.
+
+See the [Phase 3.6 evaluation](docs/phase-3.6-evaluation.md) and [complete before/after diagnostics](docs/phase-3.6-diagnostics.json) for formulas, live ranking, regression results, user feedback and remaining limitations.
+
 ## Not implemented yet
 
 There is no machine learning, weather enrichment, database, authentication, queue, or deployment. The visual scorer is deterministic and intentionally analyzes current astronomical candidates only.
