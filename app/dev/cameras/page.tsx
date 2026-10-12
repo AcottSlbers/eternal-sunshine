@@ -3,6 +3,7 @@ import path from "node:path";
 import type { Camera } from "@/types/camera";
 import meteogalicia from "@/data/meteogalicia-cameras.json";
 import { getCameraAttribution } from "@/lib/providers/attribution";
+import { reviewedProviderCameras } from "@/lib/reviewed-provider-cameras";
 
 export const dynamic = "force-dynamic";
 
@@ -12,9 +13,9 @@ const PAGE_SIZE = 100;
 async function getCameras(): Promise<Camera[]> {
   try {
     const reviewed = JSON.parse(await readFile(path.join(process.cwd(), "data", "cameras-reviewed.json"), "utf8")) as Camera[];
-    return [...reviewed, ...meteogalicia as Camera[]];
+    return [...reviewed, ...meteogalicia as Camera[], ...reviewedProviderCameras];
   } catch {
-    return meteogalicia as Camera[];
+    return [...meteogalicia as Camera[], ...reviewedProviderCameras];
   }
 }
 
@@ -60,6 +61,7 @@ export default async function CamerasPage({ searchParams }: { searchParams: Prom
             <dl className="mt-5 grid grid-cols-2 gap-y-2 border-t border-white/10 pt-4 text-sm">
               <dt className="text-stone-500">Live</dt><dd className="text-right">{camera.hasLiveStream ? "Yes" : "No"}</dd>
               <dt className="text-stone-500">Source</dt><dd className="text-right">{getCameraAttribution(camera).name}</dd>
+              <dt className="text-stone-500">Provider / canonical ID</dt><dd className="text-right break-all">{camera.canonicalProvider ?? camera.source} / {camera.id}</dd>
               <dt className="text-stone-500">Provider URL</dt><dd className="text-right">{camera.providerUrl ? "Yes" : "No"}</dd>
               <dt className="text-stone-500">Player type</dt><dd className="text-right">{camera.livePlayer?.type ?? "—"}</dd>
               <dt className="text-stone-500">Quality</dt><dd className="text-right">{camera.review?.quality.score ?? "—"}</dd>

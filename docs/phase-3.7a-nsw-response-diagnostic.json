@@ -1,0 +1,11 @@
+{
+  "checkedAt": "2026-10-11T12:33:21.621Z",
+  "cameraId": "nsw:00489b63-8cd6-4faa-891f-ce965137cf1d",
+  "method": "GET",
+  "status": 200,
+  "contentType": "text/html",
+  "contentLength": "307",
+  "lastModified": "Wed, 30 Aug 2023 02:26:41 GMT",
+  "bodyPrefix": "<html>\n    <head>\n    </head>\n    <h4>Page not found</h4>\n    <p>The camera image you are looking for is temporarily unavailable. Normal service will be resumed as soon as possible.</p>\n<p>Please visit <a href=\"https://www.livetraffic.com/help\">https://www.livetraffic.com/help</a> for support.</p>\n</html>\n",
+  "followedRedirects": false
+}

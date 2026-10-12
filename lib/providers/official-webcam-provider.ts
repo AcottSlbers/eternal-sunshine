@@ -17,7 +17,8 @@ export const FEED_URLS = {
   usgs: "https://volcview.wr.usgs.gov/ashcam-api/webcamApi/webcams",
   vegvesen: "https://datex-server-get-v3-1.atlas.vegvesen.no/datexapi/GetCCTVSiteTable/pullsnapshotdata",
 } as const;
-export function createOfficialLoader(id: OfficialProviderId, fetcher: typeof fetch = fetch) {
+interface CameraFeedLoader { load(ids?: string[]): Promise<Camera[]>; ageMs(): number | null }
+export function createOfficialLoader(id: OfficialProviderId, fetcher: typeof fetch = fetch): CameraFeedLoader {
   if (id === "igepn") return { load: async () => igepn as Camera[], ageMs: () => null };
   if (id === "dgt" || id === "vegvesen") return {
     ageMs: () => null,
@@ -26,7 +27,17 @@ export function createOfficialLoader(id: OfficialProviderId, fetcher: typeof fet
   if (id === "digitraffic") {
     const metadata = createFeedCache(id, FEED_URLS.digitraffic, JSON.parse, 24 * 3600_000, fetcher);
     const data = createFeedCache(id, FEED_URLS.digitrafficData, JSON.parse, PROVIDERS[id].metadataTtlMs, fetcher);
-    return { ageMs: data.ageMs, load: async () => { const [stations, times] = await Promise.all([metadata.load(), data.load()]); return normalizeDigitraffic(stations, times); } };
+    const details = new Map<string, ReturnType<typeof createFeedCache<unknown>>>();
+    return { ageMs: data.ageMs, load: async (ids: string[] = []) => {
+      const [stations, times] = await Promise.all([metadata.load(), data.load()]);
+      const stationIds = [...new Set(ids.flatMap(cameraId => cameraId.match(/^digitraffic:(C\d{5})\d{2}$/)?.[1] ?? []))];
+      const selectedDetails: unknown[] = [];
+      for (const stationId of stationIds) {
+        if (!details.has(stationId)) details.set(stationId, createFeedCache(id, `${FEED_URLS.digitraffic}/${stationId}`, JSON.parse, 24 * 3600_000, fetcher));
+        selectedDetails.push(await details.get(stationId)!.load());
+      }
+      return normalizeDigitraffic(stations, times, selectedDetails);
+    } };
   }
   const normalize = { vegagerdin: normalizeVegagerdin, nsw: normalizeNsw, nzta: normalizeNzta, ontario511: normalizeOntario, usgs: normalizeUsgs,
     quebec511: (raw: unknown): Camera[] => {
@@ -38,8 +49,8 @@ export function createOfficialLoader(id: OfficialProviderId, fetcher: typeof fet
   return createFeedCache(id, FEED_URLS[id], (body) => normalize(JSON.parse(body)), undefined, fetcher);
 }
 const runtime = globalThis as typeof globalThis & { officialProviderLoaders?: Map<OfficialProviderId, ReturnType<typeof createOfficialLoader>> };
-const loaders = runtime.officialProviderLoaders ??= new Map();
-export function getOfficialLoader(id: OfficialProviderId) {
+const loaders: Map<OfficialProviderId, CameraFeedLoader> = runtime.officialProviderLoaders ??= new Map();
+export function getOfficialLoader(id: OfficialProviderId): CameraFeedLoader {
   if (!loaders.has(id)) loaders.set(id, createOfficialLoader(id));
   return loaders.get(id)!;
 }
@@ -52,7 +63,7 @@ export class OfficialWebcamProvider implements WebcamProvider {
   async getCameras(ids: string[]): Promise<Camera[]> {
     if (!ids.length) return [];
     const wanted = new Set(ids);
-    return (await this.loader.load()).filter((c) => wanted.has(c.id));
+    return (await this.loader.load(ids)).filter((c) => wanted.has(c.id));
   }
   async getCamera(id: string): Promise<Camera | null> { return (await this.getCameras([id]))[0] ?? null; }
 }

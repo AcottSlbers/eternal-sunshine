@@ -1,9 +1,10 @@
 import windy from "@/data/cameras.json";
 import meteogalicia from "@/data/meteogalicia-cameras.json";
 import type { Camera } from "@/types/camera";
+import { reviewedProviderCameras } from "@/lib/reviewed-provider-cameras";
 
 // The imported regional registry survives independent Windy Gold rebuilds.
-export const cameraRegistry: Camera[] = [...windy, ...meteogalicia] as Camera[];
+export const cameraRegistry: Camera[] = [...windy, ...meteogalicia, ...reviewedProviderCameras] as Camera[];
 
 export function mergeImportedCameras(existing: Camera[], incoming: Camera[]): Camera[] {
   const previous = new Map(existing.map((camera) => [camera.id, camera]));

@@ -142,6 +142,7 @@ export interface RankingDiagnostics {
 
 export interface CameraDebugEntry extends SolarTrend {
   cameraId: string;
+  source?: Camera["source"];
   name: string;
   solarElevation: number;
   solarAzimuth: number;

@@ -5,6 +5,9 @@ import { UNAVAILABLE_IMAGE_VIABILITY } from "@/lib/image-viability";
 import { fetchCandidateImageAnalysis, UNAVAILABLE_VISUAL_SUNSET_SCORE } from "@/lib/image-score";
 import { WindyWebcamProvider } from "@/lib/providers/windy-webcam-provider";
 import { MeteoGaliciaWebcamProvider } from "@/lib/providers/meteogalicia-webcam-provider";
+import { OfficialWebcamProvider } from "@/lib/providers/official-webcam-provider";
+import { fetchReviewedProviderAnalysis } from "@/lib/providers/cached-image-analysis";
+import { PROVIDERS, providerEnabled } from "@/lib/providers/catalogue";
 import type { WebcamProvider } from "@/lib/providers/webcam-provider";
 import { getSolarPosition, getSolarTrend, getSunsetCandidates, getSunsetPhaseScore } from "@/lib/solar";
 import { classifySunsetVisibility, isCredibleSunset, type CredibleSunsetDecision } from "@/lib/sunset-visibility";
@@ -14,6 +17,7 @@ import type { Camera, CameraSource } from "@/types/camera";
 import type { CameraDebugEntry, CandidateDiagnostic, CandidateStage, ImageViability, RankedSunset, RankingResponse, SunsetCandidate } from "@/types/ranking";
 
 type Providers = Partial<Record<CameraSource, WebcamProvider>>;
+const isReviewedSource = (source: CameraSource): source is "usgs" | "digitraffic" => source === "usgs" || source === "digitraffic";
 
 export function getImageFreshness(timestamp: string | undefined, now: Date): { ageMinutes?: number; score: number; stale: boolean } {
   if (!timestamp) return { score: 55, stale: false };
@@ -49,13 +53,20 @@ async function rankCandidate(candidate: SunsetCandidate, now: Date): Promise<Can
   const freshness = getImageFreshness(candidate.camera.lastKnownImageTimestamp ?? candidate.camera.imageUpdatedAt, now);
   if (candidate.camera.source !== "mock" && freshness.ageMinutes === undefined) return rejected("Rejected: image timestamp unavailable or invalid");
   if (freshness.stale) return rejected(`Rejected: image is stale (${freshness.ageMinutes?.toFixed(0)} minutes old)`);
+  if (isReviewedSource(candidate.camera.source)) {
+    const captured = Date.parse(candidate.camera.lastKnownImageTimestamp ?? candidate.camera.imageUpdatedAt ?? "");
+    const age = (now.getTime() - captured) / 60_000;
+    if (!Number.isFinite(age) || age < -5 || age > PROVIDERS[candidate.camera.source].maximumImageAgeMinutes)
+      return rejected("Rejected: image timestamp outside provider freshness limit");
+  }
   const sunsetPhaseScore = getSunsetPhaseScore(candidate.solarElevation);
   const imageUrl = candidate.camera.previewImageUrl ?? candidate.camera.lastKnownImageUrl ?? candidate.camera.imageUrl;
+  const context = { isSunSetting: candidate.isSunSetting, solarElevation: candidate.solarElevation,
+    solarAzimuth: candidate.solarAzimuth, cameraAzimuth: direction.viewAzimuth };
   const imageAnalysis = imageUrl && candidate.camera.source !== "mock"
-    ? await fetchCandidateImageAnalysis(imageUrl, sunsetPhaseScore, 8_000, {
-      isSunSetting: candidate.isSunSetting, solarElevation: candidate.solarElevation,
-      solarAzimuth: candidate.solarAzimuth, cameraAzimuth: direction.viewAzimuth,
-    })
+    ? isReviewedSource(candidate.camera.source)
+      ? await fetchReviewedProviderAnalysis(candidate.camera.source, imageUrl, sunsetPhaseScore, context, candidate.camera.lastKnownImageTimestamp ?? candidate.camera.imageUpdatedAt)
+      : await fetchCandidateImageAnalysis(imageUrl, sunsetPhaseScore, 8_000, context)
     : { viability: UNAVAILABLE_IMAGE_VIABILITY, visual: UNAVAILABLE_VISUAL_SUNSET_SCORE };
   const imageViability = imageAnalysis.viability;
   const imageChecked = Boolean(imageUrl && candidate.camera.source !== "mock");
@@ -97,11 +108,22 @@ async function refreshAndRank(
       viewAzimuth: candidate.camera.viewAzimuth ?? fresh.viewAzimuth,
       viewAzimuthSource: candidate.camera.viewAzimuthSource ?? fresh.viewAzimuthSource,
       discovery: candidate.camera.discovery,
+      ...(isReviewedSource(candidate.camera.source) ? {
+        lastKnownImageTimestamp: fresh.imageUpdatedAt, lastKnownImageUrl: fresh.imageUrl,
+      } : {}),
     } };
   });
   const settled = await Promise.allSettled(refreshedCandidates.map((candidate): Promise<CandidateDiagnostic> => {
-    if (candidate.camera.source === "meteogalicia" && !latestById.has(candidate.camera.id)) {
+    if ((candidate.camera.source === "meteogalicia" || isReviewedSource(candidate.camera.source)) && !latestById.has(candidate.camera.id)) {
       return Promise.resolve({ ...candidate, visibility: "rejected-other", reason: "Rejected: provider metadata unavailable for camera", imageChecked: false, imageAnalyzed: false });
+    }
+    if (isReviewedSource(candidate.camera.source)) {
+      const fresh = latestById.get(candidate.camera.id)!;
+      const curated = input.find(item => item.camera.id === candidate.camera.id)!.camera;
+      if (!fresh.enabled || fresh.supportsVisualScoring !== true || !providerEnabled(candidate.camera.source)
+        || fresh.source !== curated.source || fresh.latitude !== curated.latitude || fresh.longitude !== curated.longitude) {
+        return Promise.resolve({ ...candidate, visibility: "rejected-other", reason: "Rejected: provider camera inactive, restricted or coordinates changed; requires review", imageChecked: false, imageAnalyzed: false });
+      }
     }
     return rankCandidate(candidate, now);
   }));
@@ -125,7 +147,7 @@ function buildDebug(date: Date, selectedIds: Set<string>, evaluations: Candidate
     else if (!Number.isFinite(position.elevation)) reason = "invalid camera coordinates";
     else if (!trend.isSunSetting && inWindow) reason = trend.solarElevationTrend === "ascending" ? "sun rising, not setting" : "sun is not descending";
     else if (byId.has(camera.id)) reason = byId.get(camera.id)!.suppression?.reason ?? byId.get(camera.id)!.reason;
-    return { cameraId: camera.id, name: camera.name, solarElevation: position.elevation, solarAzimuth: position.azimuth, ...trend, selected, reason };
+    return { cameraId: camera.id, source: camera.source, name: camera.name, solarElevation: position.elevation, solarAzimuth: position.azimuth, ...trend, selected, reason };
   });
 }
 
@@ -133,6 +155,9 @@ export async function createRanking(date = new Date(), selectHero = selectRuntim
   const registryIsWindy = cameras.some((camera) => camera.source === "windy");
   const registryIsMeteoGalicia = cameras.some((camera) => camera.source === "meteogalicia");
   const providers: Providers = { meteogalicia: new MeteoGaliciaWebcamProvider() };
+  for (const source of ["usgs", "digitraffic"] as const) {
+    if (providerEnabled(source) && cameras.some(camera => camera.source === source && camera.enabled)) providers[source] = new OfficialWebcamProvider(source);
+  }
   const providerErrors: Partial<Record<CameraSource, string>> = {};
   let providerError: string | undefined;
   if (registryIsWindy) {
@@ -177,7 +202,7 @@ export async function createRanking(date = new Date(), selectHero = selectRuntim
     featured: featuredIds.size,
   };
   const astronomical = getSunsetCandidates(cameras, date, "extended");
-  const providerDiagnostics = Object.fromEntries((["windy", "meteogalicia", "mock"] as const).map((source) => {
+  const providerDiagnostics = Object.fromEntries((["windy", "meteogalicia", "mock", "usgs", "digitraffic"] as const).map((source) => {
     const pool = cameras.filter((camera) => camera.source === source);
     const evaluated = candidateDiagnostics.filter((item) => item.camera.source === source);
     const refreshedById = new Map(evaluated.map((item) => [item.camera.id, item.camera]));
@@ -185,7 +210,9 @@ export async function createRanking(date = new Date(), selectHero = selectRuntim
       registry: pool.length, freshKnownImages: pool.filter((camera) => {
         const current = refreshedById.get(camera.id) ?? camera;
         const freshness = getImageFreshness(current.lastKnownImageTimestamp ?? current.imageUpdatedAt, date);
-        return freshness.ageMinutes !== undefined && !freshness.stale;
+        return freshness.ageMinutes !== undefined && !freshness.stale
+          && (!isReviewedSource(source) || (freshness.ageMinutes <= PROVIDERS[source].maximumImageAgeMinutes
+            && Date.parse(current.lastKnownImageTimestamp ?? current.imageUpdatedAt ?? "") <= date.getTime() + 5 * 60_000));
       }).length,
       astronomical: astronomical.filter((item) => item.camera.source === source).length,
       evaluated: evaluated.length, imagesAnalyzed: evaluated.filter((item) => item.imageAnalyzed).length,
@@ -201,6 +228,6 @@ export async function createRanking(date = new Date(), selectHero = selectRuntim
     sunsetWindows: SUNSET_WINDOWS, selectionStage, minimumDesiredCandidates: MINIMUM_DESIRED_CANDIDATES,
     results, featuredCameraId, featuredSunset, heroDecision, candidateDiagnostics, diagnostics, debug: buildDebug(date, selectedIds, candidateDiagnostics),
     providerDiagnostics,
-    provider: { mode: registryIsWindy && registryIsMeteoGalicia ? "mixed" : registryIsWindy ? "windy" : registryIsMeteoGalicia ? "meteogalicia" : "mock", refreshed, imagesChecked, error: providerError },
+    provider: { mode: cameras.some(camera => isReviewedSource(camera.source)) || (registryIsWindy && registryIsMeteoGalicia) ? "mixed" : registryIsWindy ? "windy" : registryIsMeteoGalicia ? "meteogalicia" : "mock", refreshed, imagesChecked, error: providerError },
   };
 }

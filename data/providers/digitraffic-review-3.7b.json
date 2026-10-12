@@ -1,0 +1,3618 @@
+{
+  "provider": "digitraffic",
+  "generatedAt": "2026-10-11T12:46:24.621Z",
+  "sampleLimit": 40,
+  "imageRequests": 38,
+  "rows": [
+    {
+      "id": "digitraffic:C1453508",
+      "camera": {
+        "id": "digitraffic:C1453508",
+        "providerCameraId": "C1453508",
+        "name": "vt21_Enontekiö_Kilpisjärvi / Saanatunturi",
+        "source": "digitraffic",
+        "latitude": 69.016677,
+        "longitude": 20.874249,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Lappi",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1453508.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1453508.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:38:38.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Saanatunturi / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1453508.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:38:38.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:45:42.766Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 65.8,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.877,
+              "openComposition": 0.95,
+              "edgeDensity": 0.012,
+              "artificialLightRatio": 0,
+              "score": 91,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:38:38.000Z",
+            "analyzedAt": "2026-10-11T12:45:42.766Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "accepted",
+      "reason": "Manual visual review: Mountain panorama; road is a minor lower edge, open skyline and substantial natural sky.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": true,
+      "solarElevation": 10.138329805765837,
+      "ageMinutes": 7.079433333333333,
+      "normalizedSkyArea": 0.3228624131944444,
+      "horizonConfidence": 0.3903755878828751,
+      "imageFingerprint": "60b527d95d0959ef7656b4913e0174fb24b4077a2a535c64f49da90e7d08f861"
+    },
+    {
+      "id": "digitraffic:C1453507",
+      "camera": {
+        "id": "digitraffic:C1453507",
+        "providerCameraId": "C1453507",
+        "name": "vt21_Enontekiö_Kilpisjärvi / Norjaan",
+        "source": "digitraffic",
+        "latitude": 69.016677,
+        "longitude": 20.874249,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Lappi",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1453507.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1453507.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:39:10.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Norjaan / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1453507.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:39:10.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:45:44.076Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 64.6,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.828,
+              "openComposition": 0.916,
+              "edgeDensity": 0.021,
+              "artificialLightRatio": 0,
+              "score": 86.7,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:39:10.000Z",
+            "analyzedAt": "2026-10-11T12:45:44.076Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "rejected-road/foreground",
+      "reason": "Manual visual review: road/bridge and close foreground dominate the composition; not approved for the sunset subset.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": false,
+      "solarElevation": 10.137179041356962,
+      "ageMinutes": 6.567933333333333,
+      "normalizedSkyArea": 0.2779676649305556,
+      "horizonConfidence": 1,
+      "imageFingerprint": "2e583b2a6fb3c0826e50e0f62bc173c30fa31c1807888e32500d6303ce568bc3"
+    },
+    {
+      "id": "digitraffic:C1451607",
+      "camera": {
+        "id": "digitraffic:C1451607",
+        "providerCameraId": "C1451607",
+        "name": "kt92_Inari_Näätämö / Maisema",
+        "source": "digitraffic",
+        "latitude": 69.66367,
+        "longitude": 29.100175,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Lappi",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1451607.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1451607.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:39:17.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Maisema / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1451607.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:39:17.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:45:44.914Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 64.2,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 1,
+              "openComposition": 0.672,
+              "edgeDensity": 0.082,
+              "artificialLightRatio": 0,
+              "score": 85.3,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:39:17.000Z",
+            "analyzedAt": "2026-10-11T12:45:44.914Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "accepted",
+      "reason": "Manual visual review: Forest hill panorama with an unobstructed upper sky and natural horizon.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": true,
+      "solarElevation": 7.782220808640897,
+      "ageMinutes": 6.465233333333333,
+      "normalizedSkyArea": 0.5252007378472222,
+      "horizonConfidence": 0.5415717410503543,
+      "imageFingerprint": "05f607cbac6f4a333ecc1870c7fa3b1e097990cbc4d65207ec6215fea3f6e662"
+    },
+    {
+      "id": "digitraffic:C1451601",
+      "camera": {
+        "id": "digitraffic:C1451601",
+        "providerCameraId": "C1451601",
+        "name": "kt92_Inari_Näätämö / Norja",
+        "source": "digitraffic",
+        "latitude": 69.66367,
+        "longitude": 29.100175,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Lappi",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1451601.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1451601.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:38:43.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Norja / INCREASING_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1451601.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:38:43.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:45:46.035Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 61.2,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.992,
+              "openComposition": 0.44,
+              "edgeDensity": 0.14,
+              "artificialLightRatio": 0,
+              "score": 74.5,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:38:43.000Z",
+            "analyzedAt": "2026-10-11T12:45:46.035Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "rejected-road/foreground",
+      "reason": "Manual visual review: road/bridge and close foreground dominate the composition; not approved for the sunset subset.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": false,
+      "solarElevation": 7.781091309263878,
+      "ageMinutes": 7.050583333333333,
+      "normalizedSkyArea": 0.7013888888888888,
+      "horizonConfidence": 0.022662895749899464,
+      "imageFingerprint": "162756229d44c484c731ebaffd5b1ff3845b5b381035755013bea18fe03db8b8"
+    },
+    {
+      "id": "digitraffic:C1454407",
+      "camera": {
+        "id": "digitraffic:C1454407",
+        "providerCameraId": "C1454407",
+        "name": "yt9401_Ylläs_maisematie / Ylläksen maisematien rinne",
+        "source": "digitraffic",
+        "latitude": 67.563188,
+        "longitude": 24.179462,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Lappi",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1454407.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1454407.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:39:44.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Ylläksen maisematien rinne / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1454407.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:39:44.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:45:47.113Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 64.4,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.946,
+              "openComposition": 0.751,
+              "edgeDensity": 0.062,
+              "artificialLightRatio": 0,
+              "score": 85.9,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:39:44.000Z",
+            "analyzedAt": "2026-10-11T12:45:47.113Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "rejected-poor-horizon",
+      "reason": "Trees and near rocky slope obscure distant horizon.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": false,
+      "solarElevation": 10.540469161148389,
+      "ageMinutes": 6.0518833333333335,
+      "normalizedSkyArea": 0.6028917100694444,
+      "horizonConfidence": 0.4345790465856547,
+      "imageFingerprint": "5bee3a459c07f09ee4bdeca39ca3e518d00c74351148cd5fd98102a4366d0095"
+    },
+    {
+      "id": "digitraffic:C1454408",
+      "camera": {
+        "id": "digitraffic:C1454408",
+        "providerCameraId": "C1454408",
+        "name": "yt9401_Ylläs_maisematie / Ylläksen maisema",
+        "source": "digitraffic",
+        "latitude": 67.563188,
+        "longitude": 24.179462,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Lappi",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1454408.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1454408.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:39:13.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Ylläksen maisema / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1454408.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:39:13.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:45:48.230Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 67.3,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.997,
+              "openComposition": 0.919,
+              "edgeDensity": 0.02,
+              "artificialLightRatio": 0,
+              "score": 96.2,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:39:13.000Z",
+            "analyzedAt": "2026-10-11T12:45:48.230Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "rejected-night-only/insufficient-validation",
+      "reason": "Manual review: frame appears twilight/shadowed despite daylight solar geometry and fresh provider timestamp; repeat daylight capture needed to establish image/timestamp correspondence.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": false,
+      "horizonVerified": false,
+      "solarElevation": 10.539339496713625,
+      "ageMinutes": 6.587166666666667,
+      "normalizedSkyArea": 0.8744303385416666,
+      "horizonConfidence": 1,
+      "imageFingerprint": "d27ae82c5c656492a5a94a1716af87e8b4f3a740122ce4e588f625b2eb3e7d37"
+    },
+    {
+      "id": "digitraffic:C1050607",
+      "camera": {
+        "id": "digitraffic:C1050607",
+        "providerCameraId": "C1050607",
+        "name": "st724_Raippaluodonsilta / Merimaisema1",
+        "source": "digitraffic",
+        "latitude": 63.206704,
+        "longitude": 21.473422,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Pohjanmaa",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1050607.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1050607.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:33:03.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Merimaisema1 / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1050607.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:33:03.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:45:49.320Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 67.6,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.979,
+              "openComposition": 0.973,
+              "edgeDensity": 0.007,
+              "artificialLightRatio": 0,
+              "score": 97.6,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:33:03.000Z",
+            "analyzedAt": "2026-10-11T12:45:49.320Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "accepted",
+      "reason": "Manual visual review: Broad coastal water and distant shoreline; small pole at left is secondary.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": true,
+      "solarElevation": 14.656407799828264,
+      "ageMinutes": 12.772,
+      "normalizedSkyArea": 0.2724338107638889,
+      "horizonConfidence": 1,
+      "imageFingerprint": "b7102480f7442676c3fe73dbd6289efb54dbb77b2983e10572fd535af4176bf1"
+    },
+    {
+      "id": "digitraffic:C1050608",
+      "camera": {
+        "id": "digitraffic:C1050608",
+        "providerCameraId": "C1050608",
+        "name": "st724_Raippaluodonsilta / Merimaisema2",
+        "source": "digitraffic",
+        "latitude": 63.206704,
+        "longitude": 21.473422,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Pohjanmaa",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1050608.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1050608.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:32:33.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Merimaisema2 / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1050608.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:32:33.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:45:50.412Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 68.3,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 1,
+              "openComposition": 0.995,
+              "edgeDensity": 0.001,
+              "artificialLightRatio": 0,
+              "score": 99.8,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:32:33.000Z",
+            "analyzedAt": "2026-10-11T12:45:50.412Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "accepted",
+      "reason": "Manual visual review: Broad coastal water and distant horizon with open sky.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": true,
+      "solarElevation": 14.655161874223053,
+      "ageMinutes": 13.2902,
+      "normalizedSkyArea": 0.7013888888888888,
+      "horizonConfidence": 0,
+      "imageFingerprint": "902b332c797a8f5183cc936ff02e56b221fd4addf5587d0bbc7488eef03fcc22"
+    },
+    {
+      "id": "digitraffic:C0252608",
+      "camera": {
+        "id": "digitraffic:C0252608",
+        "providerCameraId": "C0252608",
+        "name": "st180_Parainen_Prostvik / Maisema",
+        "source": "digitraffic",
+        "latitude": 60.219237,
+        "longitude": 22.092414,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Varsinais-Suomi",
+        "imageUrl": "https://weathercam.digitraffic.fi/C0252608.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C0252608.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:40:59.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Maisema / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C0252608.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:40:59.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:45:51.520Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 55.1,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.829,
+              "openComposition": 0.156,
+              "edgeDensity": 0.211,
+              "artificialLightRatio": 0,
+              "score": 52.8,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:40:59.000Z",
+            "analyzedAt": "2026-10-11T12:45:51.520Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "rejected-poor-horizon",
+      "reason": "Large tree branches obstruct sky/horizon.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": false,
+      "solarElevation": 16.834610813829293,
+      "ageMinutes": 4.875333333333334,
+      "normalizedSkyArea": 0.5787760416666666,
+      "horizonConfidence": 1,
+      "imageFingerprint": "43ada7b50271fcdd9537bd6b77b42c3f869df46c71cf6d60397b7940c81e29a6"
+    },
+    {
+      "id": "digitraffic:C0252601",
+      "camera": {
+        "id": "digitraffic:C0252601",
+        "providerCameraId": "C0252601",
+        "name": "st180_Parainen_Prostvik / Korppooseen",
+        "source": "digitraffic",
+        "latitude": 60.219237,
+        "longitude": 22.092414,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Varsinais-Suomi",
+        "imageUrl": "https://weathercam.digitraffic.fi/C0252601.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C0252601.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:40:27.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Korppooseen / INCREASING_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C0252601.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:40:27.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:45:52.611Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 63.4,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.965,
+              "openComposition": 0.653,
+              "edgeDensity": 0.087,
+              "artificialLightRatio": 0,
+              "score": 82.5,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:40:27.000Z",
+            "analyzedAt": "2026-10-11T12:45:52.611Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "rejected-road/foreground",
+      "reason": "Manual visual review: road/bridge and close foreground dominate the composition; not approved for the sunset subset.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": false,
+      "solarElevation": 16.833204401442273,
+      "ageMinutes": 5.42685,
+      "normalizedSkyArea": 0.7013888888888888,
+      "horizonConfidence": 0,
+      "imageFingerprint": "724cf2b96152be28951cbfdaa295e46707646544bceaa0a673f3d92620d9f363"
+    },
+    {
+      "id": "digitraffic:C1253107",
+      "camera": {
+        "id": "digitraffic:C1253107",
+        "providerCameraId": "C1253107",
+        "name": "st816_Oulunsalo_lautta / maisema",
+        "source": "digitraffic",
+        "latitude": 65.006084,
+        "longitude": 25.20358,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Pohjois-Pohjanmaa",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1253107.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1253107.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:38:45.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "maisema / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1253107.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:38:45.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:45:53.833Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 66.6,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.999,
+              "openComposition": 0.864,
+              "edgeDensity": 0.034,
+              "artificialLightRatio": 0,
+              "score": 93.9,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:38:45.000Z",
+            "analyzedAt": "2026-10-11T12:45:53.833Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "accepted",
+      "reason": "Manual visual review: Coastal panorama; wind turbine is secondary to sky and water.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": true,
+      "solarElevation": 12.228655428348016,
+      "ageMinutes": 7.147216666666667,
+      "normalizedSkyArea": 0.4009060329861111,
+      "horizonConfidence": 1,
+      "imageFingerprint": "50ca84b7f25ab98a94981f4e970160088d2ace8f15215678352c83f7d779b2ea"
+    },
+    {
+      "id": "digitraffic:C1253108",
+      "camera": {
+        "id": "digitraffic:C1253108",
+        "providerCameraId": "C1253108",
+        "name": "st816_Oulunsalo_lautta / maisema2",
+        "source": "digitraffic",
+        "latitude": 65.006084,
+        "longitude": 25.20358,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Pohjois-Pohjanmaa",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1253108.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1253108.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:38:56.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "maisema2 / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1253108.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:38:56.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:45:54.811Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 67.3,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.997,
+              "openComposition": 0.918,
+              "edgeDensity": 0.02,
+              "artificialLightRatio": 0,
+              "score": 96.2,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:38:56.000Z",
+            "analyzedAt": "2026-10-11T12:45:54.811Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "accepted",
+      "reason": "Manual visual review: Coastal panorama with open sea horizon; turbine is secondary.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": true,
+      "solarElevation": 12.227529588084115,
+      "ageMinutes": 6.980183333333334,
+      "normalizedSkyArea": 0.5006510416666666,
+      "horizonConfidence": 1,
+      "imageFingerprint": "c0fb9508e4d85d13e3db5bf1957595461d3ea2a3a11ee5962ffc708c8fbc33ca"
+    },
+    {
+      "id": "digitraffic:C0351807",
+      "camera": {
+        "id": "digitraffic:C0351807",
+        "providerCameraId": "C0351807",
+        "name": "vt14_Savonlinna_Kyrönsalmi_silta / Maisema",
+        "source": "digitraffic",
+        "latitude": 61.869682,
+        "longitude": 28.905753,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Etelä-Savo",
+        "imageUrl": "https://weathercam.digitraffic.fi/C0351807.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C0351807.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:37:55.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Maisema / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C0351807.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:37:55.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:45:55.917Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 68,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.99,
+              "openComposition": 0.987,
+              "edgeDensity": 0.003,
+              "artificialLightRatio": 0,
+              "score": 98.9,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:37:55.000Z",
+            "analyzedAt": "2026-10-11T12:45:55.917Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "accepted",
+      "reason": "Manual visual review: Lake panorama and island horizon; foreground remains scenic.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": true,
+      "solarElevation": 13.408525792319573,
+      "ageMinutes": 8.015283333333333,
+      "normalizedSkyArea": 0.3825141059027778,
+      "horizonConfidence": 0.9800313814360322,
+      "imageFingerprint": "9456fd7dccabf09ef89612ff5d90de58a12d4d073380cf7108cea1f73ffd4668"
+    },
+    {
+      "id": "digitraffic:C0351808",
+      "camera": {
+        "id": "digitraffic:C0351808",
+        "providerCameraId": "C0351808",
+        "name": "vt14_Savonlinna_Kyrönsalmi_silta / Olavinlinna",
+        "source": "digitraffic",
+        "latitude": 61.869682,
+        "longitude": 28.905753,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Etelä-Savo",
+        "imageUrl": "https://weathercam.digitraffic.fi/C0351808.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C0351808.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:38:31.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Olavinlinna / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C0351808.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:38:31.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:45:56.990Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 68.2,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 1,
+              "openComposition": 0.986,
+              "edgeDensity": 0.003,
+              "artificialLightRatio": 0,
+              "score": 99.4,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:38:31.000Z",
+            "analyzedAt": "2026-10-11T12:45:56.990Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "accepted",
+      "reason": "Manual visual review: Lake/castle panorama with broad sky; buildings remain below skyline.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": true,
+      "solarElevation": 13.407037755379468,
+      "ageMinutes": 7.433166666666667,
+      "normalizedSkyArea": 0.4346788194444444,
+      "horizonConfidence": 1,
+      "imageFingerprint": "30843c01794ae10e7d222961eba3b648aa34f5a6f2bdbc4ab9f62f224b13e9a0"
+    },
+    {
+      "id": "digitraffic:C0652107",
+      "camera": {
+        "id": "digitraffic:C0652107",
+        "providerCameraId": "C0652107",
+        "name": "st438_Sulkava_Vekaransalmi / Järvimaisema",
+        "source": "digitraffic",
+        "latitude": 61.738281,
+        "longitude": 28.500378,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Etelä-Savo",
+        "imageUrl": "https://weathercam.digitraffic.fi/C0652107.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C0652107.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:34:58.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Järvimaisema / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C0652107.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:34:58.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:45:58.082Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 67.9,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.986,
+              "openComposition": 0.985,
+              "edgeDensity": 0.004,
+              "artificialLightRatio": 0,
+              "score": 98.6,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:34:58.000Z",
+            "analyzedAt": "2026-10-11T12:45:58.082Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "accepted",
+      "reason": "Manual visual review: Open lake and distant island shoreline with natural sky.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": true,
+      "solarElevation": 13.633531432813797,
+      "ageMinutes": 11.001366666666666,
+      "normalizedSkyArea": 0.3622233072916667,
+      "horizonConfidence": 0.8616180464699857,
+      "imageFingerprint": "0e28585d5a0b29f5164bbc92a6b6d022f8ccf9430017f6e54151b43d258678fe"
+    },
+    {
+      "id": "digitraffic:C0652108",
+      "camera": {
+        "id": "digitraffic:C0652108",
+        "providerCameraId": "C0652108",
+        "name": "st438_Sulkava_Vekaransalmi / Järvimaisema 2",
+        "source": "digitraffic",
+        "latitude": 61.738281,
+        "longitude": 28.500378,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Etelä-Savo",
+        "imageUrl": "https://weathercam.digitraffic.fi/C0652108.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C0652108.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:35:30.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Järvimaisema 2 / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C0652108.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:35:30.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:45:59.201Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 67.1,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.961,
+              "openComposition": 0.951,
+              "edgeDensity": 0.012,
+              "artificialLightRatio": 0,
+              "score": 95.7,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:35:30.000Z",
+            "analyzedAt": "2026-10-11T12:45:59.201Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "accepted",
+      "reason": "Manual visual review: Lake panorama with broad sky and small islands.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": true,
+      "solarElevation": 13.63198279471168,
+      "ageMinutes": 10.486683333333334,
+      "normalizedSkyArea": 0.4829644097222222,
+      "horizonConfidence": 1,
+      "imageFingerprint": "930297321178a790d4b4e86206ef8e67d207c2bf14f56b83c5583ef43dbe9ce9"
+    },
+    {
+      "id": "digitraffic:C0858708",
+      "camera": {
+        "id": "digitraffic:C0858708",
+        "providerCameraId": "C0858708",
+        "name": "vt9_Kuopio_Jännevirta_Silta / Järvimaisema 2",
+        "source": "digitraffic",
+        "latitude": 62.971111,
+        "longitude": 27.830014,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Pohjois-Savo",
+        "imageUrl": "https://weathercam.digitraffic.fi/C0858708.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C0858708.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:40:37.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Järvimaisema 2 / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C0858708.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:40:37.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:46:00.293Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 67.6,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.968,
+              "openComposition": 0.987,
+              "edgeDensity": 0.003,
+              "artificialLightRatio": 0,
+              "score": 97.6,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:40:37.000Z",
+            "analyzedAt": "2026-10-11T12:46:00.293Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "accepted",
+      "reason": "Manual visual review: Lake panorama; modest sky area but clear distant natural horizon.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": true,
+      "solarElevation": 12.958765503952486,
+      "ageMinutes": 5.388216666666667,
+      "normalizedSkyArea": 0.2002495659722222,
+      "horizonConfidence": 1,
+      "imageFingerprint": "252d2fe7014f083788e6e182074588bfb70c2e9617365e4b0072c050cffb0358"
+    },
+    {
+      "id": "digitraffic:C0858706",
+      "camera": {
+        "id": "digitraffic:C0858706",
+        "providerCameraId": "C0858706",
+        "name": "vt9_Kuopio_Jännevirta_Silta / Järvimaisema",
+        "source": "digitraffic",
+        "latitude": 62.971111,
+        "longitude": 27.830014,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Pohjois-Savo",
+        "imageUrl": "https://weathercam.digitraffic.fi/C0858706.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C0858706.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:40:45.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Järvimaisema / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C0858706.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:40:45.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:46:01.391Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 67.7,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.965,
+              "openComposition": 0.993,
+              "edgeDensity": 0.002,
+              "artificialLightRatio": 0,
+              "score": 97.7,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:40:45.000Z",
+            "analyzedAt": "2026-10-11T12:46:01.391Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "accepted",
+      "reason": "Manual visual review: Lake panorama; visible shoreline and clear sky band.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": true,
+      "solarElevation": 12.957328839713592,
+      "ageMinutes": 5.273183333333333,
+      "normalizedSkyArea": 0.2634548611111111,
+      "horizonConfidence": 1,
+      "imageFingerprint": "b2a14cfd38845bb5b077b91ff3e4577534189187b89cfe83f8249030eb07902f"
+    },
+    {
+      "id": "digitraffic:C1459407",
+      "camera": {
+        "id": "digitraffic:C1459407",
+        "providerCameraId": "C1459407",
+        "name": "st970_Utsjoki_Nuvvus / Maisema",
+        "source": "digitraffic",
+        "latitude": 69.785258,
+        "longitude": 26.230451,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Lappi",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1459407.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1459407.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:32:40.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Maisema / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1459407.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:32:40.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:46:02.502Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 68,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.979,
+              "openComposition": 0.997,
+              "edgeDensity": 0.001,
+              "artificialLightRatio": 0,
+              "score": 98.7,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:32:40.000Z",
+            "analyzedAt": "2026-10-11T12:46:02.502Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "accepted",
+      "reason": "Manual visual review: Mountain valley panorama; no road-dominated foreground.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": true,
+      "solarElevation": 8.34690132633174,
+      "ageMinutes": 13.375033333333333,
+      "normalizedSkyArea": 0.5916341145833334,
+      "horizonConfidence": 0.7766826527838221,
+      "imageFingerprint": "d0af7bbbeb0b2019edf4d8a58a4133f1885a6e9a7174a3be10784c873119b597"
+    },
+    {
+      "id": "digitraffic:C1459401",
+      "camera": {
+        "id": "digitraffic:C1459401",
+        "providerCameraId": "C1459401",
+        "name": "st970_Utsjoki_Nuvvus / Utsjoelle",
+        "source": "digitraffic",
+        "latitude": 69.785258,
+        "longitude": 26.230451,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Lappi",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1459401.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1459401.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:32:55.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Utsjoelle / INCREASING_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1459401.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:32:55.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:46:03.705Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 65.9,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.999,
+              "openComposition": 0.807,
+              "edgeDensity": 0.048,
+              "artificialLightRatio": 0,
+              "score": 91.3,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:32:55.000Z",
+            "analyzedAt": "2026-10-11T12:46:03.705Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "rejected-road/foreground",
+      "reason": "Manual visual review: road/bridge and close foreground dominate the composition; not approved for the sunset subset.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": false,
+      "solarElevation": 8.345757102131728,
+      "ageMinutes": 13.145083333333334,
+      "normalizedSkyArea": 0.7013888888888888,
+      "horizonConfidence": 0,
+      "imageFingerprint": "942b3cbbc49b3e832c687169e53d53f104bf529f34e909fe0e5b130afcb1e179"
+    },
+    {
+      "id": "digitraffic:C1453308",
+      "camera": {
+        "id": "digitraffic:C1453308",
+        "providerCameraId": "C1453308",
+        "name": "st970_Utsjoki_Nuorgam / Tenojoki",
+        "source": "digitraffic",
+        "latitude": 70.088512,
+        "longitude": 27.941064,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Lappi",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1453308.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1453308.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:39:37.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Tenojoki / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1453308.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:39:37.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:46:04.736Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 65.7,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.843,
+              "openComposition": 0.982,
+              "edgeDensity": 0.005,
+              "artificialLightRatio": 0,
+              "score": 90.5,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:39:37.000Z",
+            "analyzedAt": "2026-10-11T12:46:04.736Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "rejected-night-only/insufficient-validation",
+      "reason": "Manual review: frame appears twilight/shadowed despite daylight solar geometry and fresh provider timestamp; repeat daylight capture needed to establish image/timestamp correspondence.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": false,
+      "horizonVerified": false,
+      "solarElevation": 7.727018727527214,
+      "ageMinutes": 6.462266666666666,
+      "normalizedSkyArea": 0.4521755642361111,
+      "horizonConfidence": 1,
+      "imageFingerprint": "0bc56ddd6cffe6de8438e7243b0a086b5ad7750728286aa165810eb731ac1847"
+    },
+    {
+      "id": "digitraffic:C1453301",
+      "camera": {
+        "id": "digitraffic:C1453301",
+        "providerCameraId": "C1453301",
+        "name": "st970_Utsjoki_Nuorgam / Norjan rajalle",
+        "source": "digitraffic",
+        "latitude": 70.088512,
+        "longitude": 27.941064,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Lappi",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1453301.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1453301.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:39:48.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Norjan rajalle / INCREASING_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1453301.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:39:48.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:46:05.781Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 67.6,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.998,
+              "openComposition": 0.943,
+              "edgeDensity": 0.014,
+              "artificialLightRatio": 0,
+              "score": 97.3,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:39:48.000Z",
+            "analyzedAt": "2026-10-11T12:46:05.781Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "rejected-road/foreground",
+      "reason": "Manual visual review: road/bridge and close foreground dominate the composition; not approved for the sunset subset.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": false,
+      "solarElevation": 7.726007242902141,
+      "ageMinutes": 6.29635,
+      "normalizedSkyArea": 0.7013888888888888,
+      "horizonConfidence": 0,
+      "imageFingerprint": "ac9c2be659e42ebd03eca136fdf8b8f5cb15f65add352afd5b5d9b5dbc0e893a"
+    },
+    {
+      "id": "digitraffic:C1458507",
+      "camera": {
+        "id": "digitraffic:C1458507",
+        "providerCameraId": "C1458507",
+        "name": "vt21_Enontekiö_Kelottijärvi / Maisema",
+        "source": "digitraffic",
+        "latitude": 68.51985,
+        "longitude": 22.023236,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Lappi",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1458507.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1458507.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:32:08.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Maisema / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1458507.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:32:08.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:46:06.903Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 68.3,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 1,
+              "openComposition": 0.997,
+              "edgeDensity": 0.001,
+              "artificialLightRatio": 0,
+              "score": 99.9,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:32:08.000Z",
+            "analyzedAt": "2026-10-11T12:46:06.903Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "rejected-night-only/insufficient-validation",
+      "reason": "Manual review: frame appears twilight/shadowed despite daylight solar geometry and fresh provider timestamp; repeat daylight capture needed to establish image/timestamp correspondence.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": false,
+      "horizonVerified": false,
+      "solarElevation": 10.26844821475803,
+      "ageMinutes": 13.981716666666667,
+      "normalizedSkyArea": 0.7597113715277778,
+      "horizonConfidence": 1,
+      "imageFingerprint": "95a68e22aaf67a45a1385c4467a4da672b83c19066161700cd27760d6823f92c"
+    },
+    {
+      "id": "digitraffic:C1458508",
+      "camera": {
+        "id": "digitraffic:C1458508",
+        "providerCameraId": "C1458508",
+        "name": "vt21_Enontekiö_Kelottijärvi / Järvimaisema",
+        "source": "digitraffic",
+        "latitude": 68.51985,
+        "longitude": 22.023236,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Lappi",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1458508.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1458508.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:31:46.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Järvimaisema / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1458508.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:31:46.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:46:08.012Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 67.1,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 1,
+              "openComposition": 0.904,
+              "edgeDensity": 0.024,
+              "artificialLightRatio": 0,
+              "score": 95.7,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:31:46.000Z",
+            "analyzedAt": "2026-10-11T12:46:08.012Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "accepted",
+      "reason": "Manual visual review: Lake and mountain panorama with broad upper sky.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": true,
+      "solarElevation": 10.26742169177714,
+      "ageMinutes": 14.366866666666667,
+      "normalizedSkyArea": 0.42138671875,
+      "horizonConfidence": 1,
+      "imageFingerprint": "1f31a97df88064a02d6e7379793278b79cd45b8e6cd0a5bad25e615ee1298ec9"
+    },
+    {
+      "id": "digitraffic:C1458207",
+      "camera": {
+        "id": "digitraffic:C1458207",
+        "providerCameraId": "C1458207",
+        "name": "st944_Kemijärvi_Lautasalmi / Maisema",
+        "source": "digitraffic",
+        "latitude": 66.516005,
+        "longitude": 27.246314,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Lappi",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1458207.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1458207.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:38:17.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Maisema / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1458207.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:38:17.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:46:09.118Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 66.7,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 1,
+              "openComposition": 0.95,
+              "edgeDensity": 0.013,
+              "artificialLightRatio": 0.018,
+              "score": 94.3,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:38:17.000Z",
+            "analyzedAt": "2026-10-11T12:46:09.118Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "accepted",
+      "reason": "Manual visual review: Lake and tree-line horizon with broad sky; utility pole occupies a small edge.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": true,
+      "solarElevation": 10.525305669457058,
+      "ageMinutes": 7.868633333333333,
+      "normalizedSkyArea": 0.68115234375,
+      "horizonConfidence": 1,
+      "imageFingerprint": "be5d4f08011afe07fbc32af59f825866408f73563988496e96232d188d81ff6e"
+    },
+    {
+      "id": "digitraffic:C1458208",
+      "camera": {
+        "id": "digitraffic:C1458208",
+        "providerCameraId": "C1458208",
+        "name": "st944_Kemijärvi_Lautasalmi / Maisema2",
+        "source": "digitraffic",
+        "latitude": 66.516005,
+        "longitude": 27.246314,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Lappi",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1458208.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1458208.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:38:39.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Maisema2 / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1458208.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:38:39.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:46:10.308Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 67,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 1,
+              "openComposition": 0.991,
+              "edgeDensity": 0.002,
+              "artificialLightRatio": 0.022,
+              "score": 95.4,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:38:39.000Z",
+            "analyzedAt": "2026-10-11T12:46:10.308Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "accepted",
+      "reason": "Manual visual review: Lake panorama with distant tree-line horizon and broad sky.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": true,
+      "solarElevation": 10.523965677935044,
+      "ageMinutes": 7.5218,
+      "normalizedSkyArea": 0.6010199652777778,
+      "horizonConfidence": 1,
+      "imageFingerprint": "5e593353100bd0b72bed1a91c7c85a53252ec670d414cb7c7fb749b6593c4f8a"
+    },
+    {
+      "id": "digitraffic:C1452508",
+      "camera": {
+        "id": "digitraffic:C1452508",
+        "providerCameraId": "C1452508",
+        "name": "st863_Livojärvi / Maisema",
+        "source": "digitraffic",
+        "latitude": 65.99469,
+        "longitude": 28.179917,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Lappi",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1452508.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1452508.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:39:08.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Maisema / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1452508.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:39:08.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:46:11.299Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 68.2,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 1,
+              "openComposition": 0.999,
+              "edgeDensity": 0,
+              "artificialLightRatio": 0.001,
+              "score": 99.7,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:39:08.000Z",
+            "analyzedAt": "2026-10-11T12:46:11.299Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "accepted",
+      "reason": "Manual visual review: Open lake and distant shore with broad sky.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": true,
+      "solarElevation": 10.647867836364911,
+      "ageMinutes": 7.054983333333333,
+      "normalizedSkyArea": 0.6117892795138888,
+      "horizonConfidence": 1,
+      "imageFingerprint": "f9f1dadd79e0f7cc7e39d847a2ba68114c13755bd6ce1fad5e0f2b234d68398b"
+    },
+    {
+      "id": "digitraffic:C1452501",
+      "camera": {
+        "id": "digitraffic:C1452501",
+        "providerCameraId": "C1452501",
+        "name": "st863_Livojärvi / Posiolle",
+        "source": "digitraffic",
+        "latitude": 65.99469,
+        "longitude": 28.179917,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Lappi",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1452501.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1452501.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:38:40.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Posiolle / INCREASING_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1452501.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:38:40.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:46:12.395Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 63.4,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.956,
+              "openComposition": 0.664,
+              "edgeDensity": 0.084,
+              "artificialLightRatio": 0,
+              "score": 82.6,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:38:40.000Z",
+            "analyzedAt": "2026-10-11T12:46:12.395Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "rejected-road/foreground",
+      "reason": "Manual visual review: road/bridge and close foreground dominate the composition; not approved for the sunset subset.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": false,
+      "solarElevation": 10.646584763954618,
+      "ageMinutes": 7.539916666666667,
+      "normalizedSkyArea": 0.7013888888888888,
+      "horizonConfidence": 0.1365504090044385,
+      "imageFingerprint": "2f59259b159fd76b207679b57c93a2487f2a1db25627e60d086378f42389d305"
+    },
+    {
+      "id": "digitraffic:C1250907",
+      "camera": {
+        "id": "digitraffic:C1250907",
+        "providerCameraId": "C1250907",
+        "name": "vt5_Kuusamo_Ruka / Rukatunturi",
+        "source": "digitraffic",
+        "latitude": 66.165673,
+        "longitude": 29.11913,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Pohjois-Pohjanmaa",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1250907.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1250907.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:32:51.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Rukatunturi / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1250907.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:32:51.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:46:13.527Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 66,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.963,
+              "openComposition": 0.859,
+              "edgeDensity": 0.035,
+              "artificialLightRatio": 0,
+              "score": 91.6,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:32:51.000Z",
+            "analyzedAt": "2026-10-11T12:46:13.527Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "accepted",
+      "reason": "Manual visual review: Mountain panorama with broad sky; summit tower is a minor feature.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": true,
+      "solarElevation": 10.257937841106484,
+      "ageMinutes": 13.37545,
+      "normalizedSkyArea": 0.6639539930555556,
+      "horizonConfidence": 0.6438267068742491,
+      "imageFingerprint": "9e470df60b7a884a417759d7c4c2789a83652df1371c5ec23980faccfacd556c"
+    },
+    {
+      "id": "digitraffic:C1250901",
+      "camera": {
+        "id": "digitraffic:C1250901",
+        "providerCameraId": "C1250901",
+        "name": "vt5_Kuusamo_Ruka / Kemijärvelle",
+        "source": "digitraffic",
+        "latitude": 66.165673,
+        "longitude": 29.11913,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Pohjois-Pohjanmaa",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1250901.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1250901.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:32:40.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Kemijärvelle / INCREASING_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1250901.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:32:40.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:46:14.732Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 60.9,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.941,
+              "openComposition": 0.479,
+              "edgeDensity": 0.13,
+              "artificialLightRatio": 0,
+              "score": 73.5,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:32:40.000Z",
+            "analyzedAt": "2026-10-11T12:46:14.732Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "rejected-road/foreground",
+      "reason": "Manual visual review: road/bridge and close foreground dominate the composition; not approved for the sunset subset.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": false,
+      "solarElevation": 10.25651373392035,
+      "ageMinutes": 13.578866666666666,
+      "normalizedSkyArea": 0.7013888888888888,
+      "horizonConfidence": 0.09660358856839933,
+      "imageFingerprint": "8ea42eab87dfce0ecbef0a8d71b0eb4919e4b94a6d025890c540573c84cca239"
+    },
+    {
+      "id": "digitraffic:C1255007",
+      "camera": {
+        "id": "digitraffic:C1255007",
+        "providerCameraId": "C1255007",
+        "name": "kt76_Sotkamo_Vuokatti / Vuokatin rinteet",
+        "source": "digitraffic",
+        "latitude": 64.141389,
+        "longitude": 28.292417,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Kainuu",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1255007.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1255007.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:39:38.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Vuokatin rinteet / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1255007.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:39:38.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:46:15.712Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 67.7,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.998,
+              "openComposition": 0.953,
+              "edgeDensity": 0.012,
+              "artificialLightRatio": 0,
+              "score": 97.8,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:39:38.000Z",
+            "analyzedAt": "2026-10-11T12:46:15.712Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "rejected-poor-horizon",
+      "reason": "Glare/softness and foreground slope obscure a reliable horizon.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": false,
+      "solarElevation": 11.950482650784553,
+      "ageMinutes": 6.628533333333333,
+      "normalizedSkyArea": 0.2926974826388889,
+      "horizonConfidence": 1,
+      "imageFingerprint": "d6aeefe6efc94412c0157ef767df7eeb8ddb72521ed2610a8d5d6e92c2853060"
+    },
+    {
+      "id": "digitraffic:C1255001",
+      "camera": {
+        "id": "digitraffic:C1255001",
+        "providerCameraId": "C1255001",
+        "name": "kt76_Sotkamo_Vuokatti / Kajaaniin",
+        "source": "digitraffic",
+        "latitude": 64.141389,
+        "longitude": 28.292417,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Kainuu",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1255001.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1255001.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:39:50.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Kajaaniin / INCREASING_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1255001.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:39:50.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:46:16.965Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 67.1,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.98,
+              "openComposition": 0.925,
+              "edgeDensity": 0.019,
+              "artificialLightRatio": 0,
+              "score": 95.6,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:39:50.000Z",
+            "analyzedAt": "2026-10-11T12:46:16.965Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "rejected-road/foreground",
+      "reason": "Manual visual review: road/bridge and close foreground dominate the composition; not approved for the sunset subset.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": false,
+      "solarElevation": 11.948899448190707,
+      "ageMinutes": 6.449416666666667,
+      "normalizedSkyArea": 0.7013888888888888,
+      "horizonConfidence": 0,
+      "imageFingerprint": "c38286ef85fdd3e5d09ee5f74ce441d6985e93922ee3d21a50c718ba53584157"
+    },
+    {
+      "id": "digitraffic:C1260108",
+      "camera": {
+        "id": "digitraffic:C1260108",
+        "providerCameraId": "C1260108",
+        "name": "vt5_Kuusamo_Kitka / Järvimaisema",
+        "source": "digitraffic",
+        "latitude": 66.305314,
+        "longitude": 28.898913,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Pohjois-Pohjanmaa",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1260108.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1260108.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:38:13.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Järvimaisema / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1260108.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:38:13.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:46:17.891Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 66.6,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.892,
+              "openComposition": 0.992,
+              "edgeDensity": 0.002,
+              "artificialLightRatio": 0,
+              "score": 93.7,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:38:13.000Z",
+            "analyzedAt": "2026-10-11T12:46:17.891Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "accepted",
+      "reason": "Manual visual review: Open lake panorama with a clear forest horizon and visible sky.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": true,
+      "solarElevation": 10.2147397754691,
+      "ageMinutes": 8.081516666666667,
+      "normalizedSkyArea": 0.4180501302083333,
+      "horizonConfidence": 1,
+      "imageFingerprint": "10e78b4d455d77aa80aab324f828fa7c9ee3221c1bf4a696f7d17576ce979cea"
+    },
+    {
+      "id": "digitraffic:C1260101",
+      "camera": {
+        "id": "digitraffic:C1260101",
+        "providerCameraId": "C1260101",
+        "name": "vt5_Kuusamo_Kitka / Kemijärvi",
+        "source": "digitraffic",
+        "latitude": 66.305314,
+        "longitude": 28.898913,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Pohjois-Pohjanmaa",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1260101.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1260101.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:37:45.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Kemijärvi / INCREASING_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1260101.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:37:45.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:46:18.987Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 65.6,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.906,
+              "openComposition": 0.899,
+              "edgeDensity": 0.025,
+              "artificialLightRatio": 0,
+              "score": 90.3,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:37:45.000Z",
+            "analyzedAt": "2026-10-11T12:46:18.987Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "rejected-road/foreground",
+      "reason": "Manual visual review: road/bridge and close foreground dominate the composition; not approved for the sunset subset.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": false,
+      "solarElevation": 10.213456445899554,
+      "ageMinutes": 8.56645,
+      "normalizedSkyArea": 0.7013888888888888,
+      "horizonConfidence": 0,
+      "imageFingerprint": "faeb660cbeda93e37a68c9f05acfb7beebbd5fcf7ee317b8fb20499ecf9f7fa3"
+    },
+    {
+      "id": "digitraffic:C1450807",
+      "camera": {
+        "id": "digitraffic:C1450807",
+        "providerCameraId": "C1450807",
+        "name": "st955_Inari_Hirvaspää / Maisema Inariin",
+        "source": "digitraffic",
+        "latitude": 68.569653,
+        "longitude": 26.203267,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Lappi",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1450807.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1450807.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:39:28.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Maisema Inariin / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1450807.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:39:28.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:46:20.099Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 62.3,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.679,
+              "openComposition": 0.918,
+              "edgeDensity": 0.021,
+              "artificialLightRatio": 0,
+              "score": 78.6,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:39:28.000Z",
+            "analyzedAt": "2026-10-11T12:46:20.099Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "rejected-poor-horizon",
+      "reason": "Strong lens glare and limited visible sky.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": false,
+      "solarElevation": 9.25071442266013,
+      "ageMinutes": 6.868316666666667,
+      "normalizedSkyArea": 0.21875,
+      "horizonConfidence": 1,
+      "imageFingerprint": "e11165c2ff59c192dd739af62b74e4bbea277a3dcd7f85d9a563786c1211b914"
+    },
+    {
+      "id": "digitraffic:C1450808",
+      "camera": {
+        "id": "digitraffic:C1450808",
+        "providerCameraId": "C1450808",
+        "name": "st955_Inari_Hirvaspää / Maisema",
+        "source": "digitraffic",
+        "latitude": 68.569653,
+        "longitude": 26.203267,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Lappi",
+        "imageUrl": "https://weathercam.digitraffic.fi/C1450808.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C1450808.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:39:59.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Maisema / SPECIAL_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C1450808.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:39:59.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:46:21.189Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 63,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.666,
+              "openComposition": 0.99,
+              "edgeDensity": 0.003,
+              "artificialLightRatio": 0,
+              "score": 81.1,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:39:59.000Z",
+            "analyzedAt": "2026-10-11T12:46:21.189Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "rejected-poor-horizon",
+      "reason": "Glare/clouds and foreground field/forest dominate with a narrow sky band.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": false,
+      "solarElevation": 9.249614720796915,
+      "ageMinutes": 6.369816666666667,
+      "normalizedSkyArea": 0.24986436631944445,
+      "horizonConfidence": 1,
+      "imageFingerprint": "b6b6f04864045d56185d22f60c62c26bdf2aa5b3a1aaf836efa688b9eaa8604f"
+    },
+    {
+      "id": "digitraffic:C0259001",
+      "camera": {
+        "id": "digitraffic:C0259001",
+        "providerCameraId": "C0259001",
+        "name": "Åland_Eckerö / Överby",
+        "source": "digitraffic",
+        "latitude": 60.211657,
+        "longitude": 19.618722,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Ahvenanmaa",
+        "imageUrl": "https://weathercam.digitraffic.fi/C0259001.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C0259001.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:34:43.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Överby / INCREASING_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C0259001.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:34:43.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:46:22.297Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 66.2,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.955,
+              "openComposition": 0.884,
+              "edgeDensity": 0.029,
+              "artificialLightRatio": 0,
+              "score": 92.3,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:34:43.000Z",
+            "analyzedAt": "2026-10-11T12:46:22.297Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "rejected-road/foreground",
+      "reason": "Manual visual review: road/bridge and close foreground dominate the composition; not approved for the sunset subset.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": false,
+      "solarElevation": 17.54506868340979,
+      "ageMinutes": 11.65495,
+      "normalizedSkyArea": 0.7013888888888888,
+      "horizonConfidence": 0,
+      "imageFingerprint": "aed877298361b87f47db2c68765cebae3cad1bc3907b0cf7c099bebc8fffc805"
+    },
+    {
+      "id": "digitraffic:C0259002",
+      "camera": {
+        "id": "digitraffic:C0259002",
+        "providerCameraId": "C0259002",
+        "name": "Åland_Eckerö / Eckerö",
+        "source": "digitraffic",
+        "latitude": 60.211657,
+        "longitude": 19.618722,
+        "enabled": true,
+        "qualityWeight": 1,
+        "directionConfidence": "unknown",
+        "attribution": {
+          "name": "Fintraffic / digitraffic.fi",
+          "url": "https://www.digitraffic.fi/en/road-traffic/",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+        },
+        "sourceUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "providerUrl": "https://www.digitraffic.fi/en/road-traffic/",
+        "usagePolicy": "open-attribution",
+        "originalProvider": "Fintraffic / digitraffic.fi",
+        "canonicalProvider": "digitraffic",
+        "hasLiveStream": false,
+        "supportsVisualScoring": true,
+        "country": "Finland",
+        "region": "Ahvenanmaa",
+        "imageUrl": "https://weathercam.digitraffic.fi/C0259002.jpg",
+        "previewImageUrl": "https://weathercam.digitraffic.fi/C0259002.jpg?thumbnail=true",
+        "imageUpdatedAt": "2026-10-11T12:34:56.000Z",
+        "timestampSource": "metadata",
+        "viewDescription": "Eckerö / DECREASING_DIRECTION",
+        "categories": [
+          "traffic",
+          "weather"
+        ],
+        "lastKnownImageUrl": "https://weathercam.digitraffic.fi/C0259002.jpg",
+        "lastKnownImageTimestamp": "2026-10-11T12:34:56.000Z",
+        "discovery": {
+          "longitudeBucket": 13,
+          "imageWidth": 1280,
+          "imageHeight": 720,
+          "discoveredAt": "2026-10-11T12:46:23.409Z",
+          "candidateScore": {
+            "active": 25,
+            "currentImage": 20,
+            "freshness": 20,
+            "scenicCategory": 0,
+            "popularity": 0,
+            "resolution": 0,
+            "unsuitablePenalty": -30,
+            "total": 35
+          }
+        },
+        "review": {
+          "quality": {
+            "score": 66.2,
+            "metadataScore": 56,
+            "scenicScore": 2,
+            "freshnessReliability": 15,
+            "directionScore": 4,
+            "resolutionScore": 10,
+            "categoryPenalty": 20,
+            "liveCapabilityBonus": 0,
+            "image": {
+              "skyShare": 0.93,
+              "openComposition": 0.921,
+              "edgeDensity": 0.02,
+              "artificialLightRatio": 0,
+              "score": 92.6,
+              "status": "analyzed"
+            },
+            "imageTimestamp": "2026-10-11T12:34:56.000Z",
+            "analyzedAt": "2026-10-11T12:46:23.409Z"
+          },
+          "coverage": {
+            "strictSlotCount": 0,
+            "extendedSlotCount": 0,
+            "representativeDates": 0
+          }
+        }
+      },
+      "status": "rejected-road/foreground",
+      "reason": "Manual visual review: road/bridge and close foreground dominate the composition; not approved for the sunset subset.",
+      "imageAttempted": true,
+      "imageDecoded": true,
+      "fresh": true,
+      "daylightValidated": true,
+      "horizonVerified": false,
+      "solarElevation": 17.54370911964447,
+      "ageMinutes": 11.456816666666667,
+      "normalizedSkyArea": 0.7013888888888888,
+      "horizonConfidence": 0,
+      "imageFingerprint": "9a9a9e947f76c6ee39eb997bda0ab80e93a7fa2fcd24b3d096e16d2983b685e4"
+    }
+  ]
+}

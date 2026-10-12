@@ -66,9 +66,15 @@ export function normalizeNzta(raw: unknown): Camera[] {
 export function normalizeUsgs(raw: unknown): Camera[] {
   const cameras = record(raw).webcams; if (!Array.isArray(cameras)) throw new Error("USGS expected webcams array");
   return cameras.flatMap((item) => {
-    const r = record(item); const camera = baseCamera("usgs", r.webcamCode, r.webcamName, r.latitude, r.longitude); if (!camera) return [];
+    const r = record(item);
+    // Ashcam uses (0, 0) for unconfigured cameras. Volcano coordinates are not
+    // camera coordinates and must never be substituted for these placeholders.
+    if (number(r.latitude) === 0 && number(r.longitude) === 0) return [];
+    const camera = baseCamera("usgs", r.webcamCode, r.webcamName, r.latitude, r.longitude); if (!camera) return [];
     const bearing = number(r.bearingDeg); const image = r.hasImages === "Y" ? url(r.currentImageUrl) : undefined;
-    const external = url(r.externalUrl); const usgsOwned = external ? new URL(external).hostname.endsWith(".usgs.gov") : /^(kilauea|mauna-loa)-/.test(String(r.webcamCode));
+    const external = url(r.externalUrl);
+    // Aggregator hosting and a volcano-code prefix do not establish image rights.
+    const usgsOwned = r.faaInd !== "Y" && Boolean(external && new URL(external).hostname.endsWith(".usgs.gov"));
     const time = number(record(r.newestImage).imageTimestamp);
     return [{ ...withDirection(camera, bearing !== undefined && bearing >= 0 && bearing < 360 ? bearing : undefined),
       imageUrl: image, previewImageUrl: image ? url(r.currentMediumImageUrl) : undefined,

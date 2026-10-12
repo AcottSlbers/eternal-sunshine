@@ -21,7 +21,8 @@ export async function providerFetch(id: CameraSource, url: string, init: Request
     headers.set("Accept-Encoding", "gzip");
     if (id === "digitraffic") headers.set("Digitraffic-User", "EternalSunshine/local-hobby-0.3.7");
     const response = await fetcher(url, { ...init, headers, signal: init.signal ?? AbortSignal.timeout(15_000), cache: "no-store" });
-    if (!response.ok && response.status !== 304) throw new Error(`${id} returned HTTP ${response.status}`);
+    const manualRedirect = init.redirect === "manual" && response.status >= 300 && response.status < 400;
+    if (!response.ok && response.status !== 304 && !manualRedirect) throw new Error(`${id} returned HTTP ${response.status}`);
     observation.successes += 1; observation.lastSuccess = Date.now();
     if (response.status === 304) observation.notModified += 1;
     return response;

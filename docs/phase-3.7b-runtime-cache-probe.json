@@ -1,0 +1,305 @@
+{
+  "generatedAt": "2026-10-11T12:57:06.982Z",
+  "candidateCap": 50,
+  "probes": [
+    {
+      "id": "digitraffic:C1451607",
+      "source": "digitraffic",
+      "timestamp": "2026-10-11T12:49:17.000Z",
+      "ageMinutes": 7.833033333333334,
+      "solarElevation": 7.078123447745989,
+      "enabled": true,
+      "directionConfidence": "unknown",
+      "decoded": true,
+      "resolution": "384x216",
+      "imageFingerprint": "f510bd9af39a34a5449f8efa937f78c3757d2bf32294c3520174d09a578707c8",
+      "scoreStatus": "analyzed",
+      "evidence": 0,
+      "beauty": 0,
+      "repeatedResultsEqual": true,
+      "repeatedHttpRequests": 0,
+      "repeatedImageCacheHits": 1,
+      "attribution": {
+        "name": "Fintraffic / digitraffic.fi",
+        "url": "https://www.digitraffic.fi/en/road-traffic/",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "context": "Current daylight/off-window probe; not injected into ranking"
+    },
+    {
+      "id": "digitraffic:C1453508",
+      "source": "digitraffic",
+      "timestamp": "2026-10-11T12:48:38.000Z",
+      "ageMinutes": 8.483033333333333,
+      "solarElevation": 9.517308083493084,
+      "enabled": true,
+      "directionConfidence": "unknown",
+      "decoded": true,
+      "resolution": "384x216",
+      "imageFingerprint": "57cec8eaf284c15e006f45c6f8e61c3f8edb0e89d81e10be02f6fb00e3ce9064",
+      "scoreStatus": "analyzed",
+      "evidence": 0,
+      "beauty": 0,
+      "repeatedResultsEqual": true,
+      "repeatedHttpRequests": 0,
+      "repeatedImageCacheHits": 1,
+      "attribution": {
+        "name": "Fintraffic / digitraffic.fi",
+        "url": "https://www.digitraffic.fi/en/road-traffic/",
+        "license": "CC BY 4.0",
+        "licenseUrl": "https://creativecommons.org/licenses/by/4.0/"
+      },
+      "context": "Current daylight/off-window probe; not injected into ranking"
+    }
+  ],
+  "registryCounts": {
+    "windy": 300,
+    "meteogalicia": 34,
+    "usgs": 0,
+    "digitraffic": 19
+  },
+  "diagnostics": {
+    "astronomical": 15,
+    "imagesAnalyzed": 7,
+    "visibleSunsets": 1,
+    "publicRanked": 1,
+    "suppressedNearby": 0,
+    "scoreGapToSecond": null,
+    "rejectedEvidence": 6,
+    "rejectedOther": 8,
+    "featured": 0
+  },
+  "providerDiagnostics": {
+    "windy": {
+      "registry": 300,
+      "freshKnownImages": 10,
+      "astronomical": 15,
+      "evaluated": 15,
+      "imagesAnalyzed": 7,
+      "visible": 1,
+      "featured": 0,
+      "publicRanked": 1
+    },
+    "meteogalicia": {
+      "registry": 34,
+      "freshKnownImages": 0,
+      "astronomical": 0,
+      "evaluated": 0,
+      "imagesAnalyzed": 0,
+      "visible": 0,
+      "featured": 0,
+      "publicRanked": 0
+    },
+    "mock": {
+      "registry": 0,
+      "freshKnownImages": 0,
+      "astronomical": 0,
+      "evaluated": 0,
+      "imagesAnalyzed": 0,
+      "visible": 0,
+      "featured": 0,
+      "publicRanked": 0
+    },
+    "usgs": {
+      "registry": 0,
+      "freshKnownImages": 0,
+      "astronomical": 0,
+      "evaluated": 0,
+      "imagesAnalyzed": 0,
+      "visible": 0,
+      "featured": 0,
+      "publicRanked": 0
+    },
+    "digitraffic": {
+      "registry": 19,
+      "freshKnownImages": 19,
+      "astronomical": 0,
+      "evaluated": 0,
+      "imagesAnalyzed": 0,
+      "visible": 0,
+      "featured": 0,
+      "publicRanked": 0
+    }
+  },
+  "candidates": [
+    {
+      "id": "1636824062",
+      "source": "windy",
+      "stage": "strict",
+      "solarElevation": -3.2120109717500323,
+      "visibility": "rejected-other",
+      "reason": "Rejected: image is stale (735 minutes old)",
+      "imageChecked": false,
+      "imageAnalyzed": false
+    },
+    {
+      "id": "1701924000",
+      "source": "windy",
+      "stage": "strict",
+      "solarElevation": -0.38049181150840394,
+      "visibility": "rejected-other",
+      "reason": "Rejected: camera points 151° away from the sun",
+      "imageChecked": false,
+      "imageAnalyzed": false
+    },
+    {
+      "id": "1641316080",
+      "source": "windy",
+      "stage": "strict",
+      "solarElevation": -0.3895985394477662,
+      "visibility": "rejected-evidence",
+      "reason": "Rejected: insufficient sunset evidence",
+      "imageChecked": true,
+      "imageAnalyzed": true,
+      "imageAgeMinutes": 16.1
+    },
+    {
+      "id": "1575976064",
+      "source": "windy",
+      "stage": "strict",
+      "solarElevation": -3.675433966475076,
+      "visibility": "visible",
+      "reason": "Visible sunset; below featured threshold",
+      "imageChecked": true,
+      "imageAnalyzed": true,
+      "imageAgeMinutes": 8.9
+    },
+    {
+      "id": "1388898412",
+      "source": "windy",
+      "stage": "strict",
+      "solarElevation": 0.09831295060692208,
+      "visibility": "rejected-evidence",
+      "reason": "Rejected: insufficient sunset evidence",
+      "imageChecked": true,
+      "imageAnalyzed": true,
+      "imageAgeMinutes": 5.9
+    },
+    {
+      "id": "1793867842",
+      "source": "windy",
+      "stage": "strict",
+      "solarElevation": -4.404341065761262,
+      "visibility": "rejected-other",
+      "reason": "Rejected: image is stale (66403 minutes old)",
+      "imageChecked": false,
+      "imageAnalyzed": false
+    },
+    {
+      "id": "1618669336",
+      "source": "windy",
+      "stage": "strict",
+      "solarElevation": 0.6792078473078068,
+      "visibility": "rejected-other",
+      "reason": "Rejected: image is stale (65808 minutes old)",
+      "imageChecked": false,
+      "imageAnalyzed": false
+    },
+    {
+      "id": "1399097932",
+      "source": "windy",
+      "stage": "strict",
+      "solarElevation": -2.0301954269616376,
+      "visibility": "rejected-other",
+      "reason": "Rejected: image is stale (65803 minutes old)",
+      "imageChecked": false,
+      "imageAnalyzed": false
+    },
+    {
+      "id": "1719482532",
+      "source": "windy",
+      "stage": "strict",
+      "solarElevation": -4.228779267455412,
+      "visibility": "rejected-evidence",
+      "reason": "Rejected: insufficient sunset evidence",
+      "imageChecked": true,
+      "imageAnalyzed": true,
+      "imageAgeMinutes": 5.6
+    },
+    {
+      "id": "1574139319",
+      "source": "windy",
+      "stage": "strict",
+      "solarElevation": -0.8690019993890211,
+      "visibility": "rejected-other",
+      "reason": "Rejected: camera points 124° away from the sun",
+      "imageChecked": false,
+      "imageAnalyzed": false
+    },
+    {
+      "id": "1695233975",
+      "source": "windy",
+      "stage": "strict",
+      "solarElevation": -4.215936984407845,
+      "visibility": "rejected-other",
+      "reason": "Rejected: camera points 174° away from the sun",
+      "imageChecked": false,
+      "imageAnalyzed": false
+    },
+    {
+      "id": "1504044667",
+      "source": "windy",
+      "stage": "extended",
+      "solarElevation": -4.733167831955144,
+      "visibility": "rejected-other",
+      "reason": "Rejected: camera points 175° away from the sun",
+      "imageChecked": false,
+      "imageAnalyzed": false
+    },
+    {
+      "id": "1752919126",
+      "source": "windy",
+      "stage": "extended",
+      "solarElevation": 1.7295937536932449,
+      "visibility": "rejected-evidence",
+      "reason": "Rejected: insufficient sunset evidence",
+      "imageChecked": true,
+      "imageAnalyzed": true,
+      "imageAgeMinutes": 6.7
+    },
+    {
+      "id": "1793901499",
+      "source": "windy",
+      "stage": "extended",
+      "solarElevation": -5.700530719536624,
+      "visibility": "rejected-evidence",
+      "reason": "Rejected: insufficient sunset evidence",
+      "imageChecked": true,
+      "imageAnalyzed": true,
+      "imageAgeMinutes": 5.5
+    },
+    {
+      "id": "1793901500",
+      "source": "windy",
+      "stage": "extended",
+      "solarElevation": -5.69992505380957,
+      "visibility": "rejected-evidence",
+      "reason": "Rejected: insufficient sunset evidence",
+      "imageChecked": true,
+      "imageAnalyzed": true,
+      "imageAgeMinutes": 5.4
+    }
+  ],
+  "publicCameraIds": [
+    "1575976064"
+  ],
+  "heroId": "1575976064",
+  "officialHttp": {
+    "usgs": {
+      "requests": 0,
+      "successes": 0,
+      "errors": 0,
+      "notModified": 0,
+      "cacheHits": 0
+    },
+    "digitraffic": {
+      "requests": 6,
+      "successes": 6,
+      "errors": 0,
+      "notModified": 0,
+      "cacheHits": 4,
+      "lastSuccess": 1791723432646
+    }
+  }
+}

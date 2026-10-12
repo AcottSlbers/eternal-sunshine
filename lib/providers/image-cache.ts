@@ -7,6 +7,12 @@ export interface CachedImage { buffer: Buffer; fingerprint: string; timestamp?: 
 export function createProviderImageCache(fetcher: typeof fetch = fetch, now = Date.now, maximumEntries = 96) {
   const cache = new Map<string, CachedImage>(); const pending = new Map<string, Promise<CachedImage>>();
   return async (source: CameraSource, url: string, forceRevalidate = false): Promise<CachedImage> => {
+    if (source === "digitraffic" || source === "usgs") {
+      const parsed = new URL(url);
+      const host = source === "digitraffic" ? "weathercam.digitraffic.fi" : "volcview.wr.usgs.gov";
+      if (parsed.protocol !== "https:" || parsed.hostname !== host || parsed.username || parsed.password)
+        throw new Error("Reviewed provider image URL outside approved official host");
+    }
     const key = `${source}:${url}`; const existing = cache.get(key);
     if (existing && !forceRevalidate && now() - existing.checkedAt < PROVIDERS[source].imageTtlMs) { getProviderHttpStats(source).cacheHits += 1; return existing; }
     if (pending.has(key)) return pending.get(key)!;
@@ -14,7 +20,7 @@ export function createProviderImageCache(fetcher: typeof fetch = fetch, now = Da
       const headers: Record<string, string> = {};
       if (existing?.etag) headers["If-None-Match"] = existing.etag;
       else if (existing?.modified) headers["If-Modified-Since"] = existing.modified;
-      const response = await providerFetch(source, url, { headers }, fetcher);
+      const response = await providerFetch(source, url, { headers, ...((source === "digitraffic" || source === "usgs") ? { redirect: "error" as const } : {}) }, fetcher);
       if (response.status === 304) {
         if (!existing) throw new Error("Image returned 304 without cached bytes");
         existing.checkedAt = now(); return existing;

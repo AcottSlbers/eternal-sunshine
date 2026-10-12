@@ -69,7 +69,7 @@ function validSnapshot(value: unknown): value is CalibrationSnapshot {
   if (!value || typeof value !== "object") return false;
   const item = value as Record<string, unknown>;
   return ["cameraId", "location", "stage", "reason"].every((key) => typeof item[key] === "string")
-    && ["windy", "meteogalicia", "mock"].includes(String(item.provider))
+    && ["windy", "meteogalicia", "mock", "usgs", "digitraffic"].includes(String(item.provider))
     && ["visible", "featured", "rejected-evidence", "rejected-other"].includes(String(item.visibility))
     && (item.imageTimestamp === null || typeof item.imageTimestamp === "string")
     && ["evidence", "beauty", "sunsetScore", "finalScore", "phase", "solarElevation"].every((key) => typeof item[key] === "number" && Number.isFinite(item[key]))
